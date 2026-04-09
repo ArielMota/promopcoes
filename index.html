@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROMOPÇÕES | Ofertas Secretas e Validadas</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #F5F5F7; overflow-x: hidden; }
+        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.4); }
+        .apple-gradient { background: linear-gradient(180deg, #ffffff 0%, #ececf1 100%); }
+        
+        @keyframes pulse-red {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); color: #ef4444; }
+            100% { transform: scale(1); }
+        }
+        .animate-pulse-vagas { animation: pulse-red 0.5s ease-in-out; }
+
+        @keyframes pulse-button {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+        .animate-cta { animation: pulse-button 2s infinite; }
+
+        @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+        .animate-slide-in { animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    </style>
+</head>
+<body class="apple-gradient min-h-screen flex flex-col items-center pb-32">
+
+    <div class="w-full bg-[#b91c1c] text-white text-[10px] sm:text-xs font-black py-3 px-4 text-center uppercase tracking-[0.15em] sticky top-0 z-[100] shadow-md flex justify-center items-center gap-2">
+        <div class="w-2 h-2 bg-red-400 rounded-full animate-ping"></div>
+        Atenção: O link de convite expira hoje!
+    </div>
+
+    <header class="w-full flex flex-col items-center mt-8 animate-slide-in px-4">
+        <div class="w-24 h-24 mb-4 drop-shadow-xl p-1 bg-white rounded-full border border-gray-100 flex items-center justify-center">
+            <img src="logo.png" alt="PROMOPÇÕES Logo" class="w-[80%] h-[80%] object-contain">
+        </div>
+        
+        <h1 class="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight text-center leading-[1.1]">
+            Produtos Premium com preço de <span class="text-green-600">achadinho</span>.
+        </h1>
+        <p class="text-gray-600 text-center mt-4 max-w-sm text-[15px] leading-relaxed font-medium">
+            Junte-se a mais de <strong class="text-gray-900 font-black bg-gray-200 px-1 rounded">14.850 pessoas</strong> que utilizam o nosso algoritmo para encontrar ofertas com até <strong class="text-green-600 font-bold">80% OFF</strong>.
+        </p>
+    </header>
+
+    <div class="w-full max-w-sm mt-8 px-4 animate-slide-in" style="animation-delay: 0.1s; opacity: 0;">
+        <h3 class="text-xs uppercase tracking-widest font-black text-gray-400 text-center mb-3">O que você perdeu hoje:</h3>
+        
+        <div class="glass rounded-3xl p-3 shadow-lg border border-white/60 space-y-2 relative overflow-hidden">
+            <div class="absolute -right-6 top-4 bg-red-600 text-white text-[9px] font-black uppercase tracking-wider py-1 px-8 rotate-45 shadow-md">Esgotado</div>
+
+            <div class="flex items-center gap-3 bg-white/80 p-2.5 rounded-2xl border border-gray-100">
+                <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 p-1.5 shadow-sm border border-gray-100">
+                    <img src="https://logodownload.org/wp-content/uploads/2016/08/mercado-livre-logo-novo-icone-1.png" alt="Mercado Livre" class="w-full h-full object-contain">
+                </div>
+                <div class="flex-1">
+                    <p class="text-[13px] font-bold text-gray-900 leading-tight">Smartphone Top de Linha</p>
+                    <div class="flex items-center gap-2 mt-0.5">
+                        <span class="text-[11px] text-gray-400 line-through">R$ 5.999</span>
+                        <span class="text-sm font-black text-green-600">R$ 3.899</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex items-center gap-3 bg-white/80 p-2.5 rounded-2xl border border-gray-100 opacity-80">
+                <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 p-1.5 shadow-sm border border-gray-100">
+                    <img src="https://logodownload.org/wp-content/uploads/2021/03/shopee-logo-icone.png" alt="Shopee" class="w-full h-full object-contain">
+                </div>
+                <div class="flex-1">
+                    <p class="text-[13px] font-bold text-gray-900 leading-tight">Smart TV 4K 55"</p>
+                    <div class="flex items-center gap-2 mt-0.5">
+                        <span class="text-[11px] text-gray-400 line-through">R$ 3.499</span>
+                        <span class="text-sm font-black text-green-600">R$ 1.999</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full max-w-sm mt-8 px-4 animate-slide-in" style="animation-delay: 0.2s; opacity: 0;">
+        <div class="bg-white rounded-3xl p-6 text-center shadow-lg border border-dashed border-red-500/30 relative">
+            <p class="text-gray-500 text-xs uppercase tracking-widest font-black mb-2 flex items-center justify-center gap-1.5">
+                <i data-lucide="user-plus" class="w-3.5 h-3.5 text-red-500"></i>
+                Vagas Restantes Hoje:
+            </p>
+            <div id="vagas-counter" class="text-6xl font-black text-red-600 tracking-tighter">10</div>
+            
+            <div class="w-full bg-gray-100 h-2.5 mt-4 rounded-full overflow-hidden border border-gray-200">
+                <div id="progress-bar" class="bg-red-600 h-full transition-all duration-1000" style="width: 100%"></div>
+            </div>
+
+            <p class="text-[11px] text-gray-500 mt-4 font-semibold uppercase tracking-wide">
+                Grupo fechando em breve para manter a exclusividade das ofertas.
+            </p>
+        </div>
+    </div>
+
+    <section class="w-full max-w-sm mt-12 space-y-4 px-4 animate-slide-in" style="animation-delay: 0.3s; opacity: 0;">
+        <h2 class="text-xs uppercase tracking-[0.2em] font-black text-gray-400 text-center mb-6">Quem usa, recomenda</h2>
+        
+        <div class="glass p-5 rounded-2xl shadow-sm border border-white/60 relative">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-gray-800 to-black flex items-center justify-center font-black text-xs text-white shadow-inner">AL</div>
+                    <div>
+                        <p class="font-bold text-sm text-gray-900 flex items-center hover:text-blue-600 transition-colors">
+                            Alexandre Lima <i data-lucide="badge-check" class="w-4 h-4 text-blue-500 ml-1 fill-blue-500/10"></i>
+                        </p>
+                        <p class="text-[9px] font-bold text-green-600 uppercase tracking-widest">Membro há 4 meses</p>
+                    </div>
+                </div>
+                <div class="flex text-yellow-400">
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                </div>
+            </div>
+            <p class="text-[13px] text-gray-700 leading-relaxed font-medium italic">"Confesso que achei que era furada no início, mas me surpreendi. Eles só mandam link oficial. Comprei meu S24 com erro de preço e economizei R$ 1.350."</p>
+        </div>
+
+        <div class="glass p-5 rounded-2xl shadow-sm border border-white/60 relative">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-gray-100 to-gray-200 flex items-center justify-center font-black text-xs text-gray-800 shadow-inner">CM</div>
+                    <div>
+                        <p class="font-bold text-sm text-gray-900 flex items-center">
+                            Camila Marques <i data-lucide="badge-check" class="w-4 h-4 text-blue-500 ml-1 fill-blue-500/10"></i>
+                        </p>
+                        <p class="text-[9px] font-bold text-green-600 uppercase tracking-widest">Membro há 2 meses</p>
+                    </div>
+                </div>
+                <div class="flex text-yellow-400">
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                </div>
+            </div>
+            <p class="text-[13px] text-gray-700 leading-relaxed font-medium italic">"As promoções são absurdas, mas tem que ser rápido! Postaram um cupom de 70% na Shopee e esgotou em 5 minutos. Peguei o jogo de panela."</p>
+        </div>
+
+        <div class="glass p-5 rounded-2xl shadow-sm border border-white/60 relative">
+            <div class="flex items-center justify-between mb-3">
+                <div class="flex items-center space-x-3">
+                    <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-gray-800 to-black flex items-center justify-center font-black text-xs text-white shadow-inner">GP</div>
+                    <div>
+                        <p class="font-bold text-sm text-gray-900 flex items-center hover:text-blue-600 transition-colors">
+                            Guilherme Pacheco <i data-lucide="badge-check" class="w-4 h-4 text-blue-500 ml-1 fill-blue-500/10"></i>
+                        </p>
+                        <p class="text-[9px] font-bold text-green-600 uppercase tracking-widest">Membro há 6 meses</p>
+                    </div>
+                </div>
+                <div class="flex text-yellow-400">
+                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
+                </div>
+            </div>
+            <p class="text-[13px] text-gray-700 leading-relaxed font-medium italic">"Já virou vício kkkk. Comprei desde TV nova até sabão em pó pela metade do preço no supermercado. A curadoria do robô deles é impecável."</p>
+        </div>
+    </section>
+
+    <footer class="w-full max-w-sm mt-12 px-4 sticky bottom-4 z-40 animate-slide-in" style="animation-delay: 0.5s; opacity: 0;">
+        <a href="SEU_LINK_AQUI" id="btn-entrar" class="flex items-center justify-center w-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-center py-4 rounded-2xl font-black text-[16px] shadow-xl active:scale-95 transition-all animate-cta">
+            <i id="btn-icon" data-lucide="message-circle" class="w-6 h-6 mr-2"></i>
+            <span id="btn-text">QUERO ENTRAR NO GRUPO SECRETO</span>
+        </a>
+        
+        <div class="mt-3 bg-white/90 backdrop-blur-md border border-gray-200 rounded-xl p-3 text-center shadow-sm">
+            <p class="text-[11px] text-gray-600 font-semibold leading-tight flex items-center justify-center gap-1.5">
+                <i data-lucide="lock" class="w-3 h-3 text-gray-400 relative -top-[1px]"></i>
+                Você será redirecionado com segurança para o WhatsApp para entrar no grupo exclusivo.
+            </p>
+        </div>
+    </footer>
+
+    <div id="popup" class="fixed bottom-36 left-1/2 -translate-x-1/2 w-[90%] max-w-[320px] bg-white border border-gray-200 rounded-2xl p-3 shadow-2xl hidden opacity-0 z-[110] transition-all duration-500">
+        <div class="flex items-center space-x-3">
+            <div class="relative">
+                <div class="bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center border border-gray-200 shadow-inner">
+                    <i data-lucide="user" class="text-gray-400 w-5 h-5"></i>
+                </div>
+                <div class="absolute -bottom-0.5 -right-0.5 bg-green-500 w-3.5 h-3.5 rounded-full border-2 border-white"></div>
+            </div>
+            <div class="flex-1 overflow-hidden text-left">
+                <p id="popup-text" class="text-sm text-gray-900 font-bold leading-tight truncate"></p>
+                <p class="text-[10px] text-green-600 font-black uppercase tracking-wider">Acabou de garantir uma vaga</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+
+        // LÓGICA DO BOTÃO (Feedback IHC)
+        const btnEntrar = document.getElementById('btn-entrar');
+        btnEntrar.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetUrl = this.getAttribute('href');
+            this.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Verificando vaga...</span>`;
+            setTimeout(() => { window.location.href = targetUrl; }, 1800);
+        });
+
+        // LÓGICA DE ESCASSEZ
+        let totalVagasInit = 10;
+        let minVagas = 1;
+        let currentVagas = localStorage.getItem('vagas_promopcoes');
+        
+        if (!currentVagas) {
+            currentVagas = totalVagasInit;
+            localStorage.setItem('vagas_promopcoes', currentVagas);
+        } else {
+            currentVagas = parseInt(currentVagas);
+            if(currentVagas <= minVagas) {
+                currentVagas = Math.floor(Math.random() * (3 - 2 + 1)) + 2; 
+                localStorage.setItem('vagas_promopcoes', currentVagas);
+            }
+        }
+
+        const counterElement = document.getElementById('vagas-counter');
+        const progressBar = document.getElementById('progress-bar');
+        const popup = document.getElementById('popup');
+        const popupText = document.getElementById('popup-text');
+
+        const nomes = [
+            "Alexandre Lima", "Camila Marques", "Sérgio Uemura", "Guilherme Pacheco", 
+            "Rodrigo Silva", "Marta Lira", "Jefferson K.", "Rafaela C.", "Gabriel N.", 
+            "Isabela F.", "Pedro O.", "Bruna R.", "Mateus V.", "Carolina P."
+        ];
+        const cidades = [
+            "São Paulo", "Rio de Janeiro", "Curitiba", "Salvador", "Goiânia", 
+            "Iporá (GO)", "Belo Horizonte", "Brasília", "Recife", "Porto Alegre", 
+            "Fortaleza", "Manaus", "Cuiabá", "Florianópolis"
+        ];
+
+        function updateUI() {
+            counterElement.innerText = ("0" + currentVagas).slice(-2);
+            const percentage = (currentVagas / totalVagasInit) * 100;
+            progressBar.style.width = percentage + "%";
+            
+            if(currentVagas <= 5) {
+                counterElement.classList.remove('text-gray-900');
+                counterElement.classList.add('text-red-600');
+            }
+
+            counterElement.classList.add('animate-pulse-vagas');
+            setTimeout(() => counterElement.classList.remove('animate-pulse-vagas'), 500);
+        }
+
+        function showNotification() {
+            if (currentVagas > minVagas) {
+                currentVagas--;
+                localStorage.setItem('vagas_promopcoes', currentVagas);
+                updateUI();
+                const nome = nomes[Math.floor(Math.random() * nomes.length)];
+                const cidade = cidades[Math.floor(Math.random() * cidades.length)];
+                popupText.innerText = `${nome} (${cidade})`;
+                popup.classList.remove('hidden');
+                setTimeout(() => { popup.classList.add('opacity-100', 'translate-y-0'); popup.classList.remove('translate-y-4'); }, 100);
+                setTimeout(() => {
+                    popup.classList.remove('opacity-100', 'translate-y-0');
+                    popup.classList.add('translate-y-4');
+                    setTimeout(() => popup.classList.add('hidden'), 500);
+                }, 4000);
+            }
+        }
+
+        updateUI();
+        function loop() {
+            let rand = Math.floor(Math.random() * (25000 - 12000) + 12000);
+            setTimeout(() => { showNotification(); if (currentVagas > minVagas) loop(); }, rand);
+        }
+        setTimeout(showNotification, 4000);
+        loop();
+    </script>
+</body>
+</html>
