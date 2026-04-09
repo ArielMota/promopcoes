@@ -8,26 +8,75 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        body { font-family: 'Inter', sans-serif; background-color: #F5F5F7; overflow-x: hidden; }
-        .glass { background: rgba(255, 255, 255, 0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.4); }
-        .apple-gradient { background: linear-gradient(180deg, #ffffff 0%, #ececf1 100%); }
-        
-        @keyframes pulse-red {
-            0% { transform: scale(1); }
-            50% { transform: scale(1.05); color: #ef4444; }
-            100% { transform: scale(1); }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F5F5F7;
+            overflow-x: hidden;
         }
-        .animate-pulse-vagas { animation: pulse-red 0.5s ease-in-out; }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+        }
+
+        .apple-gradient {
+            background: linear-gradient(180deg, #ffffff 0%, #ececf1 100%);
+        }
+
+        @keyframes pulse-red {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+                color: #ef4444;
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .animate-pulse-vagas {
+            animation: pulse-red 0.5s ease-in-out;
+        }
 
         @keyframes pulse-button {
-            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4); }
-            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
-            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
-        }
-        .animate-cta { animation: pulse-button 2s infinite; }
+            0% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
+            }
 
-        @keyframes slideIn { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        .animate-slide-in { animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+            70% {
+                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
+            }
+        }
+
+        .animate-cta {
+            animation: pulse-button 2s infinite;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
+
+        .animate-slide-in {
+            animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        }
     </style>
 </head>
 <body class="apple-gradient min-h-screen flex flex-col items-center pb-32">
@@ -37,12 +86,12 @@
         Atenção: O link de convite expira hoje!
     </div>
 
-    <header class="w-full flex flex-col items-center mt-4 animate-slide-in px-4">
+    <header class="w-full max-w-sm flex flex-col items-center mt-4 animate-slide-in px-4">
         <div class="w-28 h-28 mb-4 drop-shadow-xl p-1 bg-white rounded-full border border-gray-100 flex items-center justify-center">
             <img src="logo.png" alt="PROMOPÇÕES Logo" class="w-[100%] h-[100%] object-contain">
         </div>
-        
-        <h1 class="text-3xl sm:text-4xl font-black text-gray-900 tracking-tight text-center leading-[1.1]">
+
+        <h1 class="text-[26px] sm:text-3xl font-black text-gray-900 tracking-tight text-center leading-[1.1] max-w-[320px]">
             Produtos Premium com preço de <span class="text-green-600">achadinho</span>.
         </h1>
         <p class="text-gray-600 text-center mt-4 max-w-sm text-[15px] leading-relaxed font-medium">
@@ -52,7 +101,7 @@
 
     <div class="w-full max-w-sm mt-8 px-4 animate-slide-in" style="animation-delay: 0.1s; opacity: 0;">
         <h3 class="text-xs uppercase tracking-widest font-black text-gray-400 text-center mb-3">O que você perdeu hoje:</h3>
-        
+
         <div class="glass rounded-3xl p-3 shadow-lg border border-white/60 space-y-2 relative overflow-hidden">
             <div class="absolute -right-6 top-4 bg-red-600 text-white text-[9px] font-black uppercase tracking-wider py-1 px-8 rotate-45 shadow-md">Esgotado</div>
 
@@ -91,7 +140,7 @@
                 Vagas Restantes Hoje:
             </p>
             <div id="vagas-counter" class="text-6xl font-black text-red-600 tracking-tighter">10</div>
-            
+
             <div class="w-full bg-gray-100 h-2.5 mt-4 rounded-full overflow-hidden border border-gray-200">
                 <div id="progress-bar" class="bg-red-600 h-full transition-all duration-1000" style="width: 100%"></div>
             </div>
@@ -104,7 +153,7 @@
 
     <section class="w-full max-w-sm mt-12 space-y-4 px-4 animate-slide-in" style="animation-delay: 0.3s; opacity: 0;">
         <h2 class="text-xs uppercase tracking-[0.2em] font-black text-gray-400 text-center mb-6">Quem usa, recomenda</h2>
-        
+
         <div class="glass p-5 rounded-2xl shadow-sm border border-white/60 relative">
             <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center space-x-3">
@@ -165,7 +214,7 @@
             <i id="btn-icon" data-lucide="message-circle" class="w-6 h-6 mr-2"></i>
             <span id="btn-text">QUERO ENTRAR NO GRUPO SECRETO</span>
         </a>
-        
+
         <div class="mt-3 bg-white/90 backdrop-blur-md border border-gray-200 rounded-xl p-3 text-center shadow-sm">
             <p class="text-[11px] text-gray-600 font-semibold leading-tight flex items-center justify-center gap-1.5">
                 <i data-lucide="lock" class="w-3 h-3 text-gray-400 relative -top-[1px]"></i>
@@ -195,26 +244,26 @@
         // LÓGICA DO BOTÃO (Feedback IHC)
         const btnEntrar = document.getElementById('btn-entrar');
         btnEntrar.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetUrl = this.getAttribute('href');
-            this.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Verificando vaga...</span>`;
-            setTimeout(() => { window.location.href = targetUrl; }, 1800);
+        e.preventDefault();
+        const targetUrl = this.getAttribute('href');
+        this.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Verificando vaga...</span>`;
+        setTimeout(() => { window.location.href = targetUrl; }, 1800);
         });
 
         // LÓGICA DE ESCASSEZ
         let totalVagasInit = 10;
         let minVagas = 1;
         let currentVagas = localStorage.getItem('vagas_promopcoes');
-        
+
         if (!currentVagas) {
-            currentVagas = totalVagasInit;
-            localStorage.setItem('vagas_promopcoes', currentVagas);
+        currentVagas = totalVagasInit;
+        localStorage.setItem('vagas_promopcoes', currentVagas);
         } else {
-            currentVagas = parseInt(currentVagas);
-            if(currentVagas <= minVagas) {
-                currentVagas = Math.floor(Math.random() * (3 - 2 + 1)) + 2; 
-                localStorage.setItem('vagas_promopcoes', currentVagas);
-            }
+        currentVagas = parseInt(currentVagas);
+        if(currentVagas <= minVagas) {
+        currentVagas = Math.floor(Math.random() * (3 - 2 + 1)) + 2;
+        localStorage.setItem('vagas_promopcoes', currentVagas);
+        }
         }
 
         const counterElement = document.getElementById('vagas-counter');
@@ -223,52 +272,52 @@
         const popupText = document.getElementById('popup-text');
 
         const nomes = [
-            "Alexandre Lima", "Camila Marques", "Sérgio Uemura", "Guilherme Pacheco", 
-            "Rodrigo Silva", "Marta Lira", "Jefferson K.", "Rafaela C.", "Gabriel N.", 
-            "Isabela F.", "Pedro O.", "Bruna R.", "Mateus V.", "Carolina P."
+        "Alexandre Lima", "Camila Marques", "Sérgio Uemura", "Guilherme Pacheco",
+        "Rodrigo Silva", "Marta Lira", "Jefferson K.", "Rafaela C.", "Gabriel N.",
+        "Isabela F.", "Pedro O.", "Bruna R.", "Mateus V.", "Carolina P."
         ];
         const cidades = [
-            "São Paulo", "Rio de Janeiro", "Curitiba", "Salvador", "Goiânia", 
-            "Iporá (GO)", "Belo Horizonte", "Brasília", "Recife", "Porto Alegre", 
-            "Fortaleza", "Manaus", "Cuiabá", "Florianópolis"
+        "São Paulo", "Rio de Janeiro", "Curitiba", "Salvador", "Goiânia",
+        "Iporá (GO)", "Belo Horizonte", "Brasília", "Recife", "Porto Alegre",
+        "Fortaleza", "Manaus", "Cuiabá", "Florianópolis"
         ];
 
         function updateUI() {
-            counterElement.innerText = ("0" + currentVagas).slice(-2);
-            const percentage = (currentVagas / totalVagasInit) * 100;
-            progressBar.style.width = percentage + "%";
-            
-            if(currentVagas <= 5) {
-                counterElement.classList.remove('text-gray-900');
-                counterElement.classList.add('text-red-600');
-            }
+        counterElement.innerText = ("0" + currentVagas).slice(-2);
+        const percentage = (currentVagas / totalVagasInit) * 100;
+        progressBar.style.width = percentage + "%";
 
-            counterElement.classList.add('animate-pulse-vagas');
-            setTimeout(() => counterElement.classList.remove('animate-pulse-vagas'), 500);
+        if(currentVagas <= 5) {
+        counterElement.classList.remove('text-gray-900');
+        counterElement.classList.add('text-red-600');
+        }
+
+        counterElement.classList.add('animate-pulse-vagas');
+        setTimeout(() => counterElement.classList.remove('animate-pulse-vagas'), 500);
         }
 
         function showNotification() {
-            if (currentVagas > minVagas) {
-                currentVagas--;
-                localStorage.setItem('vagas_promopcoes', currentVagas);
-                updateUI();
-                const nome = nomes[Math.floor(Math.random() * nomes.length)];
-                const cidade = cidades[Math.floor(Math.random() * cidades.length)];
-                popupText.innerText = `${nome} (${cidade})`;
-                popup.classList.remove('hidden');
-                setTimeout(() => { popup.classList.add('opacity-100', 'translate-y-0'); popup.classList.remove('translate-y-4'); }, 100);
-                setTimeout(() => {
-                    popup.classList.remove('opacity-100', 'translate-y-0');
-                    popup.classList.add('translate-y-4');
-                    setTimeout(() => popup.classList.add('hidden'), 500);
-                }, 4000);
-            }
+        if (currentVagas > minVagas) {
+        currentVagas--;
+        localStorage.setItem('vagas_promopcoes', currentVagas);
+        updateUI();
+        const nome = nomes[Math.floor(Math.random() * nomes.length)];
+        const cidade = cidades[Math.floor(Math.random() * cidades.length)];
+        popupText.innerText = `${nome} (${cidade})`;
+        popup.classList.remove('hidden');
+        setTimeout(() => { popup.classList.add('opacity-100', 'translate-y-0'); popup.classList.remove('translate-y-4'); }, 100);
+        setTimeout(() => {
+        popup.classList.remove('opacity-100', 'translate-y-0');
+        popup.classList.add('translate-y-4');
+        setTimeout(() => popup.classList.add('hidden'), 500);
+        }, 4000);
+        }
         }
 
         updateUI();
         function loop() {
-            let rand = Math.floor(Math.random() * (25000 - 12000) + 12000);
-            setTimeout(() => { showNotification(); if (currentVagas > minVagas) loop(); }, rand);
+        let rand = Math.floor(Math.random() * (25000 - 12000) + 12000);
+        setTimeout(() => { showNotification(); if (currentVagas > minVagas) loop(); }, rand);
         }
         setTimeout(showNotification, 4000);
         loop();
