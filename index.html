@@ -3,227 +3,333 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROMOPÇÕES | Curadoria de Ofertas VIP</title>
+    <title>PROMOPÇÕES | Alertas de Preço Inteligentes</title>
 
-    <meta name="description" content="Nosso algoritmo rastreia quedas bruscas de preço nas maiores lojas do Brasil. Vagas limitadas para o grupo VIP gratuito.">
-    <meta name="theme-color" content="#b91c1c">
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="PROMOPÇÕES | O Robô das Ofertas Validadas">
-    <meta property="og:description" content="Pare de pagar caro. Acesse agora o grupo VIP gratuito e receba alertas de descontos reais.">
+    <meta name="description" content="Receba alertas de quedas de preço nas maiores lojas do Brasil. Grupo gratuito no WhatsApp.">
+    <meta name="theme-color" content="#ff0000">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+        theme: {
+        extend: {
+        colors: {
+        apple: {
+        black: '#1d1d1f',
+        white: '#f5f5f7',
+        gray1: '#6e6e73',
+        gray2: '#d2d2d7',
+        gray3: '#f5f5f7',
+        green: '#28cd41',
+        greenDark: '#1aab30',
+        blue: '#0071e3',
+        red: '#ff3b30'
+        }
+        },
+        fontFamily: {
+        sans: ['-apple-system', 'BlinkMacSystemFont', 'SF Pro Display', 'SF Pro Text', 'Helvetica Neue', 'Inter', 'sans-serif'],
+        }
+        }
+        }
+        }
+    </script>
 
     <style>
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F5F5F7;
+            background-color: #ffffff;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .glass {
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(16px);
-            -webkit-backdrop-filter: blur(16px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-        }
-
-        .apple-gradient {
-            background: linear-gradient(180deg, #ffffff 0%, #ececf1 100%);
-        }
-
-        @keyframes pulse-button {
-            0% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.4);
-            }
-
-            70% {
-                box-shadow: 0 0 0 15px rgba(37, 211, 102, 0);
-            }
-
-            100% {
-                box-shadow: 0 0 0 0 rgba(37, 211, 102, 0);
-            }
-        }
-
-        .animate-cta {
-            animation: pulse-button 2s infinite;
-        }
-
-        @keyframes slideIn {
+        /* ── ANIMATIONS ── */
+        @keyframes fadeUp {
             from {
-                transform: translateY(20px);
                 opacity: 0;
+                transform: translateY(20px);
             }
 
             to {
-                transform: translateY(0);
                 opacity: 1;
+                transform: translateY(0);
             }
         }
 
-        .animate-slide-in {
-            animation: slideIn 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+        .animate-fade-up {
+            animation: fadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
+        }
+
+        @keyframes pulse-dot {
+            0%, 100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.6;
+                transform: scale(0.85);
+            }
+        }
+
+        .animate-pulse-dot {
+            animation: pulse-dot 2s infinite;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2.5px solid rgba(255, 255, 255, 0.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* ── LOADING STATE ── */
+        .loading {
+            pointer-events: none;
+            background-color: #55d068 !important;
         }
     </style>
 </head>
-<body class="apple-gradient min-h-screen flex flex-col items-center pb-12">
+<body class="min-h-screen flex flex-col items-center pb-32">
 
-    <div class="w-full bg-[#ff0000] text-white py-3 px-2 sm:px-4 text-center sticky top-0 z-[100] shadow-md flex justify-center items-center gap-1.5 sm:gap-2 overflow-hidden">
-        <div class="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-white rounded-full animate-ping shrink-0"></div>
-        <span class="font-black uppercase whitespace-nowrap text-[9px] min-[360px]:text-[10.5px] sm:text-[13px] tracking-tight min-[360px]:tracking-normal sm:tracking-[0.1em]">
+    <div class="w-full bg-[#ff0000] text-white py-3 px-2 sm:px-4 text-center sticky top-0 z-[100] flex justify-center items-center gap-1.5 overflow-hidden">
+        <div class="w-2 h-2 bg-white rounded-full animate-ping shrink-0"></div>
+        <span class="font-bold uppercase whitespace-nowrap text-[10px] sm:text-[12px] tracking-tight sm:tracking-[0.05em]">
             ATENÇÃO: ÚLTIMAS VAGAS GRATUITAS NO GRUPO!
         </span>
     </div>
 
-    <header class="w-full max-w-[440px] flex flex-col items-center mt-6 animate-slide-in px-5">
-        <div class="w-28 h-28 mb-4 drop-shadow-xl p-1 bg-white rounded-full border border-gray-100 flex items-center justify-center">
-            <img src="logo.png" alt="PROMOPÇÕES Logo" class="w-[100%] h-[100%] object-contain">
+    <section class="w-full flex flex-col items-center text-center pt-16 pb-12 px-6 animate-fade-up">
+
+        <div class="w-[104px] h-[104px] bg-apple-gray3 rounded-[28px] flex items-center justify-center mb-8 overflow-hidden shadow-sm">
+            <img src="logo.png" alt="PROMOPÇÕES Logo" class="w-[80%] h-[80%] object-contain drop-shadow-sm" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'text-3xl font-bold text-apple-green tracking-tighter\'>P%</span>'">
         </div>
 
-        <h1 class="text-[28px] sm:text-4xl font-black text-gray-900 tracking-tight text-center leading-[1.15] w-full px-2">
-            Produtos Premium com preço de <span class="text-green-600">achadinho</span>.
+        <h1 class="text-[clamp(30px,8vw,46px)] font-bold text-apple-black tracking-tight leading-[1.1] max-w-[420px]">
+            Preços baixos.<br><span class="text-apple-green font-normal">Alertas na hora.</span>
         </h1>
-        <p class="text-gray-600 text-center mt-4 text-[15px] leading-relaxed font-medium">
-            Nossa tecnologia de monitoramento rastreia a internet para enviar alertas de <strong>quedas bruscas de preço</strong> nas maiores lojas do Brasil.
+        <p class="text-[17px] text-apple-gray1 leading-relaxed mt-4 max-w-[360px] font-normal">
+            Nossa tecnologia rastreia quedas de preço nas maiores lojas do Brasil e avisa você primeiro.
         </p>
-    </header>
 
-    <div class="w-full max-w-[440px] mt-8 px-5 animate-slide-in" style="animation-delay: 0.1s; opacity: 0;">
-        <h3 class="text-xs uppercase tracking-widest font-black text-gray-400 text-center mb-3">Exemplos do que enviamos:</h3>
-
-        <div class="glass rounded-3xl p-3.5 shadow-lg border border-white/60 space-y-2.5 relative overflow-hidden">
-            <div class="absolute -right-6 top-4 bg-gray-600 text-white text-[9px] font-black uppercase tracking-wider py-1 px-8 rotate-45 shadow-md z-10">Lojas Oficiais</div>
-
-            <div class="flex items-center gap-3 bg-white/80 p-3 rounded-2xl border border-gray-100 relative">
-                <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 p-1.5 shadow-sm border border-gray-100">
-                    <img src="ml.png" alt="Mercado Livre" class="w-full h-full object-contain">
-                </div>
-                <div class="flex-1">
-                    <p class="text-[14px] font-bold text-gray-900 leading-tight">Smartphones Top de Linha</p>
-                    <div class="flex items-center gap-2 mt-1">
-                        <span class="text-[12px] text-gray-400 line-through">Preço Cheio</span>
-                        <span class="text-[15px] font-black text-green-600">Até 40% OFF</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="flex items-center gap-3 bg-white/80 p-3 rounded-2xl border border-gray-100 relative">
-                <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 p-1.5 shadow-sm border border-gray-100">
-                    <img src="shopee.png" alt="Shopee" class="w-full h-full object-contain">
-                </div>
-                <div class="flex-1">
-                    <p class="text-[14px] font-bold text-gray-900 leading-tight">Itens de Casa e Eletro</p>
-                    <div class="flex items-center gap-2 mt-1">
-                        <span class="text-[12px] text-gray-400 line-through">Preço Cheio</span>
-                        <span class="text-[15px] font-black text-green-600">Cupons Diários</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="w-full max-w-[440px] mt-8 px-5 animate-slide-in" style="animation-delay: 0.2s; opacity: 0;">
-        <div class="bg-white rounded-3xl p-6 text-center shadow-lg border border-gray-200 relative">
-            <p class="text-gray-500 text-xs uppercase tracking-widest font-black mb-4 flex items-center justify-center gap-1.5">
-                <i data-lucide="info" class="w-4 h-4 text-blue-500"></i>
-                Lote de Vagas Atual
-            </p>
-
-            <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden border border-gray-200">
-                <div class="bg-red-500 h-full rounded-full" style="width: 88%"></div>
-            </div>
-            <p class="text-right text-[10px] font-bold text-red-500 mt-1">88% Preenchido</p>
-
-            <p class="text-[12px] text-gray-600 mt-4 font-medium leading-relaxed">
-                Para manter a exclusividade das ofertas e evitar o esgotamento rápido dos cupons, as vagas do grupo são limitadas e podem ser pausadas a qualquer momento.
-            </p>
-        </div>
-    </div>
-
-    <section class="w-full max-w-[440px] mt-12 space-y-4 px-5 animate-slide-in" style="animation-delay: 0.3s; opacity: 0;">
-        <h2 class="text-xs uppercase tracking-[0.2em] font-black text-gray-400 text-center mb-6">Relatos de quem já participa</h2>
-
-        <div class="glass p-5 rounded-3xl shadow-sm border border-white/60 relative">
-            <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gray-800 to-black flex items-center justify-center font-black text-xs text-white shadow-inner">AL</div>
-                    <div>
-                        <p class="font-bold text-sm text-gray-900 flex items-center">
-                            Alexandre Lima <i data-lucide="badge-check" class="w-4 h-4 text-blue-500 ml-1 fill-blue-500/10"></i>
-                        </p>
-                    </div>
-                </div>
-                <div class="flex text-yellow-400">
-                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
-                </div>
-            </div>
-            <p class="text-[14px] text-gray-700 leading-relaxed font-medium italic">"Gostei muito porque eles só enviam links de lojas oficiais. Comprei meu celular lá quando mandaram o alerta e valeu muito a pena."</p>
-        </div>
-
-        <div class="glass p-5 rounded-3xl shadow-sm border border-white/60 relative">
-            <div class="flex items-center justify-between mb-3">
-                <div class="flex items-center space-x-3">
-                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gray-100 to-gray-200 flex items-center justify-center font-black text-xs text-gray-800 shadow-inner">CM</div>
-                    <div>
-                        <p class="font-bold text-sm text-gray-900 flex items-center">
-                            Camila Marques <i data-lucide="badge-check" class="w-4 h-4 text-blue-500 ml-1 fill-blue-500/10"></i>
-                        </p>
-                    </div>
-                </div>
-                <div class="flex text-yellow-400">
-                    <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
-                </div>
-            </div>
-            <p class="text-[14px] text-gray-700 leading-relaxed font-medium italic">"A curadoria é ótima. O grupo é silenciado, então não incomoda durante o dia. Só recebo notificação quando sai algo realmente barato."</p>
+        <div class="inline-flex items-center gap-2 bg-apple-gray3 rounded-full py-2 px-4 text-[13px] font-semibold text-apple-black mt-6 tracking-tight">
+            <span class="w-2 h-2 rounded-full bg-apple-green animate-pulse-dot"></span>
+            Grupo ativo agora
         </div>
     </section>
 
-    <footer class="w-full max-w-[440px] mt-12 px-5 sticky bottom-6 z-40 animate-slide-in" style="animation-delay: 0.5s; opacity: 0;">
-        <a href="obrigado.html" id="btn-entrar" class="flex items-center justify-center w-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-center py-3.5 sm:py-4 px-2 rounded-2xl font-black shadow-xl active:scale-95 transition-all animate-cta">
-            <i id="btn-icon" data-lucide="message-circle" class="w-5 h-5 sm:w-6 sm:h-6 mr-1.5 sm:mr-2 shrink-0"></i>
-            <span id="btn-text" class="whitespace-nowrap text-[13px] min-[360px]:text-[15px] sm:text-[17px] tracking-tight">ENTRAR NO GRUPO AGORA</span>
-        </a>
+    <section class="w-full max-w-[440px] px-6 py-10 flex flex-col items-center">
+        <p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-apple-gray1 mb-8">Como funciona</p>
 
-        <div class="mt-2.5 sm:mt-3 bg-white/95 backdrop-blur-md border border-gray-200 rounded-xl p-2.5 sm:p-3 text-center shadow-md">
-            <p class="whitespace-nowrap text-[9px] min-[360px]:text-[10px] sm:text-[11px] text-gray-600 font-semibold flex items-center justify-center gap-1 sm:gap-1.5">
-                <i data-lucide="lock" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gray-400 shrink-0"></i>
-                Redirecionamento 100% seguro para o WhatsApp.
+        <div class="w-full flex flex-col">
+            <div class="flex items-start gap-4 py-5 border-b border-apple-gray2 animate-fade-up" style="animation-delay: 0.05s;">
+                <div class="w-[34px] h-[34px] rounded-full bg-apple-black text-white flex items-center justify-center text-[13px] font-bold shrink-0 mt-0.5">1</div>
+                <div>
+                    <h3 class="text-[16px] font-semibold text-apple-black tracking-tight">Rastreamento contínuo</h3>
+                    <p class="text-[14px] text-apple-gray1 mt-1 leading-relaxed">Monitoramos preços em lojas oficiais como Mercado Livre, Shopee, Amazon e mais.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4 py-5 border-b border-apple-gray2 animate-fade-up" style="animation-delay: 0.1s;">
+                <div class="w-[34px] h-[34px] rounded-full bg-apple-black text-white flex items-center justify-center text-[13px] font-bold shrink-0 mt-0.5">2</div>
+                <div>
+                    <h3 class="text-[16px] font-semibold text-apple-black tracking-tight">Queda detectada</h3>
+                    <p class="text-[14px] text-apple-gray1 mt-1 leading-relaxed">Quando identificamos uma promoção real, publicamos no grupo com link direto.</p>
+                </div>
+            </div>
+
+            <div class="flex items-start gap-4 py-5 animate-fade-up" style="animation-delay: 0.15s;">
+                <div class="w-[34px] h-[34px] rounded-full bg-apple-black text-white flex items-center justify-center text-[13px] font-bold shrink-0 mt-0.5">3</div>
+                <div>
+                    <h3 class="text-[16px] font-semibold text-apple-black tracking-tight">Você aproveita</h3>
+                    <p class="text-[14px] text-apple-gray1 mt-1 leading-relaxed">Receba a notificação, clique no link e compre direto na loja — simples assim.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full bg-apple-gray3 py-14 flex flex-col items-center">
+        <div class="w-full max-w-[440px] px-6 flex flex-col items-center">
+            <p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-apple-gray1 mb-8">O que oferecemos</p>
+
+            <div class="grid grid-cols-2 gap-3 w-full">
+                <div class="bg-white rounded-[18px] p-5 flex flex-col gap-2.5 animate-fade-up" style="animation-delay: 0.05s;">
+                    <i data-lucide="shield-check" class="w-7 h-7 text-apple-black"></i>
+                    <h3 class="text-[15px] font-semibold text-apple-black tracking-tight">Lojas oficiais</h3>
+                    <p class="text-[13px] text-apple-gray1 leading-relaxed">Links verificados, direto das plataformas.</p>
+                </div>
+
+                <div class="bg-white rounded-[18px] p-5 flex flex-col gap-2.5 animate-fade-up" style="animation-delay: 0.1s;">
+                    <i data-lucide="truck" class="w-7 h-7 text-apple-black"></i>
+                    <h3 class="text-[15px] font-semibold text-apple-black tracking-tight">Frete grátis</h3>
+                    <p class="text-[13px] text-apple-gray1 leading-relaxed">Foco em ofertas com envio gratuito.</p>
+                </div>
+
+                <div class="bg-white rounded-[18px] p-5 flex flex-col gap-2.5 animate-fade-up" style="animation-delay: 0.15s;">
+                    <i data-lucide="credit-card" class="w-7 h-7 text-apple-black"></i>
+                    <h3 class="text-[15px] font-semibold text-apple-black tracking-tight">Sem juros</h3>
+                    <p class="text-[13px] text-apple-gray1 leading-relaxed">Parcelamento sem juros sempre que disponível.</p>
+                </div>
+
+                <div class="bg-white rounded-[18px] p-5 flex flex-col gap-2.5 animate-fade-up" style="animation-delay: 0.2s;">
+                    <i data-lucide="bell-off" class="w-7 h-7 text-apple-black"></i>
+                    <h3 class="text-[15px] font-semibold text-apple-black tracking-tight">Silenciado</h3>
+                    <p class="text-[13px] text-apple-gray1 leading-relaxed">Notificações só quando vale a pena.</p>
+                </div>
+
+                <div class="col-span-2 bg-white rounded-[18px] p-5 flex flex-col gap-2.5 animate-fade-up" style="animation-delay: 0.25s;">
+                    <i data-lucide="badge-check" class="w-7 h-7 text-apple-green"></i>
+                    <h3 class="text-[15px] font-semibold text-apple-black tracking-tight">Sempre gratuito</h3>
+                    <p class="text-[13px] text-apple-gray1 leading-relaxed">O grupo é e sempre será 100% gratuito para os membros. Sem mensalidade, sem taxa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full py-14 flex flex-col items-center px-6">
+        <div class="w-full max-w-[440px]">
+            <p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-apple-gray1 mb-2 text-center">Exemplos de ofertas</p>
+
+            <div class="flex justify-center mb-8">
+                <div class="bg-apple-black text-white text-[10px] font-bold uppercase tracking-widest py-1.5 px-4 rounded-full flex items-center gap-1.5 shadow-sm">
+                    <i data-lucide="badge-check" class="w-4 h-4 text-apple-green"></i>
+                    Apenas Lojas Oficiais
+                </div>
+            </div>
+
+            <div class="w-full flex flex-col">
+                <div class="flex items-center gap-3.5 py-4 border-b border-apple-gray2">
+                    <div class="w-12 h-12 rounded-[14px] bg-apple-gray3 flex items-center justify-center shrink-0 overflow-hidden text-[11px] font-bold text-apple-gray1">
+                        <img src="ml.png" alt="Mercado Livre" onerror="this.parentNode.innerHTML='ML'" class="w-9 h-9 object-contain">
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-[15px] font-semibold text-apple-black">Smartphones</p>
+                        <p class="text-[13px] text-apple-gray1 mt-0.5">Mercado Livre • Parcelado s/ juros</p>
+                    </div>
+                    <div class="text-[13px] font-bold text-apple-green bg-[#e9fbed] px-2.5 py-1.5 rounded-full whitespace-nowrap">
+                        até 40% off
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3.5 py-4 border-b border-apple-gray2">
+                    <div class="w-12 h-12 rounded-[14px] bg-apple-gray3 flex items-center justify-center shrink-0 overflow-hidden text-[11px] font-bold text-apple-gray1">
+                        <img src="shopee.png" alt="Shopee" onerror="this.parentNode.innerHTML='SP'" class="w-9 h-9 object-contain">
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-[15px] font-semibold text-apple-black">Casa & Eletro</p>
+                        <p class="text-[13px] text-apple-gray1 mt-0.5">Shopee • Frete grátis</p>
+                    </div>
+                    <div class="text-[13px] font-bold text-apple-green bg-[#e9fbed] px-2.5 py-1.5 rounded-full whitespace-nowrap">
+                        cupons diários
+                    </div>
+                </div>
+
+                <div class="flex items-center gap-3.5 py-4">
+                    <div class="w-12 h-12 rounded-[14px] bg-apple-gray3 flex items-center justify-center shrink-0 overflow-hidden text-[13px] font-bold text-[#FF9900]">
+                        AMZ
+                    </div>
+                    <div class="flex-1">
+                        <p class="text-[15px] font-semibold text-apple-black">Eletrônicos</p>
+                        <p class="text-[13px] text-apple-gray1 mt-0.5">Amazon • Prime delivery</p>
+                    </div>
+                    <div class="text-[13px] font-bold text-apple-green bg-[#e9fbed] px-2.5 py-1.5 rounded-full whitespace-nowrap">
+                        até 35% off
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="w-full bg-apple-gray3 py-14 flex flex-col items-center px-6">
+        <div class="w-full max-w-[440px]">
+            <p class="text-[11px] font-semibold tracking-[0.12em] uppercase text-apple-gray1 mb-8 text-center">Quem já participa</p>
+
+            <div class="w-full flex flex-col">
+                <div class="py-5 border-b border-apple-gray2">
+                    <div class="flex items-center gap-3 mb-2.5">
+                        <div class="w-[38px] h-[38px] rounded-full bg-apple-black text-white flex items-center justify-center text-[12px] font-bold shrink-0">AL</div>
+                        <div class="text-[14px] font-semibold text-apple-black flex-1">Alexandre Lima</div>
+                        <div class="flex gap-[2px] text-[#FF9F0A] text-[12px]">★★★★★</div>
+                    </div>
+                    <p class="text-[14px] text-apple-gray1 leading-relaxed">"Só enviam links de lojas oficiais. Comprei meu celular quando mandaram o alerta e valeu muito a pena."</p>
+                </div>
+
+                <div class="py-5 border-b border-apple-gray2">
+                    <div class="flex items-center gap-3 mb-2.5">
+                        <div class="w-[38px] h-[38px] rounded-full bg-apple-gray2 text-apple-black flex items-center justify-center text-[12px] font-bold shrink-0">CM</div>
+                        <div class="text-[14px] font-semibold text-apple-black flex-1">Camila Marques</div>
+                        <div class="flex gap-[2px] text-[#FF9F0A] text-[12px]">★★★★★</div>
+                    </div>
+                    <p class="text-[14px] text-apple-gray1 leading-relaxed">"O grupo é silenciado, então não incomoda. Só recebo notificação quando sai algo realmente barato."</p>
+                </div>
+
+                <div class="py-5">
+                    <div class="flex items-center gap-3 mb-2.5">
+                        <div class="w-[38px] h-[38px] rounded-full bg-apple-blue text-white flex items-center justify-center text-[12px] font-bold shrink-0">RP</div>
+                        <div class="text-[14px] font-semibold text-apple-black flex-1">Rafael Pereira</div>
+                        <div class="flex gap-[2px] text-[#FF9F0A] text-[12px]">★★★★★</div>
+                    </div>
+                    <p class="text-[14px] text-apple-gray1 leading-relaxed">"Entrei sem expectativa e já economizei mais de R$400 em compras que já ia fazer mesmo."</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="w-full flex justify-center py-10 px-6 mb-16">
+        <div class="w-full max-w-[400px] text-center">
+            <div class="flex justify-center gap-5 mb-4">
+                <a href="#" class="text-[13px] text-apple-blue decoration-apple-blue hover:underline">Termos de Uso</a>
+                <a href="#" class="text-[13px] text-apple-blue decoration-apple-blue hover:underline">Privacidade</a>
+                <a href="mailto:contato@promopcoes.com.br" class="text-[13px] text-apple-blue decoration-apple-blue hover:underline">Contato</a>
+            </div>
+            <p class="text-[11px] text-[#aeaeb2] leading-[1.6] mb-3">
+                Este serviço é independente e não possui vínculo com Meta, Facebook, Instagram ou qualquer loja mencionada. Os links redirecionam para as lojas oficiais. PROMOPÇÕES é um serviço gratuito de curadoria de ofertas.
             </p>
+            <p class="text-[12px] text-[#aeaeb2]">© 2026 PROMOPÇÕES · contato@promopcoes.com.br</p>
         </div>
     </footer>
 
-    <div class="mt-16 w-full max-w-[440px] px-5 pb-8 text-center animate-slide-in" style="animation-delay: 0.6s; opacity: 0;">
-        <div class="border-t border-gray-300 pt-6">
-            <div class="flex justify-center gap-4 text-[11px] text-gray-500 font-semibold mb-5">
-                <a href="#" class="hover:text-gray-800 transition-colors underline">Termos de Uso</a>
-                <a href="#" class="hover:text-gray-800 transition-colors underline">Políticas de Privacidade</a>
-            </div>
-
-            <p class="text-[9px] text-gray-400 leading-relaxed mb-6 text-justify">
-                <strong>Aviso Legal:</strong> Este site não faz parte do site do Facebook, Instagram ou da Meta Platforms, Inc. Além disso, este site NÃO é endossado pelo Facebook de nenhuma maneira. FACEBOOK é uma marca comercial da META PLATFORMS, INC. O PROMOPÇÕES é um serviço independente de curadoria de ofertas e promoções encontradas na internet.
-            </p>
-
-            <p class="text-[10px] text-gray-500 font-bold tracking-wider">
-                © 2026 PROMOPÇÕES. Todos os direitos reservados.<br>
-                <span class="font-normal mt-1 block">contato@promopcoes.com.br</span>
-            </p>
-        </div>
+    <div class="fixed bottom-0 left-0 right-0 p-3 pb-6 bg-white/85 backdrop-blur-[20px] border-t border-black/5 z-50 flex flex-col items-center gap-2 animate-fade-up" style="animation-delay: 0.4s;">
+        <a href="obrigado.html" id="cta" class="flex items-center justify-center gap-2 w-full max-w-[400px] bg-apple-green text-white border-none rounded-[18px] py-4 px-6 text-[16px] font-bold tracking-tight cursor-pointer no-underline transition-all duration-150 active:scale-[0.97] active:bg-apple-greenDark">
+            <i data-lucide="message-circle" class="w-[22px] h-[22px]"></i>
+            Entrar no grupo gratuito
+        </a>
+        <p class="text-[12px] text-apple-gray1 flex items-center gap-[5px]">
+            <i data-lucide="lock" class="w-3 h-3 opacity-50"></i>
+            Redirecionamento seguro para o WhatsApp
+        </p>
     </div>
 
     <script>
         lucide.createIcons();
 
-        // LÓGICA DO BOTÃO COM CSS RESPONSIVO
-        const btnEntrar = document.getElementById('btn-entrar');
-        btnEntrar.addEventListener('click', function(e) {
+        // CTA Interaction Script
+        const cta = document.getElementById('cta');
+        cta.addEventListener('click', function(e) {
         e.preventDefault();
-        const targetUrl = this.getAttribute('href');
-        this.innerHTML = `<svg class="animate-spin shrink-0 -ml-1 mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="whitespace-nowrap text-[13px] min-[360px]:text-[15px] sm:text-[17px] tracking-tight">Verificando vaga...</span>`;
+        const href = this.getAttribute('href');
 
-        // O botão não precisa de targetUrl do href mais. Apenas aponte para o arquivo da página de obrigado.
-        setTimeout(() => { window.location.href = "obrigado.html"; }, 1800);
+        // Add loading state classes
+        this.classList.add('loading');
+
+        // Change inner HTML to spinner
+        this.innerHTML = `<div class="spinner"></div><span>Abrindo WhatsApp…</span>`;
+
+        // Redirect after delay
+        setTimeout(() => { window.location.href = href; }, 1600);
+        });
     </script>
 </body>
 </html>
