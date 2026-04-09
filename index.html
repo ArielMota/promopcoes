@@ -86,60 +86,60 @@
         Atenção: O link de convite expira hoje!
     </div>
 
-    <header class="w-full max-w-sm flex flex-col items-center mt-4 animate-slide-in px-4">
+    <header class="w-full max-w-[440px] flex flex-col items-center mt-6 animate-slide-in px-5">
         <div class="w-28 h-28 mb-4 drop-shadow-xl p-1 bg-white rounded-full border border-gray-100 flex items-center justify-center">
             <img src="logo.png" alt="PROMOPÇÕES Logo" class="w-[100%] h-[100%] object-contain">
         </div>
 
-        <h1 class="text-[26px] sm:text-3xl font-black text-gray-900 tracking-tight text-center leading-[1.1] max-w-[320px]">
+        <h1 class="text-[28px] sm:text-4xl font-black text-gray-900 tracking-tight text-center leading-[1.15] w-full px-2">
             Produtos Premium com preço de <span class="text-green-600">achadinho</span>.
         </h1>
-        <p class="text-gray-600 text-center mt-4 max-w-sm text-[15px] leading-relaxed font-medium">
+        <p class="text-gray-600 text-center mt-4 text-[15px] leading-relaxed font-medium">
             Junte-se a mais de <strong class="text-gray-900 font-black bg-gray-200 px-1 rounded">14.850 pessoas</strong> que utilizam o nosso algoritmo para encontrar ofertas com até <strong class="text-green-600 font-bold">80% OFF</strong>.
         </p>
     </header>
 
-    <div class="w-full max-w-sm mt-8 px-4 animate-slide-in" style="animation-delay: 0.1s; opacity: 0;">
+    <div class="w-full max-w-[440px] mt-8 px-5 animate-slide-in" style="animation-delay: 0.1s; opacity: 0;">
         <h3 class="text-xs uppercase tracking-widest font-black text-gray-400 text-center mb-3">O que você perdeu hoje:</h3>
 
-        <div class="glass rounded-3xl p-3 shadow-lg border border-white/60 space-y-2 relative overflow-hidden">
-            <div class="absolute -right-6 top-4 bg-red-600 text-white text-[9px] font-black uppercase tracking-wider py-1 px-8 rotate-45 shadow-md">Esgotado</div>
+        <div class="glass rounded-3xl p-3.5 shadow-lg border border-white/60 space-y-2.5 relative overflow-hidden">
+            <div class="absolute -right-6 top-4 bg-red-600 text-white text-[9px] font-black uppercase tracking-wider py-1 px-8 rotate-45 shadow-md z-10">Esgotado</div>
 
-            <div class="flex items-center gap-3 bg-white/80 p-2.5 rounded-2xl border border-gray-100">
+            <div class="flex items-center gap-3 bg-white/80 p-3 rounded-2xl border border-gray-100 relative">
                 <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 p-1.5 shadow-sm border border-gray-100">
                     <img src="ml.png" alt="Mercado Livre" class="w-full h-full object-contain">
                 </div>
                 <div class="flex-1">
-                    <p class="text-[13px] font-bold text-gray-900 leading-tight">Smartphone Top de Linha</p>
-                    <div class="flex items-center gap-2 mt-0.5">
-                        <span class="text-[11px] text-gray-400 line-through">R$ 5.999</span>
-                        <span class="text-sm font-black text-green-600">R$ 3.899</span>
+                    <p class="text-[14px] font-bold text-gray-900 leading-tight">Smartphone Top de Linha</p>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-[12px] text-gray-400 line-through">R$ 5.999</span>
+                        <span class="text-[15px] font-black text-green-600">R$ 3.899</span>
                     </div>
                 </div>
             </div>
 
-            <div class="flex items-center gap-3 bg-white/80 p-2.5 rounded-2xl border border-gray-100 opacity-80">
+            <div class="flex items-center gap-3 bg-white/80 p-3 rounded-2xl border border-gray-100 opacity-80 relative">
                 <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center flex-shrink-0 p-1.5 shadow-sm border border-gray-100">
                     <img src="shopee.png" alt="Shopee" class="w-full h-full object-contain">
                 </div>
                 <div class="flex-1">
-                    <p class="text-[13px] font-bold text-gray-900 leading-tight">Smart TV 4K 55"</p>
-                    <div class="flex items-center gap-2 mt-0.5">
-                        <span class="text-[11px] text-gray-400 line-through">R$ 3.499</span>
-                        <span class="text-sm font-black text-green-600">R$ 1.999</span>
+                    <p class="text-[14px] font-bold text-gray-900 leading-tight">Smart TV 4K 55"</p>
+                    <div class="flex items-center gap-2 mt-1">
+                        <span class="text-[12px] text-gray-400 line-through">R$ 3.499</span>
+                        <span class="text-[15px] font-black text-green-600">R$ 1.999</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="w-full max-w-sm mt-8 px-4 animate-slide-in" style="animation-delay: 0.2s; opacity: 0;">
+    <div class="w-full max-w-[440px] mt-8 px-5 animate-slide-in" style="animation-delay: 0.2s; opacity: 0;">
         <div class="bg-white rounded-3xl p-6 text-center shadow-lg border border-dashed border-red-500/30 relative">
             <p class="text-gray-500 text-xs uppercase tracking-widest font-black mb-2 flex items-center justify-center gap-1.5">
                 <i data-lucide="user-plus" class="w-3.5 h-3.5 text-red-500"></i>
                 Vagas Restantes Hoje:
             </p>
-            <div id="vagas-counter" class="text-6xl font-black text-red-600 tracking-tighter">10</div>
+            <div id="vagas-counter" class="text-7xl font-black text-red-600 tracking-tighter">10</div>
 
             <div class="w-full bg-gray-100 h-2.5 mt-4 rounded-full overflow-hidden border border-gray-200">
                 <div id="progress-bar" class="bg-red-600 h-full transition-all duration-1000" style="width: 100%"></div>
@@ -151,79 +151,79 @@
         </div>
     </div>
 
-    <section class="w-full max-w-sm mt-12 space-y-4 px-4 animate-slide-in" style="animation-delay: 0.3s; opacity: 0;">
+    <section class="w-full max-w-[440px] mt-12 space-y-4 px-5 animate-slide-in" style="animation-delay: 0.3s; opacity: 0;">
         <h2 class="text-xs uppercase tracking-[0.2em] font-black text-gray-400 text-center mb-6">Quem usa, recomenda</h2>
 
-        <div class="glass p-5 rounded-2xl shadow-sm border border-white/60 relative">
+        <div class="glass p-5 rounded-3xl shadow-sm border border-white/60 relative">
             <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-gray-800 to-black flex items-center justify-center font-black text-xs text-white shadow-inner">AL</div>
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gray-800 to-black flex items-center justify-center font-black text-xs text-white shadow-inner">AL</div>
                     <div>
                         <p class="font-bold text-sm text-gray-900 flex items-center hover:text-blue-600 transition-colors">
                             Alexandre Lima <i data-lucide="badge-check" class="w-4 h-4 text-blue-500 ml-1 fill-blue-500/10"></i>
                         </p>
-                        <p class="text-[9px] font-bold text-green-600 uppercase tracking-widest">Membro há 4 meses</p>
+                        <p class="text-[10px] font-bold text-green-600 uppercase tracking-widest mt-0.5">Membro há 4 meses</p>
                     </div>
                 </div>
                 <div class="flex text-yellow-400">
                     <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
                 </div>
             </div>
-            <p class="text-[13px] text-gray-700 leading-relaxed font-medium italic">"Confesso que achei que era furada no início, mas me surpreendi. Eles só mandam link oficial. Comprei meu S24 com erro de preço e economizei R$ 1.350."</p>
+            <p class="text-[14px] text-gray-700 leading-relaxed font-medium italic">"Confesso que achei que era furada no início, mas me surpreendi. Eles só mandam link oficial. Comprei meu S24 com erro de preço e economizei R$ 1.350."</p>
         </div>
 
-        <div class="glass p-5 rounded-2xl shadow-sm border border-white/60 relative">
+        <div class="glass p-5 rounded-3xl shadow-sm border border-white/60 relative">
             <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-gray-100 to-gray-200 flex items-center justify-center font-black text-xs text-gray-800 shadow-inner">CM</div>
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gray-100 to-gray-200 flex items-center justify-center font-black text-xs text-gray-800 shadow-inner">CM</div>
                     <div>
                         <p class="font-bold text-sm text-gray-900 flex items-center">
                             Camila Marques <i data-lucide="badge-check" class="w-4 h-4 text-blue-500 ml-1 fill-blue-500/10"></i>
                         </p>
-                        <p class="text-[9px] font-bold text-green-600 uppercase tracking-widest">Membro há 2 meses</p>
+                        <p class="text-[10px] font-bold text-green-600 uppercase tracking-widest mt-0.5">Membro há 2 meses</p>
                     </div>
                 </div>
                 <div class="flex text-yellow-400">
                     <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
                 </div>
             </div>
-            <p class="text-[13px] text-gray-700 leading-relaxed font-medium italic">"As promoções são absurdas, mas tem que ser rápido! Postaram um cupom de 70% na Shopee e esgotou em 5 minutos. Peguei o jogo de panela."</p>
+            <p class="text-[14px] text-gray-700 leading-relaxed font-medium italic">"As promoções são absurdas, mas tem que ser rápido! Postaram um cupom de 70% na Shopee e esgotou em 5 minutos. Peguei o jogo de panela."</p>
         </div>
 
-        <div class="glass p-5 rounded-2xl shadow-sm border border-white/60 relative">
+        <div class="glass p-5 rounded-3xl shadow-sm border border-white/60 relative">
             <div class="flex items-center justify-between mb-3">
                 <div class="flex items-center space-x-3">
-                    <div class="w-9 h-9 rounded-full bg-gradient-to-tr from-gray-800 to-black flex items-center justify-center font-black text-xs text-white shadow-inner">GP</div>
+                    <div class="w-10 h-10 rounded-full bg-gradient-to-tr from-gray-800 to-black flex items-center justify-center font-black text-xs text-white shadow-inner">GP</div>
                     <div>
                         <p class="font-bold text-sm text-gray-900 flex items-center hover:text-blue-600 transition-colors">
                             Guilherme Pacheco <i data-lucide="badge-check" class="w-4 h-4 text-blue-500 ml-1 fill-blue-500/10"></i>
                         </p>
-                        <p class="text-[9px] font-bold text-green-600 uppercase tracking-widest">Membro há 6 meses</p>
+                        <p class="text-[10px] font-bold text-green-600 uppercase tracking-widest mt-0.5">Membro há 6 meses</p>
                     </div>
                 </div>
                 <div class="flex text-yellow-400">
                     <i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i><i data-lucide="star" class="w-3.5 h-3.5 fill-current"></i>
                 </div>
             </div>
-            <p class="text-[13px] text-gray-700 leading-relaxed font-medium italic">"Já virou vício kkkk. Comprei desde TV nova até sabão em pó pela metade do preço no supermercado. A curadoria do robô deles é impecável."</p>
+            <p class="text-[14px] text-gray-700 leading-relaxed font-medium italic">"Já virou vício kkkk. Comprei desde TV nova até sabão em pó pela metade do preço no supermercado. A curadoria do robô deles é impecável."</p>
         </div>
     </section>
 
-    <footer class="w-full max-w-sm mt-12 px-4 sticky bottom-4 z-40 animate-slide-in" style="animation-delay: 0.5s; opacity: 0;">
-        <a href="SEU_LINK_AQUI" id="btn-entrar" class="flex items-center justify-center w-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-center py-4 rounded-2xl font-black text-[16px] shadow-xl active:scale-95 transition-all animate-cta">
+    <footer class="w-full max-w-[440px] mt-12 px-5 sticky bottom-6 z-40 animate-slide-in" style="animation-delay: 0.5s; opacity: 0;">
+        <a href="SEU_LINK_AQUI" id="btn-entrar" class="flex items-center justify-center w-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-center py-4 rounded-2xl font-black text-[17px] shadow-xl active:scale-95 transition-all animate-cta">
             <i id="btn-icon" data-lucide="message-circle" class="w-6 h-6 mr-2"></i>
             <span id="btn-text">QUERO ENTRAR NO GRUPO SECRETO</span>
         </a>
 
-        <div class="mt-3 bg-white/90 backdrop-blur-md border border-gray-200 rounded-xl p-3 text-center shadow-sm">
+        <div class="mt-3 bg-white/95 backdrop-blur-md border border-gray-200 rounded-xl p-3 text-center shadow-md">
             <p class="text-[11px] text-gray-600 font-semibold leading-tight flex items-center justify-center gap-1.5">
-                <i data-lucide="lock" class="w-3 h-3 text-gray-400 relative -top-[1px]"></i>
-                Você será redirecionado com segurança para o WhatsApp para entrar no grupo exclusivo.
+                <i data-lucide="lock" class="w-3.5 h-3.5 text-gray-400 relative -top-[1px]"></i>
+                Você será redirecionado com segurança para o WhatsApp.
             </p>
         </div>
     </footer>
 
-    <div id="popup" class="fixed bottom-36 left-1/2 -translate-x-1/2 w-[90%] max-w-[320px] bg-white border border-gray-200 rounded-2xl p-3 shadow-2xl hidden opacity-0 z-[110] transition-all duration-500">
+    <div id="popup" class="fixed bottom-36 left-1/2 -translate-x-1/2 w-[90%] max-w-[360px] bg-white border border-gray-200 rounded-2xl p-3.5 shadow-2xl hidden opacity-0 z-[110] transition-all duration-500">
         <div class="flex items-center space-x-3">
             <div class="relative">
                 <div class="bg-gray-100 rounded-full w-10 h-10 flex items-center justify-center border border-gray-200 shadow-inner">
@@ -232,8 +232,8 @@
                 <div class="absolute -bottom-0.5 -right-0.5 bg-green-500 w-3.5 h-3.5 rounded-full border-2 border-white"></div>
             </div>
             <div class="flex-1 overflow-hidden text-left">
-                <p id="popup-text" class="text-sm text-gray-900 font-bold leading-tight truncate"></p>
-                <p class="text-[10px] text-green-600 font-black uppercase tracking-wider">Acabou de garantir uma vaga</p>
+                <p id="popup-text" class="text-[15px] text-gray-900 font-bold leading-tight truncate"></p>
+                <p class="text-[10px] text-green-600 font-black uppercase tracking-wider mt-0.5">Acabou de garantir uma vaga</p>
             </div>
         </div>
     </div>
@@ -241,7 +241,6 @@
     <script>
         lucide.createIcons();
 
-        // LÓGICA DO BOTÃO (Feedback IHC)
         const btnEntrar = document.getElementById('btn-entrar');
         btnEntrar.addEventListener('click', function(e) {
         e.preventDefault();
@@ -250,7 +249,6 @@
         setTimeout(() => { window.location.href = targetUrl; }, 1800);
         });
 
-        // LÓGICA DE ESCASSEZ
         let totalVagasInit = 10;
         let minVagas = 1;
         let currentVagas = localStorage.getItem('vagas_promopcoes');
