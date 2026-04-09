@@ -210,15 +210,15 @@
     </section>
 
     <footer class="w-full max-w-[440px] mt-12 px-5 sticky bottom-6 z-40 animate-slide-in" style="animation-delay: 0.5s; opacity: 0;">
-        <a href="SEU_LINK_AQUI" id="btn-entrar" class="flex items-center justify-center w-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-center py-4 rounded-2xl font-black text-[17px] shadow-xl active:scale-95 transition-all animate-cta">
-            <i id="btn-icon" data-lucide="message-circle" class="w-6 h-6 mr-2"></i>
-            <span id="btn-text">QUERO ENTRAR NO GRUPO SECRETO</span>
+        <a href="SEU_LINK_AQUI" id="btn-entrar" class="flex items-center justify-center w-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-center py-3.5 sm:py-4 px-2 rounded-2xl font-black shadow-xl active:scale-95 transition-all animate-cta">
+            <i id="btn-icon" data-lucide="message-circle" class="w-5 h-5 sm:w-6 sm:h-6 mr-1.5 sm:mr-2 shrink-0"></i>
+            <span id="btn-text" class="whitespace-nowrap text-[13px] min-[360px]:text-[15px] sm:text-[17px] tracking-tight">QUERO ENTRAR NO GRUPO SECRETO</span>
         </a>
 
-        <div class="mt-3 bg-white/95 backdrop-blur-md border border-gray-200 rounded-xl p-3 text-center shadow-md">
-            <p class="text-[11px] text-gray-600 font-semibold leading-tight flex items-center justify-center gap-1.5">
-                <i data-lucide="lock" class="w-3.5 h-3.5 text-gray-400 relative -top-[1px]"></i>
-                Você será redirecionado com segurança para o WhatsApp.
+        <div class="mt-2.5 sm:mt-3 bg-white/95 backdrop-blur-md border border-gray-200 rounded-xl p-2.5 sm:p-3 text-center shadow-md overflow-hidden">
+            <p class="whitespace-nowrap text-[9px] min-[360px]:text-[10px] sm:text-[11px] text-gray-600 font-semibold flex items-center justify-center gap-1 sm:gap-1.5">
+                <i data-lucide="lock" class="w-3 h-3 sm:w-3.5 sm:h-3.5 text-gray-400 shrink-0"></i>
+                Redirecionamento seguro para o WhatsApp.
             </p>
         </div>
     </footer>
@@ -241,11 +241,12 @@
     <script>
         lucide.createIcons();
 
+        // LÓGICA DO BOTÃO COM CSS RESPONSIVO
         const btnEntrar = document.getElementById('btn-entrar');
         btnEntrar.addEventListener('click', function(e) {
         e.preventDefault();
         const targetUrl = this.getAttribute('href');
-        this.innerHTML = `<svg class="animate-spin -ml-1 mr-3 h-6 w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span>Verificando vaga...</span>`;
+        this.innerHTML = `<svg class="animate-spin shrink-0 -ml-1 mr-2 sm:mr-3 h-5 w-5 sm:h-6 sm:w-6 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg><span class="whitespace-nowrap text-[13px] min-[360px]:text-[15px] sm:text-[17px] tracking-tight">Verificando vaga...</span>`;
         setTimeout(() => { window.location.href = targetUrl; }, 1800);
         });
 
