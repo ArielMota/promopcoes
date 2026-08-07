@@ -1,15 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aguarde... Redirecionando | PROMOPÇÕES</title>
 
-    <meta http-equiv="refresh" content="3.5;url=https://chat.whatsapp.com/CJV7ymt9wLxBndN22mRKSC?s=cl&p=a&ilr=4">
+    <meta http-equiv="refresh" content="4;url=https://chat.whatsapp.com/CJV7ymt9wLxBndN22mRKSC?s=cl&p=a&ilr=4">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
 
     <script>
         !function(f,b,e,v,n,t,s)
@@ -45,7 +44,6 @@
                 opacity: 0;
                 transform: translateY(10px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -55,46 +53,63 @@
         .animate-fade-in {
             animation: fadeIn 0.5s ease-out forwards;
         }
-
-        /* Opcional: Se for colocar o Pixel do Facebook, coloque os scripts no <head> como o concorrente faz */
     </style>
 </head>
 <body class="apple-gradient min-h-screen flex flex-col items-center justify-between p-6">
 
     <div class="flex-1 flex flex-col items-center justify-center w-full max-w-[440px] animate-fade-in">
 
-        <div class="w-24 h-24 mb-8 drop-shadow-xl p-1 bg-white rounded-full border border-gray-100 flex items-center justify-center">
+        <div class="w-24 h-24 mb-6 drop-shadow-xl p-1 bg-white rounded-full border border-gray-100 flex items-center justify-center">
             <img src="logo.png" alt="PROMOPÇÕES Logo" class="w-[80%] h-[80%] object-contain">
         </div>
 
-        <h1 class="text-3xl font-black text-gray-900 tracking-tight text-center mb-4">
-            Preparando Acesso...
+        <h1 class="text-3xl font-black text-gray-900 tracking-tight text-center mb-2">
+            AGUARDE!
         </h1>
 
-        <div class="my-6">
-            <svg class="animate-spin h-12 w-12 text-[#25D366]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <div class="my-5">
+            <svg class="animate-spin h-10 w-10 text-[#25D366]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
                 <circle class="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
                 <path class="opacity-100" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
             </svg>
         </div>
 
-        <p class="text-gray-600 text-center text-[15px] leading-relaxed font-medium px-4">
-            Você está sendo redirecionado de forma segura para o <strong class="text-gray-900">grupo oficial no WhatsApp</strong>.
+        <p class="text-gray-600 text-center text-[16px] leading-relaxed font-medium px-2 mb-6">
+            Estamos abrindo o seu <strong class="text-gray-900">WhatsApp</strong> com segurança.
         </p>
 
-        <a href="https://chat.whatsapp.com/CJV7ymt9wLxBndN22mRKSC?s=cl&p=a&ilr=4" class="mt-8 text-[13px] font-bold text-blue-600 underline hover:text-blue-800 transition-colors">
-            Se o redirecionamento não funcionar, clique aqui.
+        <div class="bg-blue-50 border-l-4 border-blue-400 p-5 rounded-r-lg shadow-sm w-full mb-6">
+            <p class="text-blue-800 text-[14px] md:text-[15px] font-medium text-center leading-relaxed">
+                💡 <strong class="font-bold text-blue-900">Passo final:</strong> Assim que o WhatsApp abrir, lembre-se de clicar em <span class="bg-green-100 text-green-800 px-2 py-0.5 rounded font-bold">Entrar no Grupo</span> para confirmar sua vaga!
+            </p>
+        </div>
+
+        <p class="text-sm text-gray-400 text-center mb-3">
+            Redirecionando automaticamente em <span id="countdown">4</span> segundos...
+        </p>
+
+        <a href="https://chat.whatsapp.com/CJV7ymt9wLxBndN22mRKSC?s=cl&p=a&ilr=4" class="text-[14px] font-bold text-green-600 underline hover:text-green-800 transition-colors">
+            Se não abrir automaticamente, clique aqui.
         </a>
     </div>
 
     <div class="w-full max-w-[440px] mt-12 pb-4 text-center border-t border-gray-200 pt-6 animate-fade-in" style="animation-delay: 0.3s; opacity: 0;">
-        <p class="text-[9px] text-gray-400 leading-relaxed text-justify px-2">
-            <strong>Aviso Legal:</strong> Este site não faz parte do site do Facebook, Instagram ou da Meta Platforms, Inc. O PROMOPÇÕES é um serviço de curadoria de ofertas de lojas oficiais. Não nos responsabilizamos por alterações de preços feitas pelas plataformas de venda após o envio dos alertas.
+        <p class="text-[10px] text-gray-400 leading-relaxed text-justify px-2">
+            <strong>Aviso Legal:</strong> Este site não faz parte do site do Facebook, Instagram ou da Meta Platforms, Inc. O PROMOPÇÕES é um serviço de curadoria de ofertas de lojas oficiais. Não nos responsabilizamos por alterações de preços feitas pelas plataformas após o envio.
         </p>
     </div>
 
     <script>
-        lucide.createIcons();
+        var timeleft = 4;
+        var downloadTimer = setInterval(function(){
+            if(timeleft <= 0){
+                clearInterval(downloadTimer);
+            } else {
+                document.getElementById("countdown").innerHTML = timeleft;
+            }
+            timeleft -= 1;
+        }, 1000);
     </script>
+
 </body>
 </html>
