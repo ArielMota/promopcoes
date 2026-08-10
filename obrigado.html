@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aguarde... Redirecionando | PROMOPÇÕES</title>
 
-    <!-- Mantido seu link e lógica de redirecionamento original -->
-    <meta http-equiv="refresh" content="4;url=https://chat.whatsapp.com/CJV7ymt9wLxBndN22mRKSC?s=cl&p=a&ilr=4">
     <meta name="theme-color" content="#0E7A4F">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -100,7 +98,7 @@
 
     <div class="flex-1 flex flex-col items-center justify-center w-full max-w-[440px] animate-fade-in relative z-10">
 
-        <!-- tipo -->
+        <!-- Logo -->
         <div class="w-24 h-24 bg-white rounded-3xl border-4 border-[var(--surface-card)] flex items-center justify-center mb-8 shadow-2xl relative p-3">
             <img src="logo.png" alt="PROMOPÇÕES Logo" class="w-full h-full object-contain" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'text-2xl font-bold text-gray-900\'>P%</span>'">
         </div>
@@ -149,6 +147,10 @@
     <script>
         lucide.createIcons();
 
+        // 1. Definição da URL de destino
+        const whatsappUrl = "https://chat.whatsapp.com/CJV7ymt9wLxBndN22mRKSC?s=cl&p=a&ilr=4";
+
+        // 2. Lógica da contagem regressiva visual
         var timeleft = 4;
         var downloadTimer = setInterval(function(){
             if(timeleft <= 0){
@@ -158,6 +160,16 @@
             }
             timeleft -= 1;
         }, 1000);
+
+        // 3. Garantir o disparo do Pixel e redirecionar via JavaScript
+        setTimeout(function() {
+             // Tenta disparar o evento Lead manualmente novamente por segurança
+             if (typeof fbq === 'function') {
+                 fbq('track', 'Lead');
+             }
+             // Redireciona para o WhatsApp após 4.5 segundos
+             window.location.href = whatsappUrl;
+        }, 4500); 
     </script>
 
 </body>
