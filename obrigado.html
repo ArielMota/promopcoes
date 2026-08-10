@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aguarde... Redirecionando | PROMOPÇÕES</title>
 
+    <!-- Mantido seu link e lógica de redirecionamento original -->
     <meta http-equiv="refresh" content="4;url=https://chat.whatsapp.com/CJV7ymt9wLxBndN22mRKSC?s=cl&p=a&ilr=4">
+    <meta name="theme-color" content="#0E7A4F">
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Usando as mesmas fontes da página inicial -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="logo.png">
 
     <script>
         !function(f,b,e,v,n,t,s)
@@ -29,77 +37,118 @@
     </noscript>
 
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #F5F5F7;
-            overflow-x: hidden;
+        :root {
+            --bg-deep: #090D0B;
+            --surface: #121A16;
+            --surface-card: #18241F;
+            --neon-green: #25D366;
+            --text-main: #F3F4F6;
+            --text-muted: #9CA3AF;
         }
 
-        .apple-gradient {
-            background: linear-gradient(180deg, #ffffff 0%, #ececf1 100%);
+        body {
+            background-color: var(--bg-deep);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .mono { font-family: 'JetBrains Mono', monospace; }
+
+        .hero-glow {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 100%;
+            max-width: 500px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(37,211,102,0.15) 0%, rgba(9,13,11,0) 70%);
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .pro-card {
+            background: var(--surface);
+            border: 1px solid rgba(255, 255, 255, 0.07);
+            border-radius: 20px;
+            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
         }
 
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-
         .animate-fade-in {
             animation: fadeIn 0.5s ease-out forwards;
         }
+
+        .spinner {
+            width: 48px; height: 48px;
+            border: 4px solid rgba(37, 211, 102, 0.2);
+            border-top-color: var(--neon-green);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
     </style>
 </head>
-<body class="apple-gradient min-h-screen flex flex-col items-center justify-between p-6">
+<body class="min-h-screen flex flex-col items-center justify-between p-6 relative">
 
-    <div class="flex-1 flex flex-col items-center justify-center w-full max-w-[440px] animate-fade-in">
+    <div class="hero-glow"></div>
 
-        <div class="w-24 h-24 mb-6 drop-shadow-xl p-1 bg-white rounded-full border border-gray-100 flex items-center justify-center">
-            <img src="logo.png" alt="PROMOPÇÕES Logo" class="w-[80%] h-[80%] object-contain">
+    <div class="flex-1 flex flex-col items-center justify-center w-full max-w-[440px] animate-fade-in relative z-10">
+
+        <!-- Logotipo -->
+        <div class="w-20 h-20 bg-[var(--surface)] rounded-2xl border border-white/10 flex items-center justify-center mb-8 shadow-xl relative">
+            <img src="logo.png" alt="PROMOPÇÕES Logo" class="w-12 h-12 object-contain" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'text-2xl font-bold text-[var(--neon-green)]\'>P%</span>'">
         </div>
 
-        <h1 class="text-3xl font-black text-gray-900 tracking-tight text-center mb-2">
-            AGUARDE!
+        <!-- Título -->
+        <h1 class="text-[28px] font-extrabold tracking-tight leading-[1.2] text-white mb-2 text-center">
+            Quase lá...
         </h1>
 
-        <div class="my-5">
-            <svg class="animate-spin h-10 w-10 text-[#25D366]" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                <circle class="opacity-20" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                <path class="opacity-100" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-        </div>
-
-        <p class="text-gray-600 text-center text-[16px] leading-relaxed font-medium px-2 mb-6">
-            Estamos abrindo o seu <strong class="text-gray-900">WhatsApp</strong> com segurança.
+        <p class="text-[15px] text-[var(--text-muted)] leading-relaxed mb-8 font-medium text-center">
+            Estamos abrindo o WhatsApp de forma segura.
         </p>
 
-        <div class="bg-blue-50 border-l-4 border-blue-400 p-5 rounded-r-lg shadow-sm w-full mb-6">
-            <p class="text-blue-800 text-[14px] md:text-[15px] font-medium text-center leading-relaxed">
-                💡 <strong class="font-bold text-blue-900">Passo final:</strong> Assim que o WhatsApp abrir, lembre-se de clicar em <span class="bg-green-100 text-green-800 px-2 py-0.5 rounded font-bold">Entrar no Grupo</span> para confirmar sua vaga!
-            </p>
+        <!-- Spinner -->
+        <div class="my-6">
+            <div class="spinner"></div>
         </div>
 
-        <p class="text-sm text-gray-400 text-center mb-3">
-            Redirecionando automaticamente em <span id="countdown">4</span> segundos...
+        <!-- Card de Aviso -->
+        <div class="pro-card p-5 w-full mb-8 mt-4 border-l-4 border-l-[var(--neon-green)]">
+            <div class="flex items-start gap-3">
+                <i data-lucide="info" class="w-5 h-5 text-[var(--neon-green)] shrink-0 mt-0.5"></i>
+                <p class="text-[14px] text-white leading-relaxed">
+                    <strong class="font-bold text-[var(--neon-green)]">Passo final:</strong> Assim que o WhatsApp abrir, lembre-se de clicar em <span class="bg-emerald-500/20 text-emerald-400 px-1.5 py-0.5 rounded font-bold border border-emerald-500/30">Entrar no Grupo</span> para confirmar sua vaga!
+                </p>
+            </div>
+        </div>
+
+        <p class="mono text-[12px] text-[var(--text-muted)] text-center mb-4">
+            Redirecionando em <span id="countdown" class="font-bold text-white">4</span>s...
         </p>
 
-        <a href="https://chat.whatsapp.com/CJV7ymt9wLxBndN22mRKSC?s=cl&p=a&ilr=4" class="text-[14px] font-bold text-green-600 underline hover:text-green-800 transition-colors">
+        <!-- Link Manual de Fallback -->
+        <a href="https://chat.whatsapp.com/CJV7ymt9wLxBndN22mRKSC?s=cl&p=a&ilr=4" class="text-[13px] font-bold text-[var(--neon-green)] hover:text-emerald-400 transition-colors underline underline-offset-2">
             Se não abrir automaticamente, clique aqui.
         </a>
     </div>
 
-    <div class="w-full max-w-[440px] mt-12 pb-4 text-center border-t border-gray-200 pt-6 animate-fade-in" style="animation-delay: 0.3s; opacity: 0;">
-        <p class="text-[10px] text-gray-400 leading-relaxed text-justify px-2">
+    <!-- Footer / Aviso Legal -->
+    <div class="w-full max-w-[440px] mt-12 pb-4 text-center border-t border-white/5 pt-6 animate-fade-in relative z-10" style="animation-delay: 0.3s; opacity: 0;">
+        <p class="text-[10px] text-[var(--text-muted)] leading-relaxed text-center opacity-60 px-2">
             <strong>Aviso Legal:</strong> Este site não faz parte do site do Facebook, Instagram ou da Meta Platforms, Inc. O PROMOPÇÕES é um serviço de curadoria de ofertas de lojas oficiais. Não nos responsabilizamos por alterações de preços feitas pelas plataformas após o envio.
         </p>
     </div>
 
     <script>
+        lucide.createIcons();
+
         var timeleft = 4;
         var downloadTimer = setInterval(function(){
             if(timeleft <= 0){
