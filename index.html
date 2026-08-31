@@ -151,8 +151,10 @@
     <header class="w-full sticky top-0 z-[100] bg-[var(--bg-deep)]/90 backdrop-blur-md border-b border-white/5 py-3 px-4">
         <div class="max-w-[440px] mx-auto flex items-center justify-between">
             <div class="flex items-center gap-2">
-                <span class="w-2.5 h-2.5 rounded-full bg-[var(--neon-green)] animate-pulse shrink-0"></span>
-                <span class="mono text-[11px] font-semibold tracking-wider uppercase text-emerald-400">
+                <!-- ADICIONADO ID 'status-dot' E TRANSIÇÃO -->
+                <span id="status-dot" class="w-2.5 h-2.5 rounded-full bg-[var(--neon-green)] animate-pulse shrink-0 transition-colors duration-300"></span>
+                <!-- ADICIONADO ID 'status-text' E TRANSIÇÃO -->
+                <span id="status-text" class="mono text-[11px] font-semibold tracking-wider uppercase text-emerald-400 transition-opacity duration-300">
                     Monitoramento Ativo
                 </span>
             </div>
@@ -188,7 +190,9 @@
                         <!-- GRUPO 1 -->
                         <div class="offer-card p-3 flex items-center gap-3 mx-1 mt-1">
                             <div class="absolute -top-2.5 -right-2 discount-badge">-53%</div>
-                            <div class="w-12 h-12 bg-[#FDF6E3] rounded-xl flex items-center justify-center text-[24px] shrink-0">🍳</div>
+                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 p-2">
+                                <img src="amz.png" alt="Amazon" class="w-full h-full object-contain">
+                            </div>
                             <div class="flex-1 min-w-0 text-left">
                                 <h4 class="text-[14px] font-bold text-white truncate">Air fryer 4 litros</h4>
                                 <p class="text-[12px] text-[var(--text-muted)] truncate">Amazon · <s class="opacity-60">R$ 399</s></p>
@@ -200,7 +204,9 @@
 
                         <div class="offer-card p-3 flex items-center gap-3 mx-1 mt-1">
                             <div class="absolute -top-2.5 -right-2 discount-badge">-49%</div>
-                            <div class="w-12 h-12 bg-[#F0F2F5] rounded-xl flex items-center justify-center text-[24px] shrink-0">👟</div>
+                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 p-2">
+                                <img src="ml.png" alt="Mercado Livre" class="w-full h-full object-contain">
+                            </div>
                             <div class="flex-1 min-w-0 text-left">
                                 <h4 class="text-[14px] font-bold text-white truncate">Tênis de corrida</h4>
                                 <p class="text-[12px] text-[var(--text-muted)] truncate">Mercado Livre · <s class="opacity-60">R$ 349</s></p>
@@ -212,7 +218,9 @@
 
                         <div class="offer-card p-3 flex items-center gap-3 mx-1 mt-1">
                             <div class="absolute -top-2.5 -right-2 discount-badge">-42%</div>
-                            <div class="w-12 h-12 bg-[#E8F5E9] rounded-xl flex items-center justify-center text-[24px] shrink-0">👕</div>
+                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 p-2">
+                                <img src="shopee.png" alt="Shopee" class="w-full h-full object-contain">
+                            </div>
                             <div class="flex-1 min-w-0 text-left">
                                 <h4 class="text-[14px] font-bold text-white truncate">Kit 3 camisetas</h4>
                                 <p class="text-[12px] text-[var(--text-muted)] truncate">Shopee · <s class="opacity-60">R$ 119</s></p>
@@ -225,7 +233,9 @@
                         <!-- GRUPO 2 (Duplicado para o scroll infinito funcionar em loop sem cortes) -->
                         <div class="offer-card p-3 flex items-center gap-3 mx-1 mt-1">
                             <div class="absolute -top-2.5 -right-2 discount-badge">-53%</div>
-                            <div class="w-12 h-12 bg-[#FDF6E3] rounded-xl flex items-center justify-center text-[24px] shrink-0">🍳</div>
+                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 p-2">
+                                <img src="amz.png" alt="Amazon" class="w-full h-full object-contain">
+                            </div>
                             <div class="flex-1 min-w-0 text-left">
                                 <h4 class="text-[14px] font-bold text-white truncate">Air fryer 4 litros</h4>
                                 <p class="text-[12px] text-[var(--text-muted)] truncate">Amazon · <s class="opacity-60">R$ 399</s></p>
@@ -237,7 +247,9 @@
 
                         <div class="offer-card p-3 flex items-center gap-3 mx-1 mt-1">
                             <div class="absolute -top-2.5 -right-2 discount-badge">-49%</div>
-                            <div class="w-12 h-12 bg-[#F0F2F5] rounded-xl flex items-center justify-center text-[24px] shrink-0">👟</div>
+                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 p-2">
+                                <img src="ml.png" alt="Mercado Livre" class="w-full h-full object-contain">
+                            </div>
                             <div class="flex-1 min-w-0 text-left">
                                 <h4 class="text-[14px] font-bold text-white truncate">Tênis de corrida</h4>
                                 <p class="text-[12px] text-[var(--text-muted)] truncate">Mercado Livre · <s class="opacity-60">R$ 349</s></p>
@@ -249,7 +261,9 @@
 
                         <div class="offer-card p-3 flex items-center gap-3 mx-1 mt-1">
                             <div class="absolute -top-2.5 -right-2 discount-badge">-42%</div>
-                            <div class="w-12 h-12 bg-[#E8F5E9] rounded-xl flex items-center justify-center text-[24px] shrink-0">👕</div>
+                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 p-2">
+                                <img src="shopee.png" alt="Shopee" class="w-full h-full object-contain">
+                            </div>
                             <div class="flex-1 min-w-0 text-left">
                                 <h4 class="text-[14px] font-bold text-white truncate">Kit 3 camisetas</h4>
                                 <p class="text-[12px] text-[var(--text-muted)] truncate">Shopee · <s class="opacity-60">R$ 119</s></p>
@@ -262,7 +276,6 @@
                 </div>
                 <p class="text-[12px] text-[var(--text-muted)] mt-2 text-center font-medium opacity-80">Exemplos de ofertas recentes do grupo</p>
             </div>
-
         </div>
     </section>
 
@@ -439,21 +452,43 @@
             }, 600);
         });
 
-        // Lógica de alternância do contador de membros/nomes
+        // Lógica de alternância do contador de membros/nomes e status sincronizado
         const nomes = ["Thiago", "Maria", "João", "Ana", "Lucas", "Julia", "Pedro", "Camila", "Rafael", "Beatriz", "Marcos", "Letícia"];
         const badgeText = document.getElementById('badge-text');
+        
+        // Elementos do status do topo que serão sincronizados
+        const statusDot = document.getElementById('status-dot');
+        const statusText = document.getElementById('status-text');
+        
         let mostrandoMembro = false;
 
         setInterval(() => {
+            // Esconde os textos suavemente
             badgeText.style.opacity = '0';
+            statusText.style.opacity = '0';
+            
             setTimeout(() => {
                 if (mostrandoMembro) {
+                    // Volta ao estado normal (verde)
                     badgeText.innerText = "30 mil membros";
+                    
+                    statusText.innerText = "Monitoramento Ativo";
+                    statusText.className = "mono text-[11px] font-semibold tracking-wider uppercase text-emerald-400 transition-opacity duration-300";
+                    statusDot.className = "w-2.5 h-2.5 rounded-full bg-[var(--neon-green)] animate-pulse shrink-0 transition-colors duration-300";
                 } else {
+                    // Alguém entrou - Estado de urgência (vermelho)
                     const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
                     badgeText.innerText = `${nomeAleatorio} entrou no grupo`;
+                    
+                    statusText.innerText = "Vagas acabando";
+                    statusText.className = "mono text-[11px] font-semibold tracking-wider uppercase text-red-500 transition-opacity duration-300";
+                    statusDot.className = "w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse shrink-0 transition-colors duration-300";
                 }
+                
+                // Exibe os textos novamente
                 badgeText.style.opacity = '1';
+                statusText.style.opacity = '1';
+                
                 mostrandoMembro = !mostrandoMembro;
             }, 300); 
         }, 3500);
