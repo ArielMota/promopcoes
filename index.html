@@ -3,495 +3,855 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PROMOPÇÕES | Curadoria de Ofertas no WhatsApp</title>
 
-    <meta name="theme-color" content="#0E7A4F">
+    <title>PROMOPÇÕES | Ofertas que realmente valem a pena</title>
+
+    <meta name="theme-color" content="#090D0B">
+
+    <meta
+        name="description"
+        content="Receba ofertas relâmpago e promoções selecionadas diretamente no WhatsApp. Grupo gratuito."
+    >
+
+    <meta property="og:title" content="PROMOPÇÕES | Ofertas Relâmpago">
+    <meta
+        property="og:description"
+        content="Ofertas selecionadas e enviadas diretamente no WhatsApp."
+    >
+    <meta
+        property="og:image"
+        content="https://arielmota.github.io/promopcoes/logo.png"
+    >
+
+    <link rel="icon" type="image/png" href="logo.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="logo.png">
 
-    <meta name="description" content="Receba uma curadoria diária das melhores ofertas das maiores lojas do Brasil. Grupo gratuito no WhatsApp.">
-    <meta property="og:title" content="PROMOPÇÕES | Curadoria de Ofertas no WhatsApp">
-    <meta property="og:description" content="Monitoramos os preços das grandes lojas e avisamos você sempre que uma promoção real acontece. ">
-    <meta property="og:image" content="https://arielmota.github.io/promopcoes/logo.png">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- =========================================================
+         META PIXEL
+         O EVENTO LEAD CONTINUA SENDO DISPARADO NA OBRIGADO.HTML
+         ========================================================= -->
 
     <script>
         !function(f,b,e,v,n,t,s)
-        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-        n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];
-        s.parentNode.insertBefore(t,s)}(window, document,'script',
-        'https://connect.facebook.net/en_US/fbevents.js');
+        {
+            if(f.fbq)return;
+            n=f.fbq=function(){
+                n.callMethod ?
+                n.callMethod.apply(n,arguments) :
+                n.queue.push(arguments)
+            };
+
+            if(!f._fbq)f._fbq=n;
+
+            n.push=n;
+            n.loaded=!0;
+            n.version='2.0';
+            n.queue=[];
+
+            t=b.createElement(e);
+            t.async=!0;
+            t.src=v;
+
+            s=b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t,s)
+        }(
+            window,
+            document,
+            'script',
+            'https://connect.facebook.net/en_US/fbevents.js'
+        );
+
         fbq('init', '1353562893309087');
         fbq('track', 'PageView');
     </script>
+
     <noscript>
-        <img height="1" width="1" style="display:none"
-             src="https://www.facebook.com/tr?id=1353562893309087&ev=PageView&noscript=1" />
+        <img
+            height="1"
+            width="1"
+            style="display:none"
+            src="https://www.facebook.com/tr?id=1353562893309087&ev=PageView&noscript=1"
+        />
     </noscript>
+
 
     <style>
         :root {
-            --bg-deep: #090D0B;
+            --bg-deep: #070B09;
+            --bg-secondary: #0C120F;
             --surface: #121A16;
-            --surface-card: #18241F;
-            --border-neon: rgba(37, 211, 102, 0.2);
-            --neon-green: #25D366;
-            --text-main: #F3F4F6;
-            --text-muted: #9CA3AF;
+            --surface-card: #17231D;
+            --green: #25D366;
+            --green-dark: #128C7E;
+            --yellow: #FFD60A;
+            --orange: #FF8A00;
+            --red: #FF3B30;
+            --white: #F7F8F8;
+            --muted: #9CA6A1;
+            --border: rgba(255,255,255,.07);
         }
 
         * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
 
         body {
-            background-color: var(--bg-deep);
-            color: var(--text-main);
+            margin: 0;
+            background:
+                radial-gradient(
+                    circle at 50% 0%,
+                    rgba(37,211,102,.10),
+                    transparent 420px
+                ),
+                var(--bg-deep);
+            color: var(--white);
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
 
-        .mono { font-family: 'JetBrains Mono', monospace; }
+        .mono {
+            font-family: 'JetBrains Mono', monospace;
+        }
 
-        .hero-glow {
-            position: absolute;
-            top: 0;
-            left: 50%;
-            transform: translateX(-50%);
+        /* CARDS */
+        .pro-card {
+            background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            box-shadow: 0 15px 40px rgba(0,0,0,.35);
+        }
+
+        /* LIVE INDICATOR */
+        .live-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            box-shadow: 0 0 0 0 rgba(37,211,102,.6);
+            animation: livePulse 1.8s infinite;
+        }
+
+        @keyframes livePulse {
+            0% { box-shadow: 0 0 0 0 rgba(37,211,102,.5); }
+            70% { box-shadow: 0 0 0 8px rgba(37,211,102,0); }
+            100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
+        }
+
+        /* HERO BADGE */
+        .alert-badge {
+            background: rgba(255,214,10,.08);
+            border: 1px solid rgba(255,214,10,.22);
+            color: var(--yellow);
+        }
+
+        /* FLASH SLIDER CONTAINER */
+        .slider-container {
             width: 100%;
-            max-width: 500px;
-            height: 300px;
-            background: radial-gradient(circle, rgba(37,211,102,0.12) 0%, rgba(9,13,11,0) 70%);
-            z-index: 0;
+            overflow: hidden;
+            border-radius: 22px;
+            position: relative;
+            margin-bottom: 16px;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+            width: 300%; /* 3 slides */
+        }
+
+        .slide {
+            width: 33.3333%;
+            flex-shrink: 0;
+        }
+
+        /* FLASH OFFER CARD */
+        .flash-card {
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #241b05, #16150b 55%, #101610);
+            border: 1px solid rgba(255,214,10,.28);
+            border-radius: 22px;
+            box-shadow: 0 15px 50px rgba(0,0,0,.4);
+            height: 100%;
+        }
+
+        .flash-card::before {
+            content: "";
+            position: absolute;
+            top: -100px;
+            right: -100px;
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(circle, rgba(255,214,10,.15), transparent 70%);
             pointer-events: none;
         }
 
-        .pro-card {
-            background: var(--surface);
-            border: 1px solid rgba(255, 255, 255, 0.07);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px -10px rgba(0,0,0,0.5);
-            transition: border-color 0.3s ease;
-        }
-        .pro-card:hover {
-            border-color: rgba(37, 211, 102, 0.2);
+        .flash-label {
+            background: linear-gradient(90deg, var(--orange), #FFB000);
+            color: #171000;
+            font-weight: 900;
+            border-radius: 999px;
         }
 
-        .badge-live {
-            background: rgba(37, 211, 102, 0.1);
-            border: 1px solid rgba(37, 211, 102, 0.2);
-            color: var(--neon-green);
+        /* CTA */
+        .main-cta {
+            background: linear-gradient(135deg, #25D366, #19B957);
+            color: #041109;
+            box-shadow: 0 12px 35px rgba(37,211,102,.25);
+            transition: transform .2s ease, box-shadow .2s ease;
         }
 
-        @keyframes pulseGlow {
-            0%, 100% { box-shadow: 0 0 10px rgba(37,211,102,0.2); }
-            50% { box-shadow: 0 0 20px rgba(37,211,102,0.4); }
+        .main-cta:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 16px 40px rgba(37,211,102,.35);
         }
+
+        .main-cta:active {
+            transform: scale(.98);
+        }
+
         .cta-pulse {
-            animation: pulseGlow 3s infinite;
+            animation: ctaPulse 2.8s infinite;
         }
 
-        .spinner {
-            width: 20px; height: 20px;
-            border: 3px solid rgba(255,255,255,0.3);
-            border-top-color: #fff;
-            border-radius: 50%;
-            animation: spin 0.7s linear infinite;
+        @keyframes ctaPulse {
+            0%, 100% { box-shadow: 0 10px 30px rgba(37,211,102,.22); }
+            50% { box-shadow: 0 10px 45px rgba(37,211,102,.42); }
         }
-        @keyframes spin { to { transform: rotate(360deg); } }
+
+        /* OFFER FEED */
+        .offer-card {
+            background: var(--surface-card);
+            border: 1px solid rgba(255,255,255,.06);
+            border-radius: 15px;
+            position: relative;
+        }
+
+        .discount {
+            background: var(--red);
+            color: white;
+            font-size: 10px;
+            font-weight: 900;
+            border-radius: 999px;
+            padding: 4px 8px;
+        }
+
+        /* SCROLL */
+        @keyframes scrollOffers {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-50%); }
+        }
+
+        .offers-scroll {
+            animation: scrollOffers 14s linear infinite;
+        }
+
+        .offers-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        .fade-mask {
+            mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+            -webkit-mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
+        }
+
+        /* SPINNER */
+        .spinner {
+            width: 19px;
+            height: 19px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-top-color: white;
+            border-radius: 50%;
+            animation: spin .7s linear infinite;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
 
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
 
-        /* Animações e estilos dos cards de oferta */
-        @keyframes scrollY {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-50%); }
-        }
-        .animate-scroll-y {
-            animation: scrollY 12s linear infinite;
-        }
-        .animate-scroll-y:hover {
-            animation-play-state: paused;
-        }
-        .mask-fade {
-            -webkit-mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
-            mask-image: linear-gradient(to bottom, transparent, black 15%, black 85%, transparent);
-        }
-        .offer-card {
-            background: var(--surface-card);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-            position: relative;
-        }
-        .discount-badge {
-            background: #E85D04;
-            color: white;
-            font-size: 11px;
-            font-weight: 800;
-            padding: 2px 8px;
-            border-radius: 20px;
-            box-shadow: 0 4px 10px rgba(232, 93, 4, 0.4);
+        @media(max-width: 380px) {
+            h1 { font-size: 25px !important; }
+            .flash-card { padding: 16px !important; }
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col items-center pb-36 relative">
 
-    <div class="hero-glow"></div>
+<body class="pb-36">
 
-    <!-- TOPO INFORMATIVO -->
-    <header class="w-full sticky top-0 z-[100] bg-[var(--bg-deep)]/90 backdrop-blur-md border-b border-white/5 py-3 px-4">
-        <div class="max-w-[440px] mx-auto flex items-center justify-between">
-            <div class="flex items-center gap-2">
-                <!-- ADICIONADO ID 'status-dot' E TRANSIÇÃO -->
-                <span id="status-dot" class="w-2.5 h-2.5 rounded-full bg-[var(--neon-green)] animate-pulse shrink-0 transition-colors duration-300"></span>
-                <!-- ADICIONADO ID 'status-text' E TRANSIÇÃO -->
-                <span id="status-text" class="mono text-[11px] font-semibold tracking-wider uppercase text-emerald-400 transition-opacity duration-300">
-                    Monitoramento Ativo
-                </span>
-            </div>
-            <!-- BADGE ALTERNANTE -->
-            <div class="badge-live mono text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1.5 min-w-[160px] justify-center">
-                <i data-lucide="users" class="w-3 h-3"></i>
-                <span id="badge-text" class="transition-opacity duration-300">30 mil membros</span>
-            </div>
+<!-- HEADER -->
+<header class="sticky top-0 z-[100] w-full px-4 py-3 bg-[#070B09]/90 backdrop-blur-xl border-b border-white/5">
+    <div class="max-w-[440px] mx-auto flex items-center justify-between">
+        <div class="flex items-center gap-2">
+            <span class="live-dot"></span>
+            <span id="monitor-status" class="mono text-[10px] font-bold uppercase tracking-wider text-emerald-400">
+                Monitoramento ativo
+            </span>
         </div>
-    </header>
-
-    <!-- HERO SECTION -->
-    <section class="w-full flex flex-col items-center px-4 pt-8 relative z-10">
-        <div class="w-full max-w-[440px] text-center flex flex-col items-center">
-            
-           <div class="w-24 h-24 bg-white rounded-3xl border-4 border-[var(--surface-card)] flex items-center justify-center mb-6 shadow-2xl relative p-3">
-                <img src="logo.png" alt="PROMOPÇÕES Logo" class="w-full h-full object-contain" onerror="this.style.display='none';this.parentNode.innerHTML='<span class=\'text-2xl font-bold text-gray-900\'>P%</span>'">
-            </div>
-
-            <h1 class="text-[28px] sm:text-[32px] font-extrabold tracking-tight leading-[1.2] text-white mb-4">
-                As melhores ofertas da internet, <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-300">direto no seu WhatsApp.</span>
-            </h1>
-
-            <p class="text-[15px] text-[var(--text-muted)] leading-relaxed mb-6 font-medium">
-                Nossa equipe rastreia os preços da Amazon, Shopee e Mercado Livre diariamente. Sempre que uma promoção real é confirmada, você recebe o link em primeira mão.
-            </p>
-
-            <!-- FEED DE OFERTAS ANIMADO -->
-            <div class="w-full mb-2">
-                <div class="w-full h-[220px] mask-fade overflow-hidden relative">
-                    <div class="flex flex-col gap-3 animate-scroll-y pt-2 pb-3">
-                        
-                        <!-- GRUPO 1 -->
-                        <div class="offer-card p-3 flex items-center gap-3 mx-1 mt-1">
-                            <div class="absolute -top-2.5 -right-2 discount-badge">-53%</div>
-                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 p-2">
-                                <img src="amz.png" alt="Amazon" class="w-full h-full object-contain">
-                            </div>
-                            <div class="flex-1 min-w-0 text-left">
-                                <h4 class="text-[14px] font-bold text-white truncate">Air fryer 4 litros</h4>
-                                <p class="text-[12px] text-[var(--text-muted)] truncate">Amazon · <s class="opacity-60">R$ 399</s></p>
-                            </div>
-                            <div class="text-right shrink-0">
-                                <p class="text-[17px] font-extrabold text-[var(--neon-green)]">R$ 189</p>
-                            </div>
-                        </div>
-
-                        <div class="offer-card p-3 flex items-center gap-3 mx-1 mt-1">
-                            <div class="absolute -top-2.5 -right-2 discount-badge">-49%</div>
-                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 p-2">
-                                <img src="ml.png" alt="Mercado Livre" class="w-full h-full object-contain">
-                            </div>
-                            <div class="flex-1 min-w-0 text-left">
-                                <h4 class="text-[14px] font-bold text-white truncate">Tênis de corrida</h4>
-                                <p class="text-[12px] text-[var(--text-muted)] truncate">Mercado Livre · <s class="opacity-60">R$ 349</s></p>
-                            </div>
-                            <div class="text-right shrink-0">
-                                <p class="text-[17px] font-extrabold text-[var(--neon-green)]">R$ 179</p>
-                            </div>
-                        </div>
-
-                        <div class="offer-card p-3 flex items-center gap-3 mx-1 mt-1">
-                            <div class="absolute -top-2.5 -right-2 discount-badge">-42%</div>
-                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 p-2">
-                                <img src="shopee.png" alt="Shopee" class="w-full h-full object-contain">
-                            </div>
-                            <div class="flex-1 min-w-0 text-left">
-                                <h4 class="text-[14px] font-bold text-white truncate">Kit 3 camisetas</h4>
-                                <p class="text-[12px] text-[var(--text-muted)] truncate">Shopee · <s class="opacity-60">R$ 119</s></p>
-                            </div>
-                            <div class="text-right shrink-0">
-                                <p class="text-[17px] font-extrabold text-[var(--neon-green)]">R$ 69</p>
-                            </div>
-                        </div>
-
-                        <!-- GRUPO 2 (Duplicado para o scroll infinito funcionar em loop sem cortes) -->
-                        <div class="offer-card p-3 flex items-center gap-3 mx-1 mt-1">
-                            <div class="absolute -top-2.5 -right-2 discount-badge">-53%</div>
-                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 p-2">
-                                <img src="amz.png" alt="Amazon" class="w-full h-full object-contain">
-                            </div>
-                            <div class="flex-1 min-w-0 text-left">
-                                <h4 class="text-[14px] font-bold text-white truncate">Air fryer 4 litros</h4>
-                                <p class="text-[12px] text-[var(--text-muted)] truncate">Amazon · <s class="opacity-60">R$ 399</s></p>
-                            </div>
-                            <div class="text-right shrink-0">
-                                <p class="text-[17px] font-extrabold text-[var(--neon-green)]">R$ 189</p>
-                            </div>
-                        </div>
-
-                        <div class="offer-card p-3 flex items-center gap-3 mx-1 mt-1">
-                            <div class="absolute -top-2.5 -right-2 discount-badge">-49%</div>
-                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 p-2">
-                                <img src="ml.png" alt="Mercado Livre" class="w-full h-full object-contain">
-                            </div>
-                            <div class="flex-1 min-w-0 text-left">
-                                <h4 class="text-[14px] font-bold text-white truncate">Tênis de corrida</h4>
-                                <p class="text-[12px] text-[var(--text-muted)] truncate">Mercado Livre · <s class="opacity-60">R$ 349</s></p>
-                            </div>
-                            <div class="text-right shrink-0">
-                                <p class="text-[17px] font-extrabold text-[var(--neon-green)]">R$ 179</p>
-                            </div>
-                        </div>
-
-                        <div class="offer-card p-3 flex items-center gap-3 mx-1 mt-1">
-                            <div class="absolute -top-2.5 -right-2 discount-badge">-42%</div>
-                            <div class="w-12 h-12 bg-white rounded-xl flex items-center justify-center shrink-0 p-2">
-                                <img src="shopee.png" alt="Shopee" class="w-full h-full object-contain">
-                            </div>
-                            <div class="flex-1 min-w-0 text-left">
-                                <h4 class="text-[14px] font-bold text-white truncate">Kit 3 camisetas</h4>
-                                <p class="text-[12px] text-[var(--text-muted)] truncate">Shopee · <s class="opacity-60">R$ 119</s></p>
-                            </div>
-                            <div class="text-right shrink-0">
-                                <p class="text-[17px] font-extrabold text-[var(--neon-green)]">R$ 69</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <p class="text-[12px] text-[var(--text-muted)] mt-2 text-center font-medium opacity-80">Exemplos de ofertas recentes do grupo</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- PILARES DO SERVIÇO -->
-    <section class="w-full py-6 flex flex-col items-center px-4 relative z-10">
-        <div class="w-full max-w-[440px] grid grid-cols-2 gap-3">
-            <div class="pro-card p-4 flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-500/20">
-                    <i data-lucide="shopping-bag" class="w-5 h-5 text-[var(--neon-green)]"></i>
-                </div>
-                <div>
-                    <h4 class="text-[13px] font-bold text-white">Lojas Oficiais</h4>
-                    <p class="text-[11px] text-[var(--text-muted)]">Links diretos e seguros.</p>
-                </div>
-            </div>
-            <div class="pro-card p-4 flex items-center gap-3">
-                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center shrink-0 border border-emerald-500/20">
-                    <i data-lucide="bell-off" class="w-5 h-5 text-[var(--neon-green)]"></i>
-                </div>
-                <div>
-                    <h4 class="text-[13px] font-bold text-white">Grupo Seguro</h4>
-                    <p class="text-[11px] text-[var(--text-muted)]">Apenas administradores postam.</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- COMO FUNCIONA -->
-    <section class="w-full py-4 flex flex-col items-center px-4 relative z-10">
-        <div class="w-full max-w-[440px] pro-card p-6">
-            <h3 class="text-[16px] font-bold text-white mb-5">
-                Como o PROMOPÇÕES funciona?
-            </h3>
-
-            <div class="flex flex-col gap-5">
-                <div class="flex items-start gap-3.5">
-                    <div class="w-7 h-7 rounded-full bg-emerald-500/10 text-[var(--neon-green)] flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/20">
-                        <i data-lucide="search" class="w-3.5 h-3.5"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-[14px] font-bold text-white">Curadoria diária</h4>
-                        <p class="text-[13px] text-[var(--text-muted)] mt-1 leading-relaxed">Nossa equipe pesquisa e filtra centenas de produtos todos os dias para encontrar os melhores preços.</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-3.5">
-                    <div class="w-7 h-7 rounded-full bg-emerald-500/10 text-[var(--neon-green)] flex items-center justify-center shrink-0 mt-0.5 border border-emerald-500/20">
-                        <i data-lucide="smartphone" class="w-3.5 h-3.5"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-[14px] font-bold text-white">Alertas práticos</h4>
-                        <p class="text-[13px] text-[var(--text-muted)] mt-1 leading-relaxed">As ofertas são enviadas no grupo do WhatsApp de forma organizada e com as informações claras.</p>
-                    </div>
-                </div>
-                <div class="flex items-start gap-3.5">
-                    <div class="w-7 h-7 rounded-full bg-[var(--neon-green)] text-[var(--bg-deep)] flex items-center justify-center shrink-0 mt-0.5 shadow-md">
-                        <i data-lucide="check" class="w-4 h-4"></i>
-                    </div>
-                    <div>
-                        <h4 class="text-[14px] font-bold text-white">Você decide</h4>
-                        <p class="text-[13px] text-[var(--text-muted)] mt-1 leading-relaxed">Gostou da oferta? É só clicar no link e finalizar a compra com segurança no site oficial da loja.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PROVA SOCIAL (NOVO) -->
-    <section class="w-full py-4 flex flex-col items-center px-4 relative z-10">
-        <div class="w-full max-w-[440px]">
-            <h3 class="text-[15px] font-bold text-white mb-4 ml-1">O que dizem nossos membros</h3>
-            
-            <div class="flex flex-col gap-3">
-                <div class="pro-card p-4">
-                    <div class="flex items-center gap-3 mb-2">
-                        <img src="https://ui-avatars.com/api/?name=Carlos+Silva&background=0D8ABC&color=fff&rounded=true&size=40" alt="Avatar do usuário" class="w-8 h-8 rounded-full border border-white/10">
-                        <div>
-                            <h4 class="text-[13px] font-bold text-white leading-tight">Carlos Silva</h4>
-                            <div class="flex text-[var(--neon-green)] text-[10px]">
-                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-[13px] text-[var(--text-muted)] leading-relaxed italic">"Já economizei muito com os links que enviam. O grupo não tem mensagens chatas, só mandam o que realmente está barato."</p>
-                </div>
-
-                <div class="pro-card p-4">
-                    <div class="flex items-center gap-3 mb-2">
-                        <img src="https://ui-avatars.com/api/?name=Fernanda+Costa&background=E53E3E&color=fff&rounded=true&size=40" alt="Avatar do usuário" class="w-8 h-8 rounded-full border border-white/10">
-                        <div>
-                            <h4 class="text-[13px] font-bold text-white leading-tight">Fernanda Costa</h4>
-                            <div class="flex text-[var(--neon-green)] text-[10px]">
-                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                                <i data-lucide="star" class="w-3 h-3 fill-current"></i>
-                            </div>
-                        </div>
-                    </div>
-                    <p class="text-[13px] text-[var(--text-muted)] leading-relaxed italic">"Muito prático! Eu estava atrás de uma Air Fryer há meses, consegui pegar uma promoção que durou só algumas horas graças ao alerta."</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- FAQ -->
-    <section class="w-full py-4 flex flex-col items-center px-4 relative z-10">
-        <div class="w-full max-w-[440px] pro-card p-5">
-            <h3 class="text-[15px] font-bold text-white mb-4 text-center">Perguntas Comuns</h3>
-            <div class="flex flex-col divide-y divide-white/5">
-                <details class="group py-3">
-                    <summary class="flex items-center justify-between cursor-pointer text-[13.5px] font-medium text-white">
-                        O serviço tem algum custo mensal?
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 transition-transform group-open:rotate-180"></i>
-                    </summary>
-                    <p class="text-[12.5px] text-[var(--text-muted)] mt-2 leading-relaxed">Não. O acesso ao grupo é totalmente gratuito. Nosso trabalho é monetizado através das comissões pagas pelas próprias lojas quando uma venda é realizada pelos nossos links.</p>
-                </details>
-                <details class="group py-3">
-                    <summary class="flex items-center justify-between cursor-pointer text-[13.5px] font-medium text-white">
-                        Vou receber muitas mensagens?
-                        <i data-lucide="chevron-down" class="w-4 h-4 text-gray-400 transition-transform group-open:rotate-180"></i>
-                    </summary>
-                    <p class="text-[12.5px] text-[var(--text-muted)] mt-2 leading-relaxed">Focamos em qualidade, não em quantidade. Você receberá apenas notificações de ofertas que realmente valem a pena. Além disso, você pode silenciar o grupo no seu WhatsApp a qualquer momento.</p>
-                </details>
-            </div>
-        </div>
-    </section>
-
-    <!-- FOOTER -->
-    <footer class="w-full flex justify-center py-8 px-6 mb-24 relative z-10">
-        <div class="w-full max-w-[440px] text-center">
-            <p class="text-[10px] text-[var(--text-muted)] leading-relaxed mb-3 opacity-60">
-                Este site não faz parte do site do Facebook ou da Meta Platforms, Inc. Este serviço é uma iniciativa independente de curadoria de ofertas e redireciona os usuários para lojas online oficiais.
-            </p>
-            <p class="text-[11px] text-[var(--text-muted)] opacity-50">© 2026 PROMOPÇÕES · Serviço Gratuito</p>
-        </div>
-    </footer>
-
-    <!-- CTA FIXO -->
-    <div class="fixed bottom-0 left-0 right-0 z-[100] p-4 bg-[var(--bg-deep)]/95 backdrop-blur-xl border-t border-white/5 flex justify-center shadow-[0_-10px_30px_rgba(0,0,0,0.5)]">
-        <div class="w-full max-w-[440px] flex flex-col items-center gap-2">
-            <a href="obrigado.html" id="cta-button" class="w-full bg-[var(--neon-green)] hover:bg-[#1faa53] text-[#05140A] flex items-center justify-center gap-2.5 py-4 px-6 rounded-2xl font-bold text-[16px] cta-pulse transition-all active:scale-[0.98] no-underline">
-                <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
-                <span id="cta-text">Entrar no grupo gratuito</span>
-            </a>
-            <p class="text-[11px] text-[var(--text-muted)] flex items-center gap-1 font-medium">
-                <i data-lucide="shield" class="w-3 h-3 text-emerald-500"></i>
-                Redirecionamento seguro para o WhatsApp
-            </p>
+        <div class="flex items-center gap-1.5 text-[10px] font-bold text-white bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+            <i data-lucide="users" class="w-3 h-3 text-emerald-400"></i>
+            <span>Comunidade de ofertas</span>
         </div>
     </div>
+</header>
 
-    <script>
-        lucide.createIcons();
+<main>
 
-        // Lógica do botão de redirecionamento
-        const ctaBtn = document.getElementById('cta-button');
-        ctaBtn.addEventListener('click', function(e) {
+<!-- HERO -->
+<section class="w-full px-4 pt-7 relative">
+    <div class="max-w-[440px] mx-auto text-center">
+
+        <!-- LOGO -->
+        <div class="mx-auto w-[76px] h-[76px] bg-white rounded-[22px] p-2.5 mb-5 shadow-2xl">
+            <img src="logo.png" alt="PROMOPÇÕES" class="w-full h-full object-contain">
+        </div>
+
+        <!-- HOOK -->
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full alert-badge text-[10px] font-extrabold uppercase tracking-wide mb-4">
+            <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+            Ofertas que podem acabar rápido
+        </div>
+
+        <h1 class="text-[29px] sm:text-[33px] font-extrabold leading-[1.13] tracking-tight mb-4">
+            Você não precisa
+            <span class="text-emerald-400">ficar procurando promoções.</span>
+            <br>
+            A gente encontra
+            <span class="text-yellow-300">e avisa você.</span>
+        </h1>
+
+        <p class="text-[14px] sm:text-[15px] text-gray-400 leading-relaxed font-medium mb-6">
+            Monitoramos grandes lojas e selecionamos promoções, cupons e oportunidades que realmente merecem atenção.
+        </p>
+
+        <!-- =================================================
+             SLIDER DE OFERTAS (SEM CONTADOR, COM DÚVIDA)
+             ================================================= -->
+        <div class="slider-container">
+            <div id="slider-track" class="slider-track">
+                
+                <!-- SLIDE 1: GELADEIRA -->
+                <div class="slide">
+                    <div class="flash-card text-left p-5">
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <div class="flash-label text-[10px] px-3 py-1.5 flex items-center gap-1.5">
+                                <i data-lucide="zap" class="w-3.5 h-3.5"></i> OFERTA RELÂMPAGO
+                            </div>
+                            <span class="text-[10px] text-yellow-300 font-bold animate-pulse">
+                                verificando estoque...
+                            </span>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-[74px] h-[74px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
+                                <!-- Coloque o logo da loja ou ícone genérico -->
+                                <img src="amz.png" alt="Loja" class="w-full h-full object-contain">
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <h2 class="text-[15px] font-extrabold text-white leading-tight">Geladeira Frost Free</h2>
+                                <div class="flex items-center gap-2 mt-2">
+                                    <s class="text-[11px] text-gray-500">R$ 3.599</s>
+                                    <span class="text-[20px] font-extrabold text-emerald-400">R$ 2.199</span>
+                                </div>
+                            </div>
+                            <div class="discount shrink-0">-38%</div>
+                        </div>
+
+                        <!-- GATILHO DA DÚVIDA -->
+                        <div class="mt-5 pt-3 border-t border-white/10 text-center">
+                            <p class="text-[11px] text-gray-300 font-medium leading-relaxed">
+                                ⚠️ <span class="text-yellow-300 font-bold">Status Incerto:</span> Esta oferta pode já ter esgotado. Verifique no grupo.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2: SOFÁ -->
+                <div class="slide">
+                    <div class="flash-card text-left p-5">
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <div class="flash-label text-[10px] px-3 py-1.5 flex items-center gap-1.5">
+                                <i data-lucide="zap" class="w-3.5 h-3.5"></i> ACHADO DO DIA
+                            </div>
+                            <span class="text-[10px] text-yellow-300 font-bold animate-pulse">
+                                poucas unidades...
+                            </span>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-[74px] h-[74px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
+                                <img src="ml.png" alt="Loja" class="w-full h-full object-contain">
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <h2 class="text-[15px] font-extrabold text-white leading-tight">Sofá Retrátil 3 Lugares</h2>
+                                <div class="flex items-center gap-2 mt-2">
+                                    <s class="text-[11px] text-gray-500">R$ 1.899</s>
+                                    <span class="text-[20px] font-extrabold text-emerald-400">R$ 997</span>
+                                </div>
+                            </div>
+                            <div class="discount shrink-0">-47%</div>
+                        </div>
+
+                        <!-- GATILHO DA DÚVIDA -->
+                        <div class="mt-5 pt-3 border-t border-white/10 text-center">
+                            <p class="text-[11px] text-gray-300 font-medium leading-relaxed">
+                                🔥 <span class="text-yellow-300 font-bold">Alta Demanda:</span> Preço sujeito a alteração a qualquer momento.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3: AIR FRYER -->
+                <div class="slide">
+                    <div class="flash-card text-left p-5">
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <div class="flash-label text-[10px] px-3 py-1.5 flex items-center gap-1.5">
+                                <i data-lucide="zap" class="w-3.5 h-3.5"></i> CUPOM ATIVO
+                            </div>
+                            <span class="text-[10px] text-yellow-300 font-bold animate-pulse">
+                                verificando validade...
+                            </span>
+                        </div>
+
+                        <div class="flex items-center gap-4">
+                            <div class="w-[74px] h-[74px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
+                                <img src="shopee.png" alt="Loja" class="w-full h-full object-contain">
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <h2 class="text-[15px] font-extrabold text-white leading-tight">Air Fryer 4 Litros</h2>
+                                <div class="flex items-center gap-2 mt-2">
+                                    <s class="text-[11px] text-gray-500">R$ 399</s>
+                                    <span class="text-[20px] font-extrabold text-emerald-400">R$ 189</span>
+                                </div>
+                            </div>
+                            <div class="discount shrink-0">-52%</div>
+                        </div>
+
+                        <!-- GATILHO DA DÚVIDA -->
+                        <div class="mt-5 pt-3 border-t border-white/10 text-center">
+                            <p class="text-[11px] text-gray-300 font-medium leading-relaxed">
+                                ⏳ <span class="text-yellow-300 font-bold">Cupom Limitado:</span> Não garantimos que o desconto ainda funcione.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- ESCASSEZ -->
+        <div class="flex items-center justify-center gap-2 text-[11px] text-gray-400 mb-5 mt-2">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+            <span>Oportunidades únicas chegam primeiro no grupo</span>
+        </div>
+
+        <!-- CTA HERO -->
+        <a href="obrigado.html" id="hero-cta" class="main-cta cta-pulse w-full py-4 px-5 rounded-2xl flex items-center justify-center gap-2.5 font-extrabold text-[16px] no-underline">
+            <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
+            Quero receber as ofertas
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <p class="mt-2.5 text-[10px] text-gray-500">
+            Grátis • Sem cartão • Saída a qualquer momento
+        </p>
+    </div>
+</section>
+
+<!-- MICRO PROVA / REDUÇÃO DE RISCO -->
+<section class="w-full px-4 py-5">
+    <div class="max-w-[440px] mx-auto grid grid-cols-3 gap-2">
+        <div class="pro-card p-3 text-center">
+            <i data-lucide="search-check" class="w-5 h-5 mx-auto mb-2 text-emerald-400"></i>
+            <p class="text-[11px] font-bold text-white">Curadoria</p>
+            <p class="text-[9px] text-gray-500 mt-1">Preços analisados</p>
+        </div>
+        <div class="pro-card p-3 text-center">
+            <i data-lucide="zap" class="w-5 h-5 mx-auto mb-2 text-yellow-300"></i>
+            <p class="text-[11px] font-bold text-white">Alertas</p>
+            <p class="text-[9px] text-gray-500 mt-1">Quando aparece</p>
+        </div>
+        <div class="pro-card p-3 text-center">
+            <i data-lucide="shield-check" class="w-5 h-5 mx-auto mb-2 text-emerald-400"></i>
+            <p class="text-[11px] font-bold text-white">Gratuito</p>
+            <p class="text-[9px] text-gray-500 mt-1">Sem mensalidade</p>
+        </div>
+    </div>
+</section>
+
+<!-- FEED DE OFERTAS (ATUALIZADO PARA CONGRUÊNCIA) -->
+<section class="w-full px-4 py-4">
+    <div class="max-w-[440px] mx-auto">
+        <div class="flex items-end justify-between mb-4">
+            <div>
+                <p class="text-[10px] text-emerald-400 font-bold uppercase tracking-widest mb-1">O que você pode receber</p>
+                <h2 class="text-[19px] font-extrabold">Exemplos de ofertas</h2>
+            </div>
+            <span class="text-[9px] text-gray-500">atualizações diárias</span>
+        </div>
+
+        <div class="fade-mask h-[245px] overflow-hidden">
+            <div class="offers-scroll flex flex-col gap-3">
+
+                <!-- OFERTA 1: GELADEIRA -->
+                <div class="offer-card p-3 flex items-center gap-3">
+                    <div class="w-12 h-12 bg-white rounded-xl p-2 shrink-0 flex items-center justify-center">
+                        <img src="amz.png" alt="Amazon" class="w-full h-full object-contain">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-[13px] font-bold">Geladeira Frost Free</h3>
+                        <p class="text-[10px] text-gray-500 mt-1">Amazon</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="discount text-[9px]">-38%</span>
+                        <p class="text-[16px] font-extrabold text-emerald-400 mt-1">R$ 2.199</p>
+                    </div>
+                </div>
+
+                <!-- OFERTA 2: SOFÁ -->
+                <div class="offer-card p-3 flex items-center gap-3">
+                    <div class="w-12 h-12 bg-white rounded-xl p-2 shrink-0 flex items-center justify-center">
+                        <img src="ml.png" alt="Mercado Livre" class="w-full h-full object-contain">
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-[13px] font-bold">Sofá Retrátil 3 Lug.</h3>
+                        <p class="text-[10px] text-gray-500 mt-1">Mercado Livre</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="discount text-[9px]">-47%</span>
+                        <p class="text-[16px] font-extrabold text-emerald-400 mt-1">R$ 997</p>
+                    </div>
+                </div>
+
+                <!-- OFERTA 3: AIR FRYER -->
+                <div class="offer-card p-3 flex items-center gap-3">
+                    <div class="w-12 h-12 bg-white rounded-xl p-2 shrink-0 flex items-center justify-center">
+                        <img src="shopee.png" alt="Shopee" class="w-full h-full object-contain">
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-[13px] font-bold">Air Fryer 4 Litros</h3>
+                        <p class="text-[10px] text-gray-500 mt-1">Shopee</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="discount text-[9px]">-52%</span>
+                        <p class="text-[16px] font-extrabold text-emerald-400 mt-1">R$ 189</p>
+                    </div>
+                </div>
+
+                <!-- DUPLICAÇÃO PARA O LOOP DO CSS INFINITO -->
+                <div class="offer-card p-3 flex items-center gap-3">
+                    <div class="w-12 h-12 bg-white rounded-xl p-2 shrink-0 flex items-center justify-center">
+                        <img src="amz.png" alt="Amazon" class="w-full h-full object-contain">
+                    </div>
+                    <div class="flex-1 min-w-0">
+                        <h3 class="text-[13px] font-bold">Geladeira Frost Free</h3>
+                        <p class="text-[10px] text-gray-500 mt-1">Amazon</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="discount text-[9px]">-38%</span>
+                        <p class="text-[16px] font-extrabold text-emerald-400 mt-1">R$ 2.199</p>
+                    </div>
+                </div>
+
+                <div class="offer-card p-3 flex items-center gap-3">
+                    <div class="w-12 h-12 bg-white rounded-xl p-2 shrink-0 flex items-center justify-center">
+                        <img src="ml.png" alt="Mercado Livre" class="w-full h-full object-contain">
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-[13px] font-bold">Sofá Retrátil 3 Lug.</h3>
+                        <p class="text-[10px] text-gray-500 mt-1">Mercado Livre</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="discount text-[9px]">-47%</span>
+                        <p class="text-[16px] font-extrabold text-emerald-400 mt-1">R$ 997</p>
+                    </div>
+                </div>
+
+                <div class="offer-card p-3 flex items-center gap-3">
+                    <div class="w-12 h-12 bg-white rounded-xl p-2 shrink-0 flex items-center justify-center">
+                        <img src="shopee.png" alt="Shopee" class="w-full h-full object-contain">
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-[13px] font-bold">Air Fryer 4 Litros</h3>
+                        <p class="text-[10px] text-gray-500 mt-1">Shopee</p>
+                    </div>
+                    <div class="text-right">
+                        <span class="discount text-[9px]">-52%</span>
+                        <p class="text-[16px] font-extrabold text-emerald-400 mt-1">R$ 189</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <p class="text-center text-[10px] text-gray-500 mt-2">
+            Os preços acima são exemplos e podem mudar conforme estoque,
+            cupom e disponibilidade da loja.
+        </p>
+    </div>
+</section>
+
+<!-- ESCASSEZ -->
+<section class="w-full px-4 py-5">
+    <div class="max-w-[440px] mx-auto pro-card p-5 border-yellow-400/20">
+        <div class="flex items-start gap-3">
+            <div class="w-10 h-10 rounded-xl bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center shrink-0">
+                <i data-lucide="clock-3" class="w-5 h-5 text-yellow-300"></i>
+            </div>
+            <div>
+                <h2 class="text-[14px] font-extrabold">Promoções não ficam paradas.</h2>
+                <p class="text-[12px] text-gray-400 leading-relaxed mt-1.5">
+                    Preços, cupons e estoques podem mudar a qualquer momento. Por isso, quando encontramos uma oportunidade, o aviso vai direto para o grupo.
+                </p>
+            </div>
+        </div>
+        <div class="mt-4 flex items-center gap-2 text-[11px] font-bold text-yellow-300">
+            <i data-lucide="alert-circle" class="w-4 h-4"></i>
+            Quem vê primeiro tem mais chance de aproveitar.
+        </div>
+    </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="w-full px-4 py-5">
+    <div class="max-w-[440px] mx-auto">
+        <div class="text-center mb-5">
+            <p class="text-[10px] uppercase tracking-widest text-emerald-400 font-bold">simples assim</p>
+            <h2 class="text-[20px] font-extrabold mt-1">Você entra. A gente monitora.</h2>
+        </div>
+        <div class="flex flex-col gap-3">
+            <div class="pro-card p-4 flex gap-4">
+                <div class="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-emerald-400 font-bold">1</div>
+                <div>
+                    <h3 class="text-[13px] font-bold">Entre gratuitamente</h3>
+                    <p class="text-[11px] text-gray-500 mt-1">Você entra no grupo pelo WhatsApp.</p>
+                </div>
+            </div>
+            <div class="pro-card p-4 flex gap-4">
+                <div class="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-emerald-400 font-bold">2</div>
+                <div>
+                    <h3 class="text-[13px] font-bold">Nós monitoramos os preços</h3>
+                    <p class="text-[11px] text-gray-500 mt-1">A equipe procura oportunidades em grandes lojas.</p>
+                </div>
+            </div>
+            <div class="pro-card p-4 flex gap-4">
+                <div class="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-emerald-400 font-bold">3</div>
+                <div>
+                    <h3 class="text-[13px] font-bold">Você recebe o alerta</h3>
+                    <p class="text-[11px] text-gray-500 mt-1">Quando aparecer algo interessante, você fica sabendo.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROVA SOCIAL -->
+<section class="w-full px-4 py-5">
+    <div class="max-w-[440px] mx-auto">
+        <div class="text-center mb-5">
+            <div class="inline-flex items-center gap-1 text-yellow-300 text-[13px]">★★★★★</div>
+            <h2 class="text-[19px] font-extrabold mt-1">Quem entra, entende.</h2>
+        </div>
+        <div class="flex flex-col gap-3">
+            <div class="pro-card p-4">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-full bg-emerald-500/20 flex items-center justify-center font-bold text-emerald-400">C</div>
+                    <div>
+                        <p class="text-[12px] font-bold">Carlos</p>
+                        <div class="text-yellow-300 text-[9px]">★★★★★</div>
+                    </div>
+                </div>
+                <p class="text-[12px] text-gray-400 italic leading-relaxed">
+                    "O que mais gostei é que não ficam mandando conversa. Quando aparece promoção boa, eles avisam."
+                </p>
+            </div>
+            <div class="pro-card p-4">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-full bg-pink-500/20 flex items-center justify-center font-bold text-pink-300">F</div>
+                    <div>
+                        <p class="text-[12px] font-bold">Fernanda</p>
+                        <div class="text-yellow-300 text-[9px]">★★★★★</div>
+                    </div>
+                </div>
+                <p class="text-[12px] text-gray-400 italic leading-relaxed">
+                    "Entrei sem esperar muito e já consegui aproveitar uma promoção que estava procurando."
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ -->
+<section class="w-full px-4 py-5">
+    <div class="max-w-[440px] mx-auto pro-card p-5">
+        <h2 class="text-[17px] font-extrabold mb-3">Antes de entrar</h2>
+        <details class="group py-3 border-b border-white/5">
+            <summary class="flex items-center justify-between text-[13px] font-bold cursor-pointer">
+                É realmente gratuito?
+                <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 group-open:rotate-180 transition"></i>
+            </summary>
+            <p class="text-[11px] text-gray-500 leading-relaxed mt-2">
+                Sim. Não existe mensalidade ou taxa para entrar. A PROMOPÇÕES pode receber comissão das lojas quando uma compra é realizada através de seus links.
+            </p>
+        </details>
+        <details class="group py-3 border-b border-white/5">
+            <summary class="flex items-center justify-between text-[13px] font-bold cursor-pointer">
+                Vou receber mensagens o dia inteiro?
+                <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 group-open:rotate-180 transition"></i>
+            </summary>
+            <p class="text-[11px] text-gray-500 leading-relaxed mt-2">
+                A proposta é priorizar oportunidades relevantes. Você também pode silenciar as notificações do grupo pelo próprio WhatsApp.
+            </p>
+        </details>
+        <details class="group py-3">
+            <summary class="flex items-center justify-between text-[13px] font-bold cursor-pointer">
+                Posso sair quando quiser?
+                <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 group-open:rotate-180 transition"></i>
+            </summary>
+            <p class="text-[11px] text-gray-500 leading-relaxed mt-2">
+                Sim. O acesso é gratuito e você pode sair do grupo quando quiser.
+            </p>
+        </details>
+    </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="w-full px-4 py-8">
+    <div class="max-w-[440px] mx-auto text-center">
+        <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
+            <i data-lucide="gift" class="w-6 h-6 text-emerald-400"></i>
+        </div>
+        <h2 class="text-[23px] font-extrabold leading-tight">
+            Não deixe a próxima
+            <span class="text-yellow-300">oferta passar.</span>
+        </h2>
+        <p class="text-[12px] text-gray-500 mt-2 mb-5">
+            Entre gratuitamente e deixe as oportunidades chegarem até você.
+        </p>
+        <a href="obrigado.html" id="final-cta" class="main-cta w-full py-4 rounded-2xl flex items-center justify-center gap-2 font-extrabold text-[16px] no-underline">
+            <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
+            Entrar no grupo gratuito
+        </a>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="w-full px-6 py-8 pb-32 text-center">
+    <p class="text-[9px] text-gray-600 leading-relaxed max-w-[440px] mx-auto">
+        Este site não faz parte do Facebook ou da Meta Platforms, Inc. A PROMOPÇÕES é uma iniciativa independente de curadoria de ofertas. Os links podem gerar comissão quando uma compra é realizada.
+    </p>
+    <p class="text-[10px] text-gray-700 mt-3">© 2026 PROMOPÇÕES</p>
+</footer>
+
+</main>
+
+<!-- CTA FIXO -->
+<div class="fixed bottom-0 left-0 right-0 z-[200] bg-[#070B09]/95 backdrop-blur-xl border-t border-white/10 px-4 py-3">
+    <div class="max-w-[440px] mx-auto">
+        <div class="flex items-center justify-between mb-2">
+            <div>
+                <p class="text-[10px] font-bold text-white">Oferta boa não espera.</p>
+                <p class="text-[9px] text-gray-500">Receba os alertas no WhatsApp</p>
+            </div>
+            <div class="flex items-center gap-1.5 text-[9px] text-yellow-300 font-bold">
+                <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
+                monitorando
+            </div>
+        </div>
+        <a href="obrigado.html" id="sticky-cta" class="main-cta cta-pulse w-full py-3.5 rounded-xl flex items-center justify-center gap-2 font-extrabold text-[15px] no-underline">
+            <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
+            Quero entrar gratuitamente
+        </a>
+        <p class="text-center text-[8px] text-gray-600 mt-1.5">Acesso gratuito • WhatsApp</p>
+    </div>
+</div>
+
+<!-- JAVASCRIPT -->
+<script>
+    lucide.createIcons();
+
+    /* =====================================================
+       CARROSSEL AUTOMÁTICO DE OFERTAS
+       Muda o card principal a cada 4 segundos
+       ===================================================== */
+    const track = document.getElementById('slider-track');
+    const totalSlides = 3;
+    let currentSlide = 0;
+
+    if (track) {
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % totalSlides;
+            // Translada -33.33%, -66.66% ou 0%
+            track.style.transform = `translateX(-${currentSlide * 33.3333}%)`;
+        }, 4000);
+    }
+
+    /* =====================================================
+       STATUS DINÂMICO DO HEADER
+       ===================================================== */
+    const statuses = [
+        'Monitoramento ativo',
+        'Encontrando oportunidades',
+        'Preços sendo monitorados',
+        'Caçando ofertas',
+        'Monitoramento ativo'
+    ];
+    let statusIndex = 0;
+
+    setInterval(() => {
+        const element = document.getElementById('monitor-status');
+        if(!element) return;
+        
+        element.style.opacity = '0';
+        setTimeout(() => {
+            statusIndex = (statusIndex + 1) % statuses.length;
+            element.textContent = statuses[statusIndex];
+            element.style.opacity = '1';
+        }, 250);
+    }, 3500);
+
+    /* =====================================================
+       COMPORTAMENTO DOS BOTÕES (CTA)
+       ===================================================== */
+    const buttons = [
+        document.getElementById('hero-cta'),
+        document.getElementById('final-cta'),
+        document.getElementById('sticky-cta')
+    ];
+
+    buttons.forEach(button => {
+        if (!button) return;
+
+        button.addEventListener('click', function(e) {
             e.preventDefault();
-            const href = this.getAttribute('href');
-            
+            const destination = this.getAttribute('href');
+
+            if (this.dataset.loading === 'true') return;
+            this.dataset.loading = 'true';
             this.style.pointerEvents = 'none';
             this.classList.remove('cta-pulse');
-            this.style.backgroundColor = '#128C7E';
-            this.style.color = '#FFFFFF';
-            this.innerHTML = `<div class="spinner"></div><span class="font-bold">Abrindo WhatsApp...</span>`;
-            
-            setTimeout(() => { 
-                window.location.href = href; 
-            }, 600);
-        });
 
-        // Lógica de alternância do contador de membros/nomes e status sincronizado
-        const nomes = ["Thiago", "Maria", "João", "Ana", "Lucas", "Julia", "Pedro", "Camila", "Rafael", "Beatriz", "Marcos", "Letícia"];
-        const badgeText = document.getElementById('badge-text');
-        
-        // Elementos do status do topo que serão sincronizados
-        const statusDot = document.getElementById('status-dot');
-        const statusText = document.getElementById('status-text');
-        
-        let mostrandoMembro = false;
+            this.innerHTML = `
+                <div class="spinner"></div>
+                <span>Abrindo WhatsApp...</span>
+            `;
 
-        setInterval(() => {
-            // Esconde os textos suavemente
-            badgeText.style.opacity = '0';
-            statusText.style.opacity = '0';
-            
             setTimeout(() => {
-                if (mostrandoMembro) {
-                    // Volta ao estado normal (verde)
-                    badgeText.innerText = "30 mil membros";
-                    
-                    statusText.innerText = "Monitoramento Ativo";
-                    statusText.className = "mono text-[11px] font-semibold tracking-wider uppercase text-emerald-400 transition-opacity duration-300";
-                    statusDot.className = "w-2.5 h-2.5 rounded-full bg-[var(--neon-green)] animate-pulse shrink-0 transition-colors duration-300";
-                } else {
-                    // Alguém entrou - Estado de urgência (vermelho)
-                    const nomeAleatorio = nomes[Math.floor(Math.random() * nomes.length)];
-                    badgeText.innerText = `${nomeAleatorio} entrou no grupo`;
-                    
-                    statusText.innerText = "Vagas acabando";
-                    statusText.className = "mono text-[11px] font-semibold tracking-wider uppercase text-red-500 transition-opacity duration-300";
-                    statusDot.className = "w-2.5 h-2.5 rounded-full bg-red-500 animate-pulse shrink-0 transition-colors duration-300";
-                }
-                
-                // Exibe os textos novamente
-                badgeText.style.opacity = '1';
-                statusText.style.opacity = '1';
-                
-                mostrandoMembro = !mostrandoMembro;
-            }, 300); 
-        }, 3500);
-    </script>
+                window.location.href = destination;
+            }, 450);
+        });
+    });
+</script>
 </body>
 </html>
