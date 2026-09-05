@@ -229,6 +229,20 @@
             50% { box-shadow: 0 10px 45px rgba(37,211,102,.42); }
         }
 
+        /* CONTROLE DO CTA FIXO */
+        .sticky-wrapper {
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+            transform: translateY(120%);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .sticky-wrapper.visible {
+            transform: translateY(0);
+            opacity: 1;
+            pointer-events: auto;
+        }
+
         /* OFFER FEED */
         .offer-card {
             background: var(--surface-card);
@@ -313,8 +327,8 @@
 <section class="w-full px-4 pt-7 relative">
     <div class="max-w-[440px] mx-auto text-center">
 
-        <!-- LOGO -->
-        <div class="mx-auto w-[76px] h-[76px] bg-white rounded-[22px] p-2.5 mb-5 shadow-2xl">
+        <!-- LOGO (AGORA MAIOR E RESPONSIVA) -->
+        <div class="mx-auto w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] bg-white rounded-3xl p-3 mb-6 shadow-[0_15px_40px_rgba(37,211,102,0.15)] transition-all">
             <img src="logo.png" alt="PROMOPÇÕES" class="w-full h-full object-contain">
         </div>
 
@@ -333,11 +347,11 @@
         </h1>
 
         <p class="text-[14px] sm:text-[15px] text-gray-400 leading-relaxed font-medium mb-6">
-            Monitoramos grandes lojas e selecionamos promoções, cupons e oportunidades que realmente merecem atenção.
+            Ficamos de olho nas grandes lojas e separamos promoções, cupons e oportunidades que realmente merecem atenção.
         </p>
 
         <!-- =================================================
-             SLIDER DE OFERTAS (SEM CONTADOR, COM DÚVIDA)
+             SLIDER DE OFERTAS
              ================================================= -->
         <div class="slider-container">
             <div id="slider-track" class="slider-track">
@@ -356,7 +370,6 @@
 
                         <div class="flex items-center gap-4">
                             <div class="w-[74px] h-[74px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
-                                <!-- Coloque o logo da loja ou ícone genérico -->
                                 <img src="amz.png" alt="Loja" class="w-full h-full object-contain">
                             </div>
                             <div class="min-w-0 flex-1">
@@ -372,7 +385,7 @@
                         <!-- GATILHO DA DÚVIDA -->
                         <div class="mt-5 pt-3 border-t border-white/10 text-center">
                             <p class="text-[11px] text-gray-300 font-medium leading-relaxed">
-                                ⚠️ <span class="text-yellow-300 font-bold">Status Incerto:</span> Esta oferta pode já ter esgotado. Verifique no grupo.
+                                ⚠️ <span class="text-yellow-300 font-bold">Será que acabou?</span> Esta oferta pode já ter esgotado. Verifique no grupo.
                             </p>
                         </div>
                     </div>
@@ -407,7 +420,7 @@
                         <!-- GATILHO DA DÚVIDA -->
                         <div class="mt-5 pt-3 border-t border-white/10 text-center">
                             <p class="text-[11px] text-gray-300 font-medium leading-relaxed">
-                                🔥 <span class="text-yellow-300 font-bold">Alta Demanda:</span> Preço sujeito a alteração a qualquer momento.
+                                🔥 <span class="text-yellow-300 font-bold">Muita Procura:</span> O preço pode subir a qualquer momento.
                             </p>
                         </div>
                     </div>
@@ -460,11 +473,11 @@
         <!-- CTA HERO -->
         <a href="obrigado.html" id="hero-cta" class="main-cta cta-pulse w-full py-4 px-5 rounded-2xl flex items-center justify-center gap-2.5 font-extrabold text-[16px] no-underline">
             <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
-            Quero receber as ofertas
+            Quero entrar no Grupo VIP
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
         <p class="mt-2.5 text-[10px] text-gray-500">
-            Grátis • Sem cartão • Saída a qualquer momento
+            Grátis • Zero Mensalidade • Saída livre
         </p>
     </div>
 </section>
@@ -474,8 +487,8 @@
     <div class="max-w-[440px] mx-auto grid grid-cols-3 gap-2">
         <div class="pro-card p-3 text-center">
             <i data-lucide="search-check" class="w-5 h-5 mx-auto mb-2 text-emerald-400"></i>
-            <p class="text-[11px] font-bold text-white">Curadoria</p>
-            <p class="text-[9px] text-gray-500 mt-1">Preços analisados</p>
+            <p class="text-[11px] font-bold text-white">Escolhidas a dedo</p>
+            <p class="text-[9px] text-gray-500 mt-1">Só as melhores</p>
         </div>
         <div class="pro-card p-3 text-center">
             <i data-lucide="zap" class="w-5 h-5 mx-auto mb-2 text-yellow-300"></i>
@@ -490,7 +503,7 @@
     </div>
 </section>
 
-<!-- FEED DE OFERTAS (ATUALIZADO PARA CONGRUÊNCIA) -->
+<!-- FEED DE OFERTAS -->
 <section class="w-full px-4 py-4">
     <div class="max-w-[440px] mx-auto">
         <div class="flex items-end justify-between mb-4">
@@ -711,7 +724,7 @@
                 <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 group-open:rotate-180 transition"></i>
             </summary>
             <p class="text-[11px] text-gray-500 leading-relaxed mt-2">
-                A proposta é priorizar oportunidades relevantes. Você também pode silenciar as notificações do grupo pelo próprio WhatsApp.
+                Nós só mandamos o que vale a pena de verdade. Você também pode silenciar as notificações do grupo pelo próprio WhatsApp.
             </p>
         </details>
         <details class="group py-3">
@@ -727,7 +740,7 @@
 </section>
 
 <!-- CTA FINAL -->
-<section class="w-full px-4 py-8">
+<section class="w-full px-4 py-8" id="final-section">
     <div class="max-w-[440px] mx-auto text-center">
         <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
             <i data-lucide="gift" class="w-6 h-6 text-emerald-400"></i>
@@ -741,7 +754,7 @@
         </p>
         <a href="obrigado.html" id="final-cta" class="main-cta w-full py-4 rounded-2xl flex items-center justify-center gap-2 font-extrabold text-[16px] no-underline">
             <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
-            Entrar no grupo gratuito
+            Entrar no Grupo VIP gratuito
         </a>
     </div>
 </section>
@@ -749,15 +762,15 @@
 <!-- FOOTER -->
 <footer class="w-full px-6 py-8 pb-32 text-center">
     <p class="text-[9px] text-gray-600 leading-relaxed max-w-[440px] mx-auto">
-        Este site não faz parte do Facebook ou da Meta Platforms, Inc. A PROMOPÇÕES é uma iniciativa independente de curadoria de ofertas. Os links podem gerar comissão quando uma compra é realizada.
+        Este site não faz parte do Facebook ou da Meta Platforms, Inc. A PROMOPÇÕES é uma iniciativa independente de seleção de ofertas. Os links podem gerar comissão quando uma compra é realizada.
     </p>
     <p class="text-[10px] text-gray-700 mt-3">© 2026 PROMOPÇÕES</p>
 </footer>
 
 </main>
 
-<!-- CTA FIXO -->
-<div class="fixed bottom-0 left-0 right-0 z-[200] bg-[#070B09]/95 backdrop-blur-xl border-t border-white/10 px-4 py-3">
+<!-- CTA FIXO (COM ID E CLASSE PARA O CONTROLE JS) -->
+<div id="sticky-cta-container" class="sticky-wrapper fixed bottom-0 left-0 right-0 z-[200] bg-[#070B09]/95 backdrop-blur-xl border-t border-white/10 px-4 py-3">
     <div class="max-w-[440px] mx-auto">
         <div class="flex items-center justify-between mb-2">
             <div>
@@ -771,7 +784,7 @@
         </div>
         <a href="obrigado.html" id="sticky-cta" class="main-cta cta-pulse w-full py-3.5 rounded-xl flex items-center justify-center gap-2 font-extrabold text-[15px] no-underline">
             <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
-            Quero entrar gratuitamente
+            Entrar no Grupo VIP gratuito
         </a>
         <p class="text-center text-[8px] text-gray-600 mt-1.5">Acesso gratuito • WhatsApp</p>
     </div>
@@ -783,7 +796,6 @@
 
     /* =====================================================
        CARROSSEL AUTOMÁTICO DE OFERTAS
-       Muda o card principal a cada 4 segundos
        ===================================================== */
     const track = document.getElementById('slider-track');
     const totalSlides = 3;
@@ -792,7 +804,6 @@
     if (track) {
         setInterval(() => {
             currentSlide = (currentSlide + 1) % totalSlides;
-            // Translada -33.33%, -66.66% ou 0%
             track.style.transform = `translateX(-${currentSlide * 33.3333}%)`;
         }, 4000);
     }
@@ -822,7 +833,39 @@
     }, 3500);
 
     /* =====================================================
-       COMPORTAMENTO DOS BOTÕES (CTA)
+       LÓGICA DO CTA FIXO (ESCONDE QUANDO OS OUTROS APARECEM)
+       ===================================================== */
+    const stickyContainer = document.getElementById('sticky-cta-container');
+    const heroCta = document.getElementById('hero-cta');
+    const finalCta = document.getElementById('final-cta');
+
+    if (stickyContainer && window.IntersectionObserver) {
+        let heroVisible = false;
+        let finalVisible = false;
+
+        const updateStickyVisibility = () => {
+            // Se o botão do topo ou do fim estiverem na tela, esconde o botão fixo.
+            if (heroVisible || finalVisible) {
+                stickyContainer.classList.remove('visible');
+            } else {
+                stickyContainer.classList.add('visible');
+            }
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.target.id === 'hero-cta') heroVisible = entry.isIntersecting;
+                if (entry.target.id === 'final-cta') finalVisible = entry.isIntersecting;
+            });
+            updateStickyVisibility();
+        }, { threshold: 0.1 });
+
+        if (heroCta) observer.observe(heroCta);
+        if (finalCta) observer.observe(finalCta);
+    }
+
+    /* =====================================================
+       COMPORTAMENTO DOS BOTÕES (SPINNER DE CARREGAMENTO)
        ===================================================== */
     const buttons = [
         document.getElementById('hero-cta'),
