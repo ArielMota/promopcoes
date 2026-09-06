@@ -3,88 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>PROMOPÇÕES | Ofertas que realmente valem a pena</title>
-
     <meta name="theme-color" content="#090D0B">
-
-    <meta
-        name="description"
-        content="Receba ofertas relâmpago e promoções selecionadas diretamente no WhatsApp. Grupo VIP gratuito."
-    >
-
+    <meta name="description" content="Receba ofertas relâmpago, cupons e promoções selecionadas diretamente no WhatsApp. Grupo gratuito.">
     <meta property="og:title" content="PROMOPÇÕES | Ofertas Relâmpago">
-    <meta
-        property="og:description"
-        content="Ofertas selecionadas e enviadas diretamente no WhatsApp."
-    >
-    <meta
-        property="og:image"
-        content="https://arielmota.github.io/promopcoes/logo.png"
-    >
-
+    <meta property="og:description" content="Ofertas selecionadas e enviadas diretamente no WhatsApp.">
+    <meta property="og:image" content="https://arielmota.github.io/promopcoes/logo.png">
     <link rel="icon" type="image/png" href="logo.png">
-
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap"
-        rel="stylesheet"
-    >
-
-    <!-- =========================================================
-         META PIXEL (PAGEVIEW)
-         O EVENTO DE LEAD AGORA DISPARA DIRETO NO CLIQUE DO BOTÃO
-         ========================================================= -->
-
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    <!-- META PIXEL — PAGEVIEW + LEAD NO CLIQUE -->
     <script>
-        !function(f,b,e,v,n,t,s)
-        {
+        !function(f,b,e,v,n,t,s){
             if(f.fbq)return;
             n=f.fbq=function(){
-                n.callMethod ?
-                n.callMethod.apply(n,arguments) :
-                n.queue.push(arguments)
+                n.callMethod ? n.callMethod.apply(n,arguments) : n.queue.push(arguments)
             };
-
             if(!f._fbq)f._fbq=n;
-
             n.push=n;
             n.loaded=!0;
             n.version='2.0';
             n.queue=[];
-
             t=b.createElement(e);
             t.async=!0;
             t.src=v;
-
             s=b.getElementsByTagName(e)[0];
             s.parentNode.insertBefore(t,s)
-        }(
-            window,
-            document,
-            'script',
-            'https://connect.facebook.net/en_US/fbevents.js'
-        );
-
+        }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
         fbq('init', '1353562893309087');
         fbq('track', 'PageView');
     </script>
-
     <noscript>
-        <img
-            height="1"
-            width="1"
-            style="display:none"
-            src="https://www.facebook.com/tr?id=1353562893309087&ev=PageView&noscript=1"
-        />
+        <img height="1" width="1" style="display:none"
+             src="https://www.facebook.com/tr?id=1353562893309087&ev=PageView&noscript=1">
     </noscript>
-
-
     <style>
         :root {
             --bg-deep: #070B09;
@@ -100,38 +55,25 @@
             --muted: #9CA6A1;
             --border: rgba(255,255,255,.07);
         }
-
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
-
         body {
             margin: 0;
             background:
-                radial-gradient(
-                    circle at 50% 0%,
-                    rgba(37,211,102,.10),
-                    transparent 420px
-                ),
+                radial-gradient(circle at 50% 0%, rgba(37,211,102,.10), transparent 420px),
                 var(--bg-deep);
             color: var(--white);
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
         }
-
-        .mono {
-            font-family: 'JetBrains Mono', monospace;
-        }
-
-        /* CARDS */
+        .mono { font-family: 'JetBrains Mono', monospace; }
         .pro-card {
             background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
             border: 1px solid var(--border);
             border-radius: 20px;
             box-shadow: 0 15px 40px rgba(0,0,0,.35);
         }
-
-        /* LIVE INDICATOR */
         .live-dot {
             width: 8px;
             height: 8px;
@@ -139,42 +81,32 @@
             border-radius: 50%;
             box-shadow: 0 0 0 0 rgba(37,211,102,.6);
             animation: livePulse 1.8s infinite;
+            flex-shrink: 0;
         }
-
         @keyframes livePulse {
             0% { box-shadow: 0 0 0 0 rgba(37,211,102,.5); }
             70% { box-shadow: 0 0 0 8px rgba(37,211,102,0); }
             100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
         }
-
-        /* HERO BADGE */
         .alert-badge {
             background: rgba(255,214,10,.08);
             border: 1px solid rgba(255,214,10,.22);
             color: var(--yellow);
         }
-
-        /* FLASH SLIDER CONTAINER */
+        .hero-title { text-wrap: balance; }
         .slider-container {
             width: 100%;
             overflow: hidden;
             border-radius: 22px;
             position: relative;
-            margin-bottom: 16px;
+            margin-bottom: 12px;
         }
-
         .slider-track {
             display: flex;
-            transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
-            width: 300%; /* 3 slides */
+            transition: transform .6s cubic-bezier(.25,1,.5,1);
+            width: 300%;
         }
-
-        .slide {
-            width: 33.3333%;
-            flex-shrink: 0;
-        }
-
-        /* FLASH OFFER CARD */
+        .slide { width: 33.3333%; flex-shrink: 0; }
         .flash-card {
             position: relative;
             overflow: hidden;
@@ -182,9 +114,8 @@
             border: 1px solid rgba(255,214,10,.28);
             border-radius: 22px;
             box-shadow: 0 15px 50px rgba(0,0,0,.4);
-            height: 100%;
+            min-height: 188px;
         }
-
         .flash-card::before {
             content: "";
             position: absolute;
@@ -195,62 +126,60 @@
             background: radial-gradient(circle, rgba(255,214,10,.15), transparent 70%);
             pointer-events: none;
         }
-
         .flash-label {
             background: linear-gradient(90deg, var(--orange), #FFB000);
             color: #171000;
             font-weight: 900;
             border-radius: 999px;
         }
-
-        /* CTA */
+        .countdown-box {
+            background: rgba(255,59,48,.10);
+            border: 1px solid rgba(255,59,48,.22);
+            border-radius: 12px;
+        }
+        .countdown-number {
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 800;
+            letter-spacing: .04em;
+        }
         .main-cta {
             background: linear-gradient(135deg, #25D366, #19B957);
             color: #041109;
             box-shadow: 0 12px 35px rgba(37,211,102,.25);
             transition: transform .2s ease, box-shadow .2s ease;
         }
-
         .main-cta:hover {
             transform: translateY(-2px);
             box-shadow: 0 16px 40px rgba(37,211,102,.35);
         }
-
-        .main-cta:active {
-            transform: scale(.98);
-        }
-
-        .cta-pulse {
-            animation: ctaPulse 2.8s infinite;
-        }
-
+        .main-cta:active { transform: scale(.98); }
+        .cta-pulse { animation: ctaPulse 2.8s infinite; }
         @keyframes ctaPulse {
-            0%, 100% { box-shadow: 0 10px 30px rgba(37,211,102,.22); }
+            0%,100% { box-shadow: 0 10px 30px rgba(37,211,102,.22); }
             50% { box-shadow: 0 10px 45px rgba(37,211,102,.42); }
         }
-
-        /* CONTROLE DO CTA FIXO */
         .sticky-wrapper {
-            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease;
+            transition: transform .4s cubic-bezier(.16,1,.3,1), opacity .4s ease;
             transform: translateY(120%);
             opacity: 0;
             pointer-events: none;
         }
-
         .sticky-wrapper.visible {
             transform: translateY(0);
             opacity: 1;
             pointer-events: auto;
         }
-
-        /* OFFER FEED */
         .offer-card {
             background: var(--surface-card);
             border: 1px solid rgba(255,255,255,.06);
             border-radius: 15px;
             position: relative;
+            transition: border-color .25s ease, transform .2s ease;
         }
-
+        .offer-card:hover {
+            border-color: rgba(37,211,102,.25);
+            transform: translateY(-1px);
+        }
         .discount {
             background: var(--red);
             color: white;
@@ -259,27 +188,18 @@
             border-radius: 999px;
             padding: 4px 8px;
         }
-
-        /* SCROLL */
         @keyframes scrollOffers {
             0% { transform: translateY(0); }
             100% { transform: translateY(-50%); }
         }
-
         .offers-scroll {
-            animation: scrollOffers 14s linear infinite;
+            animation: scrollOffers 16s linear infinite;
         }
-
-        .offers-scroll:hover {
-            animation-play-state: paused;
-        }
-
+        .offers-scroll:hover { animation-play-state: paused; }
         .fade-mask {
             mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
             -webkit-mask-image: linear-gradient(to bottom, transparent, black 12%, black 88%, transparent);
         }
-
-        /* SPINNER */
         .spinner {
             width: 19px;
             height: 19px;
@@ -288,202 +208,111 @@
             border-radius: 50%;
             animation: spin .7s linear infinite;
         }
-
-        @keyframes spin {
-            to { transform: rotate(360deg); }
+        @keyframes spin { to { transform: rotate(360deg); } }
+        .urgency-strip {
+            background: linear-gradient(90deg, rgba(255,59,48,.12), rgba(255,138,0,.10));
+            border: 1px solid rgba(255,138,0,.20);
+            border-radius: 14px;
         }
-
+        .trust-line { color: #A9B3AE; }
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
-
-        @media(max-width: 380px) {
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        .slider-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 999px;
+            background: rgba(255,255,255,.2);
+            transition: all .3s ease;
+            cursor: pointer;
+        }
+        .slider-dot.active {
+            width: 18px;
+            background: var(--yellow);
+        }
+        .store-badge {
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: .02em;
+            padding: 2px 7px;
+            border-radius: 6px;
+            background: rgba(255,255,255,.08);
+            color: #c8d0cb;
+        }
+        .new-tag {
+            position: absolute;
+            top: -6px;
+            left: 12px;
+            background: var(--green);
+            color: #041109;
+            font-size: 9px;
+            font-weight: 900;
+            padding: 2px 7px;
+            border-radius: 999px;
+            z-index: 2;
+        }
+        @media(max-width:380px) {
             h1 { font-size: 25px !important; }
             .flash-card { padding: 16px !important; }
         }
+        @media(prefers-reduced-motion:reduce) {
+            *, *::before, *::after {
+                animation-duration: .01ms !important;
+                animation-iteration-count: 1 !important;
+                scroll-behavior: auto !important;
+                transition-duration: .01ms !important;
+            }
+        }
     </style>
 </head>
-
 <body class="pb-36">
 
 <!-- HEADER -->
 <header class="sticky top-0 z-[100] w-full px-4 py-3 bg-[#070B09]/90 backdrop-blur-xl border-b border-white/5">
-    <div class="max-w-[440px] mx-auto flex items-center justify-between">
-        <div class="flex items-center gap-2">
+    <div class="max-w-[440px] mx-auto flex items-center justify-between gap-3">
+        <div class="flex items-center gap-2 min-w-0">
             <span class="live-dot"></span>
-            <span id="monitor-status" class="mono text-[10px] font-bold uppercase tracking-wider text-emerald-400">
-                Monitoramento ativo
+            <span id="monitor-status" class="mono text-[10px] font-bold uppercase tracking-wider text-emerald-400 truncate transition-opacity duration-200">
+                Encontrando ofertas agora
             </span>
         </div>
-        <div class="flex items-center gap-1.5 text-[10px] font-bold text-white bg-white/5 border border-white/10 px-3 py-1.5 rounded-full">
+        <div class="flex items-center gap-1.5 text-[10px] font-bold text-white bg-white/5 border border-white/10 px-3 py-1.5 rounded-full shrink-0">
             <i data-lucide="users" class="w-3 h-3 text-emerald-400"></i>
-            <span>Comunidade de ofertas</span>
+            <span id="member-count">+15.240 membros</span>
         </div>
     </div>
 </header>
 
 <main>
-
 <!-- HERO -->
-<section class="w-full px-4 pt-7 relative">
+<section class="w-full px-4 pt-6 relative">
     <div class="max-w-[440px] mx-auto text-center">
-
-        <!-- LOGO (MAIOR E RESPONSIVA) -->
-        <div class="mx-auto w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] bg-white rounded-3xl p-3 mb-6 shadow-[0_15px_40px_rgba(37,211,102,0.15)] transition-all">
+        <div class="mx-auto w-[92px] h-[92px] sm:w-[108px] sm:h-[108px] bg-white rounded-3xl p-3 mb-5 shadow-[0_15px_40px_rgba(37,211,102,0.15)]">
             <img src="logo.png" alt="PROMOPÇÕES" class="w-full h-full object-contain">
         </div>
 
-        <!-- HOOK -->
         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full alert-badge text-[10px] font-extrabold uppercase tracking-wide mb-4">
             <i data-lucide="zap" class="w-3.5 h-3.5"></i>
-            Ofertas que podem acabar rápido
+            PARE DE PAGAR CARO
         </div>
 
-        <h1 class="text-[29px] sm:text-[33px] font-extrabold leading-[1.13] tracking-tight mb-4">
-            Você não precisa
-            <span class="text-emerald-400">ficar procurando promoções.</span>
+        <h1 class="hero-title text-[29px] sm:text-[33px] font-extrabold leading-[1.10] tracking-tight mb-4">
+            <span class="text-white">A gente caça as ofertas.</span>
             <br>
-            A gente encontra
-            <span class="text-yellow-300">e avisa você.</span>
+            <span class="text-emerald-400">Você recebe no WhatsApp.</span>
         </h1>
 
-        <p class="text-[14px] sm:text-[15px] text-gray-400 leading-relaxed font-medium mb-6">
-            Ficamos de olho nas grandes lojas e separamos promoções, cupons e oportunidades que realmente merecem atenção.
+        <p class="text-[14px] sm:text-[15px] text-gray-400 leading-relaxed font-medium mb-5">
+            Promoções reais, cupons e descontos de Amazon, Mercado Livre, Shopee e outras — economize até 70%.
         </p>
 
-        <!-- =================================================
-             SLIDER DE OFERTAS
-             ================================================= -->
-        <div class="slider-container">
-            <div id="slider-track" class="slider-track">
-                
-                <!-- SLIDE 1: GELADEIRA -->
-                <div class="slide">
-                    <div class="flash-card text-left p-5">
-                        <div class="flex items-center justify-between gap-3 mb-4">
-                            <div class="flash-label text-[10px] px-3 py-1.5 flex items-center gap-1.5">
-                                <i data-lucide="zap" class="w-3.5 h-3.5"></i> OFERTA RELÂMPAGO
-                            </div>
-                            <span class="text-[10px] text-yellow-300 font-bold animate-pulse">
-                                verificando estoque...
-                            </span>
-                        </div>
-
-                        <div class="flex items-center gap-4">
-                            <div class="w-[74px] h-[74px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
-                                <img src="amz.png" alt="Loja" class="w-full h-full object-contain">
-                            </div>
-                            <div class="min-w-0 flex-1">
-                                <h2 class="text-[15px] font-extrabold text-white leading-tight">Geladeira Frost Free</h2>
-                                <div class="flex items-center gap-2 mt-2">
-                                    <s class="text-[11px] text-gray-500">R$ 3.599</s>
-                                    <span class="text-[20px] font-extrabold text-emerald-400">R$ 2.199</span>
-                                </div>
-                            </div>
-                            <div class="discount shrink-0">-38%</div>
-                        </div>
-
-                        <!-- GATILHO DA DÚVIDA -->
-                        <div class="mt-5 pt-3 border-t border-white/10 text-center">
-                            <p class="text-[11px] text-gray-300 font-medium leading-relaxed">
-                                ⚠️ <span class="text-yellow-300 font-bold">Será que acabou?</span> Esta oferta pode já ter esgotado. Verifique no grupo.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SLIDE 2: SOFÁ -->
-                <div class="slide">
-                    <div class="flash-card text-left p-5">
-                        <div class="flex items-center justify-between gap-3 mb-4">
-                            <div class="flash-label text-[10px] px-3 py-1.5 flex items-center gap-1.5">
-                                <i data-lucide="zap" class="w-3.5 h-3.5"></i> ACHADO DO DIA
-                            </div>
-                            <span class="text-[10px] text-yellow-300 font-bold animate-pulse">
-                                poucas unidades...
-                            </span>
-                        </div>
-
-                        <div class="flex items-center gap-4">
-                            <div class="w-[74px] h-[74px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
-                                <img src="ml.png" alt="Loja" class="w-full h-full object-contain">
-                            </div>
-                            <div class="min-w-0 flex-1">
-                                <h2 class="text-[15px] font-extrabold text-white leading-tight">Sofá Retrátil 3 Lugares</h2>
-                                <div class="flex items-center gap-2 mt-2">
-                                    <s class="text-[11px] text-gray-500">R$ 1.899</s>
-                                    <span class="text-[20px] font-extrabold text-emerald-400">R$ 997</span>
-                                </div>
-                            </div>
-                            <div class="discount shrink-0">-47%</div>
-                        </div>
-
-                        <!-- GATILHO DA DÚVIDA -->
-                        <div class="mt-5 pt-3 border-t border-white/10 text-center">
-                            <p class="text-[11px] text-gray-300 font-medium leading-relaxed">
-                                🔥 <span class="text-yellow-300 font-bold">Muita Procura:</span> O preço pode subir a qualquer momento.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- SLIDE 3: AIR FRYER -->
-                <div class="slide">
-                    <div class="flash-card text-left p-5">
-                        <div class="flex items-center justify-between gap-3 mb-4">
-                            <div class="flash-label text-[10px] px-3 py-1.5 flex items-center gap-1.5">
-                                <i data-lucide="zap" class="w-3.5 h-3.5"></i> CUPOM ATIVO
-                            </div>
-                            <span class="text-[10px] text-yellow-300 font-bold animate-pulse">
-                                verificando validade...
-                            </span>
-                        </div>
-
-                        <div class="flex items-center gap-4">
-                            <div class="w-[74px] h-[74px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
-                                <img src="shopee.png" alt="Loja" class="w-full h-full object-contain">
-                            </div>
-                            <div class="min-w-0 flex-1">
-                                <h2 class="text-[15px] font-extrabold text-white leading-tight">Air Fryer 4 Litros</h2>
-                                <div class="flex items-center gap-2 mt-2">
-                                    <s class="text-[11px] text-gray-500">R$ 399</s>
-                                    <span class="text-[20px] font-extrabold text-emerald-400">R$ 189</span>
-                                </div>
-                            </div>
-                            <div class="discount shrink-0">-52%</div>
-                        </div>
-
-                        <!-- GATILHO DA DÚVIDA -->
-                        <div class="mt-5 pt-3 border-t border-white/10 text-center">
-                            <p class="text-[11px] text-gray-300 font-medium leading-relaxed">
-                                ⏳ <span class="text-yellow-300 font-bold">Cupom Limitado:</span> Não garantimos que o desconto ainda funcione.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-        <!-- ESCASSEZ -->
-        <div class="flex items-center justify-center gap-2 text-[11px] text-gray-400 mb-5 mt-2">
-            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
-            <span>Oportunidades únicas chegam primeiro no grupo</span>
-        </div>
-
-        <!-- CTA HERO (HREF AJUSTADO PARA #) -->
-        <a href="#" id="hero-cta" class="main-cta cta-pulse w-full py-4 px-5 rounded-2xl flex items-center justify-center gap-2.5 font-extrabold text-[16px] no-underline">
-            <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
-            Quero entrar no Grupo VIP
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </a>
-        <p class="mt-2.5 text-[10px] text-gray-500">
-            Grátis • Zero Mensalidade • Saída livre
-        </p>
-    </div>
-</section>
-
-<!-- MICRO PROVA / REDUÇÃO DE RISCO -->
-<section class="w-full px-4 py-5">
+        <!-- MICRO PROVA / REDUÇÃO DE RISCO -->
+<section class=" py-5">
     <div class="max-w-[440px] mx-auto grid grid-cols-3 gap-2">
         <div class="pro-card p-3 text-center">
             <i data-lucide="search-check" class="w-5 h-5 mx-auto mb-2 text-emerald-400"></i>
@@ -503,114 +332,190 @@
     </div>
 </section>
 
+        <!-- OFERTA RELÂMPAGO (CARROSSEL) -->
+        <div class="slider-container">
+            <div id="slider-track" class="slider-track">
+                <!-- SLIDE 1 -->
+                <div class="slide">
+                    <div class="flash-card text-left p-5">
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <div class="flash-label text-[10px] px-3 py-1.5 flex items-center gap-1.5">
+                                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+                                OFERTA RELÂMPAGO
+                            </div>
+                            <span class="text-[10px] text-yellow-300 font-bold">pode acabar rápido</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-[68px] h-[68px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
+                                <img src="amz.png" alt="Amazon" class="w-full h-full object-contain">
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <h2 class="text-[15px] font-extrabold text-white leading-tight">Geladeira Frost Free</h2>
+                                <div class="flex items-end gap-2 mt-1.5">
+                                    <s class="text-[11px] text-gray-500">R$ 3.599</s>
+                                    <span class="text-[21px] font-extrabold text-emerald-400">R$ 2.199</span>
+                                </div>
+                            </div>
+                            <div class="discount shrink-0">-38%</div>
+                        </div>
+                        <div class="grid grid-cols-[1fr_auto] gap-2 items-center mt-4">
+                            <div class="countdown-box px-3 py-2">
+                                <p class="text-[8px] uppercase font-bold text-gray-500">janela da oferta</p>
+                                <div class="flex items-center gap-2">
+                                    <i data-lucide="clock-3" class="w-3.5 h-3.5 text-red-400"></i>
+                                    <span class="text-[13px] text-white font-extrabold">
+                                        termina em <span class="countdown-number" data-countdown data-seconds="1122">00:18:42</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="text-[9px] text-gray-400 text-right leading-tight">preço e estoque<br>podem mudar</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 2 -->
+                <div class="slide">
+                    <div class="flash-card text-left p-5">
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <div class="flash-label text-[10px] px-3 py-1.5 flex items-center gap-1.5">
+                                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
+                                OFERTA DO DIA
+                            </div>
+                            <span class="text-[10px] text-yellow-300 font-bold">preço pode mudar</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-[68px] h-[68px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
+                                <img src="ml.png" alt="Mercado Livre" class="w-full h-full object-contain">
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <h2 class="text-[15px] font-extrabold text-white leading-tight">Sofá Retrátil 3 Lugares</h2>
+                                <div class="flex items-end gap-2 mt-1.5">
+                                    <s class="text-[11px] text-gray-500">R$ 1.899</s>
+                                    <span class="text-[21px] font-extrabold text-emerald-400">R$ 997</span>
+                                </div>
+                            </div>
+                            <div class="discount shrink-0">-47%</div>
+                        </div>
+                        <div class="grid grid-cols-[1fr_auto] gap-2 items-center mt-4">
+                            <div class="countdown-box px-3 py-2">
+                                <p class="text-[8px] uppercase font-bold text-gray-500">janela da oferta</p>
+                                <div class="flex items-center gap-2">
+                                    <i data-lucide="clock-3" class="w-3.5 h-3.5 text-red-400"></i>
+                                    <span class="text-[13px] text-white font-extrabold">
+                                        termina em <span class="countdown-number" data-countdown data-seconds="776">00:12:56</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="text-[9px] text-gray-400 text-right leading-tight">ofertas boas<br>podem sumir</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- SLIDE 3 -->
+                <div class="slide">
+                    <div class="flash-card text-left p-5">
+                        <div class="flex items-center justify-between gap-3 mb-4">
+                            <div class="flash-label text-[10px] px-3 py-1.5 flex items-center gap-1.5">
+                                <i data-lucide="ticket-percent" class="w-3.5 h-3.5"></i>
+                                CUPOM ATIVO
+                            </div>
+                            <span class="text-[10px] text-yellow-300 font-bold">pode acabar</span>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <div class="w-[68px] h-[68px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
+                                <img src="shopee.png" alt="Shopee" class="w-full h-full object-contain">
+                            </div>
+                            <div class="min-w-0 flex-1">
+                                <h2 class="text-[15px] font-extrabold text-white leading-tight">Air Fryer 4 Litros</h2>
+                                <div class="flex items-end gap-2 mt-1.5">
+                                    <s class="text-[11px] text-gray-500">R$ 399</s>
+                                    <span class="text-[21px] font-extrabold text-emerald-400">R$ 189</span>
+                                </div>
+                            </div>
+                            <div class="discount shrink-0">-52%</div>
+                        </div>
+                        <div class="grid grid-cols-[1fr_auto] gap-2 items-center mt-4">
+                            <div class="countdown-box px-3 py-2">
+                                <p class="text-[8px] uppercase font-bold text-gray-500">cupom em destaque</p>
+                                <div class="flex items-center gap-2">
+                                    <i data-lucide="clock-3" class="w-3.5 h-3.5 text-red-400"></i>
+                                    <span class="text-[13px] text-white font-extrabold">
+                                        termina em <span class="countdown-number" data-countdown data-seconds="578">00:09:38</span>
+                                    </span>
+                                </div>
+                            </div>
+                            <span class="text-[9px] text-gray-400 text-right leading-tight">cupons podem<br>ser limitados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="slider-dots" id="slider-dots"></div>
+
+        <!-- ESCASSEZ CLARA -->
+        <div class="urgency-strip flex items-center gap-2 px-3 py-2.5 mb-4 mt-3">
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-yellow-300 shrink-0"></i>
+            <p class="text-[10px] text-gray-300 text-left leading-snug">
+                <strong class="text-yellow-300">Não deixe para depois.</strong>
+                Preços, cupons e estoque mudam sem aviso. Quem vê primeiro, aproveita primeiro.
+            </p>
+        </div>
+
+        <!-- CTA HERO -->
+        <a href="#" id="hero-cta" class="main-cta cta-pulse w-full py-4 px-5 rounded-2xl flex items-center justify-center gap-2.5 font-extrabold text-[16px] no-underline">
+            <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
+            ENTRAR NO GRUPO VIP
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <div class="flex items-center justify-center gap-2 mt-2.5 text-[10px] text-gray-500">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
+            100% grátis
+            <span>•</span>
+            Só WhatsApp
+            <span>•</span>
+            Sai quando quiser
+        </div>
+    </div>
+</section>
+
+<!-- MICRO PROVA -->
+<section class="w-full px-4 py-5">
+    <div class="max-w-[440px] mx-auto">
+        <div class="pro-card p-4">
+            <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
+                    <i data-lucide="search-check" class="w-5 h-5 text-emerald-400"></i>
+                </div>
+                <div class="flex-1">
+                    <p class="text-[12px] font-extrabold text-white">Você não precisa ficar caçando oferta.</p>
+                    <p class="text-[10px] text-gray-500 mt-1">
+                        A gente monitora as lojas e manda só o que vale a pena.
+                    </p>
+                </div>
+                <i data-lucide="check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- FEED DE OFERTAS -->
 <section class="w-full px-4 py-4">
     <div class="max-w-[440px] mx-auto">
         <div class="flex items-end justify-between mb-4">
             <div>
-                <p class="text-[10px] text-emerald-400 font-bold uppercase tracking-widest mb-1">O que você pode receber</p>
-                <h2 class="text-[19px] font-extrabold">Exemplos de ofertas</h2>
+                <p class="text-[10px] text-emerald-400 font-bold uppercase tracking-widest mb-1">exemplos reais</p>
+                <h2 class="text-[19px] font-extrabold">O que você pode receber</h2>
             </div>
-            <span class="text-[9px] text-gray-500">atualizações diárias</span>
+            <span class="text-[9px] text-gray-500" id="last-update">atualizado agora</span>
         </div>
 
         <div class="fade-mask h-[245px] overflow-hidden">
-            <div class="offers-scroll flex flex-col gap-3">
-
-                <!-- OFERTA 1: GELADEIRA -->
-                <div class="offer-card p-3 flex items-center gap-3">
-                    <div class="w-12 h-12 bg-white rounded-xl p-2 shrink-0 flex items-center justify-center">
-                        <img src="amz.png" alt="Amazon" class="w-full h-full object-contain">
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <h3 class="text-[13px] font-bold">Geladeira Frost Free</h3>
-                        <p class="text-[10px] text-gray-500 mt-1">Amazon</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="discount text-[9px]">-38%</span>
-                        <p class="text-[16px] font-extrabold text-emerald-400 mt-1">R$ 2.199</p>
-                    </div>
-                </div>
-
-                <!-- OFERTA 2: SOFÁ -->
-                <div class="offer-card p-3 flex items-center gap-3">
-                    <div class="w-12 h-12 bg-white rounded-xl p-2 shrink-0 flex items-center justify-center">
-                        <img src="ml.png" alt="Mercado Livre" class="w-full h-full object-contain">
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-[13px] font-bold">Sofá Retrátil 3 Lug.</h3>
-                        <p class="text-[10px] text-gray-500 mt-1">Mercado Livre</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="discount text-[9px]">-47%</span>
-                        <p class="text-[16px] font-extrabold text-emerald-400 mt-1">R$ 997</p>
-                    </div>
-                </div>
-
-                <!-- OFERTA 3: AIR FRYER -->
-                <div class="offer-card p-3 flex items-center gap-3">
-                    <div class="w-12 h-12 bg-white rounded-xl p-2 shrink-0 flex items-center justify-center">
-                        <img src="shopee.png" alt="Shopee" class="w-full h-full object-contain">
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-[13px] font-bold">Air Fryer 4 Litros</h3>
-                        <p class="text-[10px] text-gray-500 mt-1">Shopee</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="discount text-[9px]">-52%</span>
-                        <p class="text-[16px] font-extrabold text-emerald-400 mt-1">R$ 189</p>
-                    </div>
-                </div>
-
-                <!-- DUPLICAÇÃO PARA O LOOP DO CSS INFINITO -->
-                <div class="offer-card p-3 flex items-center gap-3">
-                    <div class="w-12 h-12 bg-white rounded-xl p-2 shrink-0 flex items-center justify-center">
-                        <img src="amz.png" alt="Amazon" class="w-full h-full object-contain">
-                    </div>
-                    <div class="flex-1 min-w-0">
-                        <h3 class="text-[13px] font-bold">Geladeira Frost Free</h3>
-                        <p class="text-[10px] text-gray-500 mt-1">Amazon</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="discount text-[9px]">-38%</span>
-                        <p class="text-[16px] font-extrabold text-emerald-400 mt-1">R$ 2.199</p>
-                    </div>
-                </div>
-
-                <div class="offer-card p-3 flex items-center gap-3">
-                    <div class="w-12 h-12 bg-white rounded-xl p-2 shrink-0 flex items-center justify-center">
-                        <img src="ml.png" alt="Mercado Livre" class="w-full h-full object-contain">
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-[13px] font-bold">Sofá Retrátil 3 Lug.</h3>
-                        <p class="text-[10px] text-gray-500 mt-1">Mercado Livre</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="discount text-[9px]">-47%</span>
-                        <p class="text-[16px] font-extrabold text-emerald-400 mt-1">R$ 997</p>
-                    </div>
-                </div>
-
-                <div class="offer-card p-3 flex items-center gap-3">
-                    <div class="w-12 h-12 bg-white rounded-xl p-2 shrink-0 flex items-center justify-center">
-                        <img src="shopee.png" alt="Shopee" class="w-full h-full object-contain">
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-[13px] font-bold">Air Fryer 4 Litros</h3>
-                        <p class="text-[10px] text-gray-500 mt-1">Shopee</p>
-                    </div>
-                    <div class="text-right">
-                        <span class="discount text-[9px]">-52%</span>
-                        <p class="text-[16px] font-extrabold text-emerald-400 mt-1">R$ 189</p>
-                    </div>
-                </div>
-
+            <div class="offers-scroll flex flex-col gap-3" id="offers-feed">
+                <!-- Ofertas serão preenchidas via JS para evitar duplicação manual e permitir rotação -->
             </div>
         </div>
-
         <p class="text-center text-[10px] text-gray-500 mt-2">
-            Os preços acima são exemplos e podem mudar conforme estoque,
-            cupom e disponibilidade da loja.
+            Exemplos ilustrativos. Preço, estoque e cupom podem mudar a qualquer momento.
         </p>
     </div>
 </section>
@@ -623,15 +528,15 @@
                 <i data-lucide="clock-3" class="w-5 h-5 text-yellow-300"></i>
             </div>
             <div>
-                <h2 class="text-[14px] font-extrabold">Promoções não ficam paradas.</h2>
+                <h2 class="text-[14px] font-extrabold">Oferta boa raramente espera.</h2>
                 <p class="text-[12px] text-gray-400 leading-relaxed mt-1.5">
-                    Preços, cupons e estoques podem mudar a qualquer momento. Por isso, quando encontramos uma oportunidade, o aviso vai direto para o grupo.
+                    Lojas alteram preço, esgotam estoque ou desativam cupom em questão de horas (ou minutos).
                 </p>
             </div>
         </div>
         <div class="mt-4 flex items-center gap-2 text-[11px] font-bold text-yellow-300">
-            <i data-lucide="alert-circle" class="w-4 h-4"></i>
-            Quem vê primeiro tem mais chance de aproveitar.
+            <i data-lucide="bell-ring" class="w-4 h-4"></i>
+            Quem recebe o alerta primeiro tem mais chance de aproveitar.
         </div>
     </div>
 </section>
@@ -641,28 +546,28 @@
     <div class="max-w-[440px] mx-auto">
         <div class="text-center mb-5">
             <p class="text-[10px] uppercase tracking-widest text-emerald-400 font-bold">simples assim</p>
-            <h2 class="text-[20px] font-extrabold mt-1">Você entra. A gente monitora.</h2>
+            <h2 class="text-[20px] font-extrabold mt-1">Você entra. A gente faz o resto.</h2>
         </div>
         <div class="flex flex-col gap-3">
             <div class="pro-card p-4 flex gap-4">
                 <div class="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-emerald-400 font-bold">1</div>
                 <div>
-                    <h3 class="text-[13px] font-bold">Entre gratuitamente</h3>
-                    <p class="text-[11px] text-gray-500 mt-1">Você entra no grupo pelo WhatsApp.</p>
+                    <h3 class="text-[13px] font-bold">Entre grátis no grupo</h3>
+                    <p class="text-[11px] text-gray-500 mt-1">Um clique e você já está no WhatsApp.</p>
                 </div>
             </div>
             <div class="pro-card p-4 flex gap-4">
                 <div class="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-emerald-400 font-bold">2</div>
                 <div>
-                    <h3 class="text-[13px] font-bold">Nós monitoramos os preços</h3>
-                    <p class="text-[11px] text-gray-500 mt-1">A equipe procura oportunidades em grandes lojas.</p>
+                    <h3 class="text-[13px] font-bold">A gente caça as ofertas</h3>
+                    <p class="text-[11px] text-gray-500 mt-1">Monitoramos descontos, cupons e oportunidades reais.</p>
                 </div>
             </div>
             <div class="pro-card p-4 flex gap-4">
                 <div class="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-emerald-400 font-bold">3</div>
                 <div>
                     <h3 class="text-[13px] font-bold">Você recebe o alerta</h3>
-                    <p class="text-[11px] text-gray-500 mt-1">Quando aparecer algo interessante, você fica sabendo.</p>
+                    <p class="text-[11px] text-gray-500 mt-1">Quando aparece algo bom, o aviso chega no seu celular.</p>
                 </div>
             </div>
         </div>
@@ -674,7 +579,7 @@
     <div class="max-w-[440px] mx-auto">
         <div class="text-center mb-5">
             <div class="inline-flex items-center gap-1 text-yellow-300 text-[13px]">★★★★★</div>
-            <h2 class="text-[19px] font-extrabold mt-1">Quem entra, entende.</h2>
+            <h2 class="text-[19px] font-extrabold mt-1">Quem entra, entende o valor.</h2>
         </div>
         <div class="flex flex-col gap-3">
             <div class="pro-card p-4">
@@ -686,7 +591,7 @@
                     </div>
                 </div>
                 <p class="text-[12px] text-gray-400 italic leading-relaxed">
-                    "O que mais gostei é que não ficam mandando conversa. Quando aparece promoção boa, eles avisam."
+                    "O que mais gostei é que não ficam mandando conversa fiada. Quando aparece promoção boa, eles avisam."
                 </p>
             </div>
             <div class="pro-card p-4">
@@ -698,7 +603,19 @@
                     </div>
                 </div>
                 <p class="text-[12px] text-gray-400 italic leading-relaxed">
-                    "Entrei sem esperar muito e já consegui aproveitar uma promoção que estava procurando."
+                    "Entrei sem expectativa e já aproveitei uma promoção que estava procurando há semanas."
+                </p>
+            </div>
+            <div class="pro-card p-4">
+                <div class="flex items-center gap-3 mb-3">
+                    <div class="w-9 h-9 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-300">R</div>
+                    <div>
+                        <p class="text-[12px] font-bold">Rafael</p>
+                        <div class="text-yellow-300 text-[9px]">★★★★★</div>
+                    </div>
+                </div>
+                <p class="text-[12px] text-gray-400 italic leading-relaxed">
+                    "Economizei mais de R$ 400 só no primeiro mês. Vale cada notificação."
                 </p>
             </div>
         </div>
@@ -711,20 +628,20 @@
         <h2 class="text-[17px] font-extrabold mb-3">Antes de entrar</h2>
         <details class="group py-3 border-b border-white/5">
             <summary class="flex items-center justify-between text-[13px] font-bold cursor-pointer">
-                É realmente gratuito?
+                É grátis mesmo?
                 <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 group-open:rotate-180 transition"></i>
             </summary>
             <p class="text-[11px] text-gray-500 leading-relaxed mt-2">
-                Sim. Não existe mensalidade ou taxa para entrar. A PROMOPÇÕES pode receber comissão das lojas quando uma compra é realizada através de seus links.
+                Sim. Não há mensalidade nem taxa. A PROMOPÇÕES pode receber comissão das lojas quando uma compra é feita pelos links enviados.
             </p>
         </details>
         <details class="group py-3 border-b border-white/5">
             <summary class="flex items-center justify-between text-[13px] font-bold cursor-pointer">
-                Vou receber mensagens o dia inteiro?
+                Vou receber mensagens demais?
                 <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 group-open:rotate-180 transition"></i>
             </summary>
             <p class="text-[11px] text-gray-500 leading-relaxed mt-2">
-                Nós só mandamos o que vale a pena de verdade. Você também pode silenciar as notificações do grupo pelo próprio WhatsApp.
+                A proposta é mandar só o que vale a pena. Você também pode silenciar o grupo pelo próprio WhatsApp a qualquer momento.
             </p>
         </details>
         <details class="group py-3">
@@ -733,43 +650,51 @@
                 <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 group-open:rotate-180 transition"></i>
             </summary>
             <p class="text-[11px] text-gray-500 leading-relaxed mt-2">
-                Sim. O acesso é gratuito e você pode sair do grupo quando quiser.
+                Sim. Acesso gratuito e saída livre. Sem fidelidade, sem pegadinha.
             </p>
         </details>
     </div>
 </section>
 
-<!-- CTA FINAL (HREF AJUSTADO PARA #) -->
+<!-- CTA FINAL -->
 <section class="w-full px-4 py-8" id="final-section">
     <div class="max-w-[440px] mx-auto text-center">
         <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
             <i data-lucide="gift" class="w-6 h-6 text-emerald-400"></i>
         </div>
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full urgency-strip text-[10px] font-bold text-yellow-300 mb-4">
+            <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
+            A próxima oferta boa pode passar hoje
+        </div>
         <h2 class="text-[23px] font-extrabold leading-tight">
-            Não deixe a próxima
-            <span class="text-yellow-300">oferta passar.</span>
+            As melhores ofertas
+            <span class="text-yellow-300">não esperam por ninguém.</span>
         </h2>
         <p class="text-[12px] text-gray-500 mt-2 mb-5">
-            Entre gratuitamente e deixe as oportunidades chegarem até você.
+            Entre grátis e receba os próximos alertas direto no WhatsApp.
         </p>
         <a href="#" id="final-cta" class="main-cta w-full py-4 rounded-2xl flex items-center justify-center gap-2 font-extrabold text-[16px] no-underline">
             <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
-            Entrar no Grupo VIP gratuito
+            Receber ofertas no WhatsApp
         </a>
+        <p class="trust-line text-[10px] mt-2.5">
+            Grátis • Sem mensalidade • Saída livre
+        </p>
     </div>
 </section>
 
 <!-- FOOTER -->
 <footer class="w-full px-6 py-8 pb-32 text-center">
     <p class="text-[9px] text-gray-600 leading-relaxed max-w-[440px] mx-auto">
-        Este site não faz parte do Facebook ou da Meta Platforms, Inc. A PROMOPÇÕES é uma iniciativa independente de seleção de ofertas. Os links podem gerar comissão quando uma compra é realizada.
+        Este site não faz parte do Facebook ou da Meta Platforms, Inc.
+        A PROMOPÇÕES é uma iniciativa independente de seleção de ofertas.
+        Os links podem gerar comissão quando uma compra é realizada.
     </p>
     <p class="text-[10px] text-gray-700 mt-3">© 2026 PROMOPÇÕES</p>
 </footer>
-
 </main>
 
-<!-- CTA FIXO (HREF AJUSTADO PARA #) -->
+<!-- CTA FIXO -->
 <div id="sticky-cta-container" class="sticky-wrapper fixed bottom-0 left-0 right-0 z-[200] bg-[#070B09]/95 backdrop-blur-xl border-t border-white/10 px-4 py-3">
     <div class="max-w-[440px] mx-auto">
         <div class="flex items-center justify-between mb-2">
@@ -779,61 +704,193 @@
             </div>
             <div class="flex items-center gap-1.5 text-[9px] text-yellow-300 font-bold">
                 <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
-                monitorando
+                ativo agora
             </div>
         </div>
         <a href="#" id="sticky-cta" class="main-cta cta-pulse w-full py-3.5 rounded-xl flex items-center justify-center gap-2 font-extrabold text-[15px] no-underline">
             <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
-            Entrar no Grupo VIP gratuito
+            ENTRAR NO GRUPO VIP 
         </a>
         <p class="text-center text-[8px] text-gray-600 mt-1.5">Acesso gratuito • WhatsApp</p>
     </div>
 </div>
 
-<!-- JAVASCRIPT -->
 <script>
     lucide.createIcons();
 
     /* =====================================================
-       CARROSSEL AUTOMÁTICO DE OFERTAS
+       DADOS DAS OFERTAS (fonte única para feed + lógica)
+       ===================================================== */
+    const offersData = [
+        { store: 'Amazon', img: 'amz.png', title: 'Geladeira Frost Free', old: 'R$ 3.599', price: 'R$ 2.199', discount: '-38%' },
+        { store: 'Mercado Livre', img: 'ml.png', title: 'Sofá Retrátil 3 Lug.', old: 'R$ 1.899', price: 'R$ 997', discount: '-47%' },
+        { store: 'Shopee', img: 'shopee.png', title: 'Air Fryer 4 Litros', old: 'R$ 399', price: 'R$ 189', discount: '-52%' },
+        { store: 'Amazon', img: 'amz.png', title: 'Smart TV 50" 4K', old: 'R$ 2.499', price: 'R$ 1.679', discount: '-33%' },
+        { store: 'Mercado Livre', img: 'ml.png', title: 'Fone Bluetooth ANC', old: 'R$ 349', price: 'R$ 159', discount: '-54%' },
+        { store: 'Shopee', img: 'shopee.png', title: 'Liquidificador 1000W', old: 'R$ 289', price: 'R$ 129', discount: '-55%' }
+    ];
+
+    /* =====================================================
+       FEED DE OFERTAS DINÂMICO
+       ===================================================== */
+    function renderOffersFeed() {
+        const feed = document.getElementById('offers-feed');
+        if (!feed) return;
+
+        // Duplicamos a lista para o scroll infinito visual
+        const list = [...offersData, ...offersData];
+        feed.innerHTML = list.map((o, i) => `
+            <div class="offer-card p-3 flex items-center gap-3 relative">
+                ${i < 2 ? '<span class="new-tag">NOVO</span>' : ''}
+                <div class="w-12 h-12 bg-white rounded-xl p-2 shrink-0 flex items-center justify-center">
+                    <img src="${o.img}" alt="${o.store}" class="w-full h-full object-contain">
+                </div>
+                <div class="flex-1 min-w-0">
+                    <h3 class="text-[13px] font-bold truncate">${o.title}</h3>
+                    <p class="text-[10px] text-gray-500 mt-1">${o.store}</p>
+                </div>
+                <div class="text-right">
+                    <span class="discount text-[9px]">${o.discount}</span>
+                    <p class="text-[16px] font-extrabold text-emerald-400 mt-1">${o.price}</p>
+                </div>
+            </div>
+        `).join('');
+    }
+    renderOffersFeed();
+
+    /* =====================================================
+       CARROSSEL COM DOTS + PAUSA NO HOVER
        ===================================================== */
     const track = document.getElementById('slider-track');
     const totalSlides = 3;
     let currentSlide = 0;
+    let autoplayInterval = null;
+    const dotsContainer = document.getElementById('slider-dots');
+
+    function createDots() {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        for (let i = 0; i < totalSlides; i++) {
+            const dot = document.createElement('button');
+            dot.className = 'slider-dot' + (i === 0 ? ' active' : '');
+            dot.setAttribute('aria-label', `Ir para oferta ${i + 1}`);
+            dot.addEventListener('click', () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        }
+    }
+
+    function updateDots() {
+        if (!dotsContainer) return;
+        const dots = dotsContainer.querySelectorAll('.slider-dot');
+        dots.forEach((d, i) => d.classList.toggle('active', i === currentSlide));
+    }
+
+    function goToSlide(index) {
+        currentSlide = index;
+        if (track) {
+            track.style.transform = `translateX(-${currentSlide * 33.3333}%)`;
+        }
+        updateDots();
+    }
+
+    function startAutoplay() {
+        stopAutoplay();
+        autoplayInterval = setInterval(() => {
+            goToSlide((currentSlide + 1) % totalSlides);
+        }, 4800);
+    }
+
+    function stopAutoplay() {
+        if (autoplayInterval) clearInterval(autoplayInterval);
+    }
 
     if (track) {
-        setInterval(() => {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            track.style.transform = `translateX(-${currentSlide * 33.3333}%)`;
-        }, 4000);
+        createDots();
+        startAutoplay();
+
+        const container = track.parentElement;
+        container.addEventListener('mouseenter', stopAutoplay);
+        container.addEventListener('mouseleave', startAutoplay);
+        container.addEventListener('touchstart', stopAutoplay, { passive: true });
+        container.addEventListener('touchend', () => setTimeout(startAutoplay, 3000), { passive: true });
     }
 
     /* =====================================================
-       STATUS DINÂMICO DO HEADER
+       CONTADOR DINÂMICO (janela visual da oferta)
+       ===================================================== */
+    const countdownElements = document.querySelectorAll('[data-countdown]');
+    countdownElements.forEach((element) => {
+        let remaining = parseInt(element.dataset.seconds, 10) || 600;
+
+        function renderCountdown() {
+            const hours = Math.floor(remaining / 3600);
+            const minutes = Math.floor((remaining % 3600) / 60);
+            const seconds = remaining % 60;
+            element.textContent =
+                String(hours).padStart(2, '0') + ':' +
+                String(minutes).padStart(2, '0') + ':' +
+                String(seconds).padStart(2, '0');
+        }
+
+        renderCountdown();
+        setInterval(() => {
+            remaining--;
+            if (remaining <= 0) {
+                // Reinicia com tempo aleatório entre 8 e 22 minutos
+                remaining = 480 + Math.floor(Math.random() * 840);
+            }
+            renderCountdown();
+        }, 1000);
+    });
+
+    /* =====================================================
+       STATUS DO HEADER + CONTADOR DE MEMBROS
        ===================================================== */
     const statuses = [
-        'Monitoramento ativo',
-        'Encontrando oportunidades',
-        'Preços sendo monitorados',
-        'Caçando ofertas',
-        'Monitoramento ativo'
+        'Encontrando ofertas agora',
+        'Procurando descontos',
+        'Caçando cupons ativos',
+        'Ofertas sendo selecionadas',
+        'Monitorando Amazon',
+        'Monitorando Mercado Livre',
+        'Monitorando Shopee'
     ];
     let statusIndex = 0;
-
     setInterval(() => {
         const element = document.getElementById('monitor-status');
-        if(!element) return;
-        
+        if (!element) return;
         element.style.opacity = '0';
         setTimeout(() => {
             statusIndex = (statusIndex + 1) % statuses.length;
             element.textContent = statuses[statusIndex];
             element.style.opacity = '1';
-        }, 250);
-    }, 3500);
+        }, 220);
+    }, 3200);
+
+    // Simulação leve de crescimento de membros
+    let members = 15240;
+    setInterval(() => {
+        if (Math.random() > 0.65) {
+            members += Math.floor(Math.random() * 3) + 1;
+            const el = document.getElementById('member-count');
+            if (el) el.textContent = `+${members.toLocaleString('pt-BR')} membros`;
+        }
+    }, 14000);
 
     /* =====================================================
-       LÓGICA DO CTA FIXO (ESCONDE QUANDO OS OUTROS APARECEM)
+       ATUALIZAÇÃO DO "ÚLTIMA ATUALIZAÇÃO"
+       ===================================================== */
+    const updateLabels = ['atualizado agora', 'há poucos segundos', 'há 1 min', 'atualizado agora'];
+    let updateIdx = 0;
+    setInterval(() => {
+        const el = document.getElementById('last-update');
+        if (!el) return;
+        updateIdx = (updateIdx + 1) % updateLabels.length;
+        el.textContent = updateLabels[updateIdx];
+    }, 9000);
+
+    /* =====================================================
+       CTA FIXO (Intersection Observer)
        ===================================================== */
     const stickyContainer = document.getElementById('sticky-cta-container');
     const heroCta = document.getElementById('hero-cta');
@@ -857,14 +914,14 @@
                 if (entry.target.id === 'final-cta') finalVisible = entry.isIntersecting;
             });
             updateStickyVisibility();
-        }, { threshold: 0.1 });
+        }, { threshold: 0.12 });
 
         if (heroCta) observer.observe(heroCta);
         if (finalCta) observer.observe(finalCta);
     }
 
     /* =====================================================
-       COMPORTAMENTO DOS BOTÕES (PIXEL + WHATSAPP DIRETO)
+       CTA → META LEAD → WHATSAPP
        ===================================================== */
     const buttons = [
         document.getElementById('hero-cta'),
@@ -872,36 +929,30 @@
         document.getElementById('sticky-cta')
     ];
 
-    // Seu link oficial do WhatsApp (inserido direto aqui)
     const whatsappUrl = "https://chat.whatsapp.com/CJV7ymt9wLxBndN22mRKSC?s=cl&p=a&ilr=4";
 
     buttons.forEach(button => {
         if (!button) return;
-
-        button.addEventListener('click', function(e) {
+        button.addEventListener('click', function (e) {
             e.preventDefault();
-
-            // Evita duplos cliques
             if (this.dataset.loading === 'true') return;
+
             this.dataset.loading = 'true';
             this.style.pointerEvents = 'none';
             this.classList.remove('cta-pulse');
 
-            // 1. DISPARA O EVENTO DE LEAD PRO FACEBOOK NO CLIQUE
             if (typeof fbq === 'function') {
                 fbq('track', 'Lead');
             }
 
-            // 2. MOSTRA O SPINNER E FEEDBACK VISUAL RÁPIDO
             this.innerHTML = `
                 <div class="spinner"></div>
                 <span>Abrindo WhatsApp...</span>
             `;
 
-            // 3. AGUARDA 800ms (PRO PIXEL COMPENSAR) E VAI DIRETO PRO GRUPO
             setTimeout(() => {
                 window.location.href = whatsappUrl;
-            }, 800);
+            }, 650);
         });
     });
 </script>
