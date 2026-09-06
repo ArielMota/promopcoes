@@ -10,7 +10,7 @@
 
     <meta
         name="description"
-        content="Receba ofertas relâmpago e promoções selecionadas diretamente no WhatsApp. Grupo gratuito."
+        content="Receba ofertas relâmpago e promoções selecionadas diretamente no WhatsApp. Grupo VIP gratuito."
     >
 
     <meta property="og:title" content="PROMOPÇÕES | Ofertas Relâmpago">
@@ -37,8 +37,8 @@
     >
 
     <!-- =========================================================
-         META PIXEL
-         O EVENTO LEAD CONTINUA SENDO DISPARADO NA OBRIGADO.HTML
+         META PIXEL (PAGEVIEW)
+         O EVENTO DE LEAD AGORA DISPARA DIRETO NO CLIQUE DO BOTÃO
          ========================================================= -->
 
     <script>
@@ -327,7 +327,7 @@
 <section class="w-full px-4 pt-7 relative">
     <div class="max-w-[440px] mx-auto text-center">
 
-        <!-- LOGO (AGORA MAIOR E RESPONSIVA) -->
+        <!-- LOGO (MAIOR E RESPONSIVA) -->
         <div class="mx-auto w-[100px] h-[100px] sm:w-[120px] sm:h-[120px] bg-white rounded-3xl p-3 mb-6 shadow-[0_15px_40px_rgba(37,211,102,0.15)] transition-all">
             <img src="logo.png" alt="PROMOPÇÕES" class="w-full h-full object-contain">
         </div>
@@ -470,8 +470,8 @@
             <span>Oportunidades únicas chegam primeiro no grupo</span>
         </div>
 
-        <!-- CTA HERO -->
-        <a href="obrigado.html" id="hero-cta" class="main-cta cta-pulse w-full py-4 px-5 rounded-2xl flex items-center justify-center gap-2.5 font-extrabold text-[16px] no-underline">
+        <!-- CTA HERO (HREF AJUSTADO PARA #) -->
+        <a href="#" id="hero-cta" class="main-cta cta-pulse w-full py-4 px-5 rounded-2xl flex items-center justify-center gap-2.5 font-extrabold text-[16px] no-underline">
             <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
             Quero entrar no Grupo VIP
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
@@ -739,7 +739,7 @@
     </div>
 </section>
 
-<!-- CTA FINAL -->
+<!-- CTA FINAL (HREF AJUSTADO PARA #) -->
 <section class="w-full px-4 py-8" id="final-section">
     <div class="max-w-[440px] mx-auto text-center">
         <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
@@ -752,7 +752,7 @@
         <p class="text-[12px] text-gray-500 mt-2 mb-5">
             Entre gratuitamente e deixe as oportunidades chegarem até você.
         </p>
-        <a href="obrigado.html" id="final-cta" class="main-cta w-full py-4 rounded-2xl flex items-center justify-center gap-2 font-extrabold text-[16px] no-underline">
+        <a href="#" id="final-cta" class="main-cta w-full py-4 rounded-2xl flex items-center justify-center gap-2 font-extrabold text-[16px] no-underline">
             <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
             Entrar no Grupo VIP gratuito
         </a>
@@ -769,7 +769,7 @@
 
 </main>
 
-<!-- CTA FIXO (COM ID E CLASSE PARA O CONTROLE JS) -->
+<!-- CTA FIXO (HREF AJUSTADO PARA #) -->
 <div id="sticky-cta-container" class="sticky-wrapper fixed bottom-0 left-0 right-0 z-[200] bg-[#070B09]/95 backdrop-blur-xl border-t border-white/10 px-4 py-3">
     <div class="max-w-[440px] mx-auto">
         <div class="flex items-center justify-between mb-2">
@@ -782,7 +782,7 @@
                 monitorando
             </div>
         </div>
-        <a href="obrigado.html" id="sticky-cta" class="main-cta cta-pulse w-full py-3.5 rounded-xl flex items-center justify-center gap-2 font-extrabold text-[15px] no-underline">
+        <a href="#" id="sticky-cta" class="main-cta cta-pulse w-full py-3.5 rounded-xl flex items-center justify-center gap-2 font-extrabold text-[15px] no-underline">
             <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
             Entrar no Grupo VIP gratuito
         </a>
@@ -844,7 +844,6 @@
         let finalVisible = false;
 
         const updateStickyVisibility = () => {
-            // Se o botão do topo ou do fim estiverem na tela, esconde o botão fixo.
             if (heroVisible || finalVisible) {
                 stickyContainer.classList.remove('visible');
             } else {
@@ -865,7 +864,7 @@
     }
 
     /* =====================================================
-       COMPORTAMENTO DOS BOTÕES (SPINNER DE CARREGAMENTO)
+       COMPORTAMENTO DOS BOTÕES (PIXEL + WHATSAPP DIRETO)
        ===================================================== */
     const buttons = [
         document.getElementById('hero-cta'),
@@ -873,26 +872,36 @@
         document.getElementById('sticky-cta')
     ];
 
+    // Seu link oficial do WhatsApp (inserido direto aqui)
+    const whatsappUrl = "https://chat.whatsapp.com/CJV7ymt9wLxBndN22mRKSC?s=cl&p=a&ilr=4";
+
     buttons.forEach(button => {
         if (!button) return;
 
         button.addEventListener('click', function(e) {
             e.preventDefault();
-            const destination = this.getAttribute('href');
 
+            // Evita duplos cliques
             if (this.dataset.loading === 'true') return;
             this.dataset.loading = 'true';
             this.style.pointerEvents = 'none';
             this.classList.remove('cta-pulse');
 
+            // 1. DISPARA O EVENTO DE LEAD PRO FACEBOOK NO CLIQUE
+            if (typeof fbq === 'function') {
+                fbq('track', 'Lead');
+            }
+
+            // 2. MOSTRA O SPINNER E FEEDBACK VISUAL RÁPIDO
             this.innerHTML = `
                 <div class="spinner"></div>
                 <span>Abrindo WhatsApp...</span>
             `;
 
+            // 3. AGUARDA 800ms (PRO PIXEL COMPENSAR) E VAI DIRETO PRO GRUPO
             setTimeout(() => {
-                window.location.href = destination;
-            }, 450);
+                window.location.href = whatsappUrl;
+            }, 800);
         });
     });
 </script>
