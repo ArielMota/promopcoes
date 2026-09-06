@@ -10,11 +10,14 @@
     <meta property="og:description" content="Ofertas selecionadas e enviadas diretamente no WhatsApp.">
     <meta property="og:image" content="https://arielmota.github.io/promopcoes/logo.png">
     <link rel="icon" type="image/png" href="logo.png">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
+    
     <!-- META PIXEL — PAGEVIEW + LEAD NO CLIQUE -->
     <script>
         !function(f,b,e,v,n,t,s){
@@ -40,6 +43,7 @@
         <img height="1" width="1" style="display:none"
              src="https://www.facebook.com/tr?id=1353562893309087&ev=PageView&noscript=1">
     </noscript>
+
     <style>
         :root {
             --bg-deep: #070B09;
@@ -256,6 +260,59 @@
             border-radius: 999px;
             z-index: 2;
         }
+
+        /* ===== LOGO DESTAQUE COM BOUNCE NO FUNDO ===== */
+        .logo-wrap {
+            position: relative;
+            width: 118px;
+            height: 118px;
+            margin: 0 auto 24px;
+        }
+        @media (min-width: 400px) {
+            .logo-wrap {
+                width: 132px;
+                height: 132px;
+            }
+        }
+        .logo-ring {
+            position: absolute;
+            inset: -6px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, rgba(37,211,102,.55), rgba(255,214,10,.25), rgba(37,211,102,.15));
+            opacity: .9;
+            animation: logoGlow 3.2s ease-in-out infinite;
+            z-index: 0;
+        }
+        @keyframes logoGlow {
+            0%, 100% {
+                opacity: .75;
+                transform: scale(1);
+                filter: blur(0px);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.03);
+                filter: blur(0.5px);
+            }
+        }
+
+        /* O FUNDO DO CARD QUE RESPIRA */
+        @keyframes cardBreathe {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+        }
+        .bg-breathe {
+            animation: cardBreathe 3s ease-in-out infinite;
+        }
+
+        /* EFEITO SENHA/ASTERISCO */
+        .secret-product {
+            font-family: 'JetBrains Mono', monospace;
+            letter-spacing: 0.15em;
+            color: var(--white);
+            text-shadow: 0 0 8px rgba(255,255,255,0.4);
+        }
+
         @media(max-width:380px) {
             h1 { font-size: 25px !important; }
             .flash-card { padding: 16px !important; }
@@ -267,6 +324,7 @@
                 scroll-behavior: auto !important;
                 transition-duration: .01ms !important;
             }
+            .logo-ring, .bg-breathe { animation: none; }
         }
     </style>
 </head>
@@ -292,47 +350,68 @@
 <!-- HERO -->
 <section class="w-full px-4 pt-6 relative">
     <div class="max-w-[440px] mx-auto text-center">
-        <div class="mx-auto w-[92px] h-[92px] sm:w-[108px] sm:h-[108px] bg-white rounded-3xl p-3 mb-5 shadow-[0_15px_40px_rgba(37,211,102,0.15)]">
-            <img src="logo.png" alt="PROMOPÇÕES" class="w-full h-full object-contain">
+
+        <!-- LOGO COM DESTAQUE + BOUNCE NO FUNDO -->
+        <div class="logo-wrap">
+            <div class="logo-ring" aria-hidden="true"></div>
+            <!-- Fundo branco pulsante -->
+            <div class="absolute inset-0 bg-breathe z-10" style="background: linear-gradient(160deg, #ffffff 0%, #f0f7f3 55%, #e8f5ee 100%); border-radius: 24px; box-shadow: 0 0 0 1px rgba(37,211,102,.18), 0 12px 32px rgba(0,0,0,.45), 0 0 40px rgba(37,211,102,.18);"></div>
+            <!-- Logo estática imune ao pulse -->
+            <div class="absolute inset-0 z-20 p-[14px] flex items-center justify-center">
+                <img src="logo.png" alt="PROMOPÇÕES" class="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.08)]">
+            </div>
         </div>
 
         <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full alert-badge text-[10px] font-extrabold uppercase tracking-wide mb-4">
             <i data-lucide="zap" class="w-3.5 h-3.5"></i>
             PARE DE PAGAR CARO
         </div>
-
+        
         <h1 class="hero-title text-[29px] sm:text-[33px] font-extrabold leading-[1.10] tracking-tight mb-4">
             <span class="text-white">A gente caça as ofertas.</span>
             <br>
             <span class="text-emerald-400">Você recebe no WhatsApp.</span>
         </h1>
-
+        
         <p class="text-[14px] sm:text-[15px] text-gray-400 leading-relaxed font-medium mb-5">
             Promoções reais, cupons e descontos de Amazon, Mercado Livre, Shopee e outras — economize até 70%.
         </p>
 
         <!-- MICRO PROVA / REDUÇÃO DE RISCO -->
-<section class=" py-5">
-    <div class="max-w-[440px] mx-auto grid grid-cols-3 gap-2">
-        <div class="pro-card p-3 text-center">
-            <i data-lucide="search-check" class="w-5 h-5 mx-auto mb-2 text-emerald-400"></i>
-            <p class="text-[11px] font-bold text-white">Escolhidas a dedo</p>
-            <p class="text-[9px] text-gray-500 mt-1">Só as melhores</p>
+        <div class="grid grid-cols-3 gap-2 mb-5">
+            <div class="pro-card p-3 text-center">
+                <i data-lucide="search-check" class="w-5 h-5 mx-auto mb-2 text-emerald-400"></i>
+                <p class="text-[11px] font-bold text-white">Escolhidas a dedo</p>
+                <p class="text-[9px] text-gray-500 mt-1">Só as melhores</p>
+            </div>
+            <div class="pro-card p-3 text-center">
+                <i data-lucide="zap" class="w-5 h-5 mx-auto mb-2 text-yellow-300"></i>
+                <p class="text-[11px] font-bold text-white">Alertas</p>
+                <p class="text-[9px] text-gray-500 mt-1">Quando aparece</p>
+            </div>
+            <div class="pro-card p-3 text-center">
+                <i data-lucide="shield-check" class="w-5 h-5 mx-auto mb-2 text-emerald-400"></i>
+                <p class="text-[11px] font-bold text-white">Gratuito</p>
+                <p class="text-[9px] text-gray-500 mt-1">Sem mensalidade</p>
+            </div>
         </div>
-        <div class="pro-card p-3 text-center">
-            <i data-lucide="zap" class="w-5 h-5 mx-auto mb-2 text-yellow-300"></i>
-            <p class="text-[11px] font-bold text-white">Alertas</p>
-            <p class="text-[9px] text-gray-500 mt-1">Quando aparece</p>
-        </div>
-        <div class="pro-card p-3 text-center">
-            <i data-lucide="shield-check" class="w-5 h-5 mx-auto mb-2 text-emerald-400"></i>
-            <p class="text-[11px] font-bold text-white">Gratuito</p>
-            <p class="text-[9px] text-gray-500 mt-1">Sem mensalidade</p>
-        </div>
-    </div>
-</section>
 
-        <!-- OFERTA RELÂMPAGO (CARROSSEL) -->
+        <!-- CTA HERO -->
+        <a href="#" id="hero-cta" class="main-cta cta-pulse w-full mt-4 py-4 px-5 rounded-2xl flex items-center justify-center gap-2.5 font-extrabold text-[16px] no-underline">
+            <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
+            ENTRAR NO GRUPO VIP
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+        </a>
+        <div class="flex items-center justify-center gap-2 mb-5 mt-2.5 text-[10px] text-gray-500">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
+            100% grátis
+            <span>•</span>
+            Só WhatsApp
+            <span>•</span>
+            Sai quando quiser
+        </div>
+
+        <!-- OFERTA RELÂMPAGO MISTERIOSA (CARROSSEL) -->
         <div class="slider-container">
             <div id="slider-track" class="slider-track">
                 <!-- SLIDE 1 -->
@@ -340,17 +419,17 @@
                     <div class="flash-card text-left p-5">
                         <div class="flex items-center justify-between gap-3 mb-4">
                             <div class="flash-label text-[10px] px-3 py-1.5 flex items-center gap-1.5">
-                                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
-                                OFERTA RELÂMPAGO
+                                <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+                                PRODUTO SECRETO
                             </div>
                             <span class="text-[10px] text-yellow-300 font-bold">pode acabar rápido</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-[68px] h-[68px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
-                                <img src="amz.png" alt="Amazon" class="w-full h-full object-contain">
+                                <img src="amz.png" alt="Amazon" class="w-full h-full object-contain opacity-80">
                             </div>
                             <div class="min-w-0 flex-1">
-                                <h2 class="text-[15px] font-extrabold text-white leading-tight">Geladeira Frost Free</h2>
+                                <h2 class="text-[16px] font-extrabold secret-product leading-tight">*************</h2>
                                 <div class="flex items-end gap-2 mt-1.5">
                                     <s class="text-[11px] text-gray-500">R$ 3.599</s>
                                     <span class="text-[21px] font-extrabold text-emerald-400">R$ 2.199</span>
@@ -360,7 +439,7 @@
                         </div>
                         <div class="grid grid-cols-[1fr_auto] gap-2 items-center mt-4">
                             <div class="countdown-box px-3 py-2">
-                                <p class="text-[8px] uppercase font-bold text-gray-500">janela da oferta</p>
+                                <p class="text-[8px] uppercase font-bold text-gray-500">janela de desconto</p>
                                 <div class="flex items-center gap-2">
                                     <i data-lucide="clock-3" class="w-3.5 h-3.5 text-red-400"></i>
                                     <span class="text-[13px] text-white font-extrabold">
@@ -368,7 +447,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <span class="text-[9px] text-gray-400 text-right leading-tight">preço e estoque<br>podem mudar</span>
+                            <span class="text-[9px] text-gray-400 text-right leading-tight">clique para<br>revelar</span>
                         </div>
                     </div>
                 </div>
@@ -378,17 +457,17 @@
                     <div class="flash-card text-left p-5">
                         <div class="flex items-center justify-between gap-3 mb-4">
                             <div class="flash-label text-[10px] px-3 py-1.5 flex items-center gap-1.5">
-                                <i data-lucide="zap" class="w-3.5 h-3.5"></i>
-                                OFERTA DO DIA
+                                <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+                                ACHADO DO DIA
                             </div>
                             <span class="text-[10px] text-yellow-300 font-bold">preço pode mudar</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-[68px] h-[68px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
-                                <img src="ml.png" alt="Mercado Livre" class="w-full h-full object-contain">
+                                <img src="ml.png" alt="Mercado Livre" class="w-full h-full object-contain opacity-80">
                             </div>
                             <div class="min-w-0 flex-1">
-                                <h2 class="text-[15px] font-extrabold text-white leading-tight">Sofá Retrátil 3 Lugares</h2>
+                                <h2 class="text-[16px] font-extrabold secret-product leading-tight">*******************</h2>
                                 <div class="flex items-end gap-2 mt-1.5">
                                     <s class="text-[11px] text-gray-500">R$ 1.899</s>
                                     <span class="text-[21px] font-extrabold text-emerald-400">R$ 997</span>
@@ -398,7 +477,7 @@
                         </div>
                         <div class="grid grid-cols-[1fr_auto] gap-2 items-center mt-4">
                             <div class="countdown-box px-3 py-2">
-                                <p class="text-[8px] uppercase font-bold text-gray-500">janela da oferta</p>
+                                <p class="text-[8px] uppercase font-bold text-gray-500">oferta expira em</p>
                                 <div class="flex items-center gap-2">
                                     <i data-lucide="clock-3" class="w-3.5 h-3.5 text-red-400"></i>
                                     <span class="text-[13px] text-white font-extrabold">
@@ -406,7 +485,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <span class="text-[9px] text-gray-400 text-right leading-tight">ofertas boas<br>podem sumir</span>
+                            <span class="text-[9px] text-gray-400 text-right leading-tight">clique para<br>revelar</span>
                         </div>
                     </div>
                 </div>
@@ -416,17 +495,17 @@
                     <div class="flash-card text-left p-5">
                         <div class="flex items-center justify-between gap-3 mb-4">
                             <div class="flash-label text-[10px] px-3 py-1.5 flex items-center gap-1.5">
-                                <i data-lucide="ticket-percent" class="w-3.5 h-3.5"></i>
-                                CUPOM ATIVO
+                                <i data-lucide="lock" class="w-3.5 h-3.5"></i>
+                                CUPOM SECRETO
                             </div>
                             <span class="text-[10px] text-yellow-300 font-bold">pode acabar</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-[68px] h-[68px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
-                                <img src="shopee.png" alt="Shopee" class="w-full h-full object-contain">
+                                <img src="shopee.png" alt="Shopee" class="w-full h-full object-contain opacity-80">
                             </div>
                             <div class="min-w-0 flex-1">
-                                <h2 class="text-[15px] font-extrabold text-white leading-tight">Air Fryer 4 Litros</h2>
+                                <h2 class="text-[16px] font-extrabold secret-product leading-tight">****************</h2>
                                 <div class="flex items-end gap-2 mt-1.5">
                                     <s class="text-[11px] text-gray-500">R$ 399</s>
                                     <span class="text-[21px] font-extrabold text-emerald-400">R$ 189</span>
@@ -436,7 +515,7 @@
                         </div>
                         <div class="grid grid-cols-[1fr_auto] gap-2 items-center mt-4">
                             <div class="countdown-box px-3 py-2">
-                                <p class="text-[8px] uppercase font-bold text-gray-500">cupom em destaque</p>
+                                <p class="text-[8px] uppercase font-bold text-gray-500">cupom válido por</p>
                                 <div class="flex items-center gap-2">
                                     <i data-lucide="clock-3" class="w-3.5 h-3.5 text-red-400"></i>
                                     <span class="text-[13px] text-white font-extrabold">
@@ -444,7 +523,7 @@
                                     </span>
                                 </div>
                             </div>
-                            <span class="text-[9px] text-gray-400 text-right leading-tight">cupons podem<br>ser limitados</span>
+                            <span class="text-[9px] text-gray-400 text-right leading-tight">clique para<br>revelar</span>
                         </div>
                     </div>
                 </div>
@@ -461,20 +540,6 @@
             </p>
         </div>
 
-        <!-- CTA HERO -->
-        <a href="#" id="hero-cta" class="main-cta cta-pulse w-full py-4 px-5 rounded-2xl flex items-center justify-center gap-2.5 font-extrabold text-[16px] no-underline">
-            <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
-            ENTRAR NO GRUPO VIP
-            <i data-lucide="arrow-right" class="w-4 h-4"></i>
-        </a>
-        <div class="flex items-center justify-center gap-2 mt-2.5 text-[10px] text-gray-500">
-            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
-            100% grátis
-            <span>•</span>
-            Só WhatsApp
-            <span>•</span>
-            Sai quando quiser
-        </div>
     </div>
 </section>
 
@@ -498,7 +563,7 @@
     </div>
 </section>
 
-<!-- FEED DE OFERTAS -->
+<!-- FEED DE OFERTAS MISTERIOSAS -->
 <section class="w-full px-4 py-4">
     <div class="max-w-[440px] mx-auto">
         <div class="flex items-end justify-between mb-4">
@@ -508,11 +573,8 @@
             </div>
             <span class="text-[9px] text-gray-500" id="last-update">atualizado agora</span>
         </div>
-
         <div class="fade-mask h-[245px] overflow-hidden">
-            <div class="offers-scroll flex flex-col gap-3" id="offers-feed">
-                <!-- Ofertas serão preenchidas via JS para evitar duplicação manual e permitir rotação -->
-            </div>
+            <div class="offers-scroll flex flex-col gap-3" id="offers-feed"></div>
         </div>
         <p class="text-center text-[10px] text-gray-500 mt-2">
             Exemplos ilustrativos. Preço, estoque e cupom podem mudar a qualquer momento.
@@ -675,7 +737,7 @@
         </p>
         <a href="#" id="final-cta" class="main-cta w-full py-4 rounded-2xl flex items-center justify-center gap-2 font-extrabold text-[16px] no-underline">
             <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
-            Receber ofertas no WhatsApp
+            REVELAR OFERTAS NO GRUPO
         </a>
         <p class="trust-line text-[10px] mt-2.5">
             Grátis • Sem mensalidade • Saída livre
@@ -709,7 +771,7 @@
         </div>
         <a href="#" id="sticky-cta" class="main-cta cta-pulse w-full py-3.5 rounded-xl flex items-center justify-center gap-2 font-extrabold text-[15px] no-underline">
             <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
-            ENTRAR NO GRUPO VIP 
+            ENTRAR NO GRUPO VIP
         </a>
         <p class="text-center text-[8px] text-gray-600 mt-1.5">Acesso gratuito • WhatsApp</p>
     </div>
@@ -719,15 +781,15 @@
     lucide.createIcons();
 
     /* =====================================================
-       DADOS DAS OFERTAS (fonte única para feed + lógica)
+       DADOS DAS OFERTAS PARA O FEED (COM ASTERISCOS)
        ===================================================== */
     const offersData = [
-        { store: 'Amazon', img: 'amz.png', title: 'Geladeira Frost Free', old: 'R$ 3.599', price: 'R$ 2.199', discount: '-38%' },
-        { store: 'Mercado Livre', img: 'ml.png', title: 'Sofá Retrátil 3 Lug.', old: 'R$ 1.899', price: 'R$ 997', discount: '-47%' },
-        { store: 'Shopee', img: 'shopee.png', title: 'Air Fryer 4 Litros', old: 'R$ 399', price: 'R$ 189', discount: '-52%' },
-        { store: 'Amazon', img: 'amz.png', title: 'Smart TV 50" 4K', old: 'R$ 2.499', price: 'R$ 1.679', discount: '-33%' },
-        { store: 'Mercado Livre', img: 'ml.png', title: 'Fone Bluetooth ANC', old: 'R$ 349', price: 'R$ 159', discount: '-54%' },
-        { store: 'Shopee', img: 'shopee.png', title: 'Liquidificador 1000W', old: 'R$ 289', price: 'R$ 129', discount: '-55%' }
+        { store: 'Amazon', img: 'amz.png', title: '*************', price: 'R$ 2.199', discount: '-38%' },
+        { store: 'Mercado Livre', img: 'ml.png', title: '*******************', price: 'R$ 997', discount: '-47%' },
+        { store: 'Shopee', img: 'shopee.png', title: '****************', price: 'R$ 189', discount: '-52%' },
+        { store: 'Amazon', img: 'amz.png', title: '***************', price: 'R$ 1.679', discount: '-33%' },
+        { store: 'Mercado Livre', img: 'ml.png', title: '******************', price: 'R$ 159', discount: '-54%' },
+        { store: 'Shopee', img: 'shopee.png', title: '********************', price: 'R$ 129', discount: '-55%' }
     ];
 
     /* =====================================================
@@ -736,17 +798,15 @@
     function renderOffersFeed() {
         const feed = document.getElementById('offers-feed');
         if (!feed) return;
-
-        // Duplicamos a lista para o scroll infinito visual
         const list = [...offersData, ...offersData];
         feed.innerHTML = list.map((o, i) => `
             <div class="offer-card p-3 flex items-center gap-3 relative">
                 ${i < 2 ? '<span class="new-tag">NOVO</span>' : ''}
                 <div class="w-12 h-12 bg-white rounded-xl p-2 shrink-0 flex items-center justify-center">
-                    <img src="${o.img}" alt="${o.store}" class="w-full h-full object-contain">
+                    <img src="${o.img}" alt="${o.store}" class="w-full h-full object-contain opacity-80">
                 </div>
                 <div class="flex-1 min-w-0">
-                    <h3 class="text-[13px] font-bold truncate">${o.title}</h3>
+                    <h3 class="text-[14px] font-bold truncate secret-product">${o.title}</h3>
                     <p class="text-[10px] text-gray-500 mt-1">${o.store}</p>
                 </div>
                 <div class="text-right">
@@ -807,7 +867,6 @@
     if (track) {
         createDots();
         startAutoplay();
-
         const container = track.parentElement;
         container.addEventListener('mouseenter', stopAutoplay);
         container.addEventListener('mouseleave', startAutoplay);
@@ -816,12 +875,11 @@
     }
 
     /* =====================================================
-       CONTADOR DINÂMICO (janela visual da oferta)
+       CONTADOR DINÂMICO
        ===================================================== */
     const countdownElements = document.querySelectorAll('[data-countdown]');
     countdownElements.forEach((element) => {
         let remaining = parseInt(element.dataset.seconds, 10) || 600;
-
         function renderCountdown() {
             const hours = Math.floor(remaining / 3600);
             const minutes = Math.floor((remaining % 3600) / 60);
@@ -831,12 +889,10 @@
                 String(minutes).padStart(2, '0') + ':' +
                 String(seconds).padStart(2, '0');
         }
-
         renderCountdown();
         setInterval(() => {
             remaining--;
             if (remaining <= 0) {
-                // Reinicia com tempo aleatório entre 8 e 22 minutos
                 remaining = 480 + Math.floor(Math.random() * 840);
             }
             renderCountdown();
@@ -867,7 +923,6 @@
         }, 220);
     }, 3200);
 
-    // Simulação leve de crescimento de membros
     let members = 15240;
     setInterval(() => {
         if (Math.random() > 0.65) {
@@ -878,7 +933,7 @@
     }, 14000);
 
     /* =====================================================
-       ATUALIZAÇÃO DO "ÚLTIMA ATUALIZAÇÃO"
+       ÚLTIMA ATUALIZAÇÃO
        ===================================================== */
     const updateLabels = ['atualizado agora', 'há poucos segundos', 'há 1 min', 'atualizado agora'];
     let updateIdx = 0;
@@ -890,16 +945,14 @@
     }, 9000);
 
     /* =====================================================
-       CTA FIXO (Intersection Observer)
+       CTA FIXO E OBSERVER
        ===================================================== */
     const stickyContainer = document.getElementById('sticky-cta-container');
     const heroCta = document.getElementById('hero-cta');
     const finalCta = document.getElementById('final-cta');
-
     if (stickyContainer && window.IntersectionObserver) {
         let heroVisible = false;
         let finalVisible = false;
-
         const updateStickyVisibility = () => {
             if (heroVisible || finalVisible) {
                 stickyContainer.classList.remove('visible');
@@ -907,7 +960,6 @@
                 stickyContainer.classList.add('visible');
             }
         };
-
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.target.id === 'hero-cta') heroVisible = entry.isIntersecting;
@@ -915,44 +967,72 @@
             });
             updateStickyVisibility();
         }, { threshold: 0.12 });
-
         if (heroCta) observer.observe(heroCta);
         if (finalCta) observer.observe(finalCta);
     }
 
     /* =====================================================
-       CTA → META LEAD → WHATSAPP
+       BOTÕES + CARDS → META LEAD → WHATSAPP
        ===================================================== */
+    const whatsappUrl = "https://chat.whatsapp.com/CJV7ymt9wLxBndN22mRKSC?s=cl&p=a&ilr=4";
+
+    // 1. Pega os botões verdes
     const buttons = [
         document.getElementById('hero-cta'),
         document.getElementById('final-cta'),
         document.getElementById('sticky-cta')
     ];
 
-    const whatsappUrl = "https://chat.whatsapp.com/CJV7ymt9wLxBndN22mRKSC?s=cl&p=a&ilr=4";
+    // 2. Pega os cards (do carrossel e do feed gerado pelo JS)
+    const cards = document.querySelectorAll('.flash-card, .offer-card');
 
+    function processLeadClick(element, isCard) {
+        if (element.dataset.loading === 'true') return;
+        element.dataset.loading = 'true';
+
+        // DISPARA O PIXEL
+        if (typeof fbq === 'function') {
+            fbq('track', 'Lead');
+        }
+
+        if (isCard) {
+            // Efeito visual no card para indicar sucesso no clique
+            element.style.transition = 'opacity 0.2s';
+            element.style.opacity = '0.4';
+        } else {
+            // Efeito visual nos botões principais
+            element.style.pointerEvents = 'none';
+            element.classList.remove('cta-pulse');
+            element.innerHTML = `
+                <div class="spinner"></div>
+                <span>Abrindo WhatsApp...</span>
+            `;
+        }
+
+        // Aguarda 650ms para o Pixel registrar o evento, e redireciona
+        setTimeout(() => {
+            window.location.href = whatsappUrl;
+            if (isCard) element.style.opacity = '1';
+            element.dataset.loading = 'false';
+        }, 650);
+    }
+
+    // Adiciona evento de clique nos botões
     buttons.forEach(button => {
         if (!button) return;
         button.addEventListener('click', function (e) {
             e.preventDefault();
-            if (this.dataset.loading === 'true') return;
+            processLeadClick(this, false);
+        });
+    });
 
-            this.dataset.loading = 'true';
-            this.style.pointerEvents = 'none';
-            this.classList.remove('cta-pulse');
-
-            if (typeof fbq === 'function') {
-                fbq('track', 'Lead');
-            }
-
-            this.innerHTML = `
-                <div class="spinner"></div>
-                <span>Abrindo WhatsApp...</span>
-            `;
-
-            setTimeout(() => {
-                window.location.href = whatsappUrl;
-            }, 650);
+    // Adiciona evento de clique nos cards
+    cards.forEach(card => {
+        if (!card) return;
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', function (e) {
+            e.preventDefault();
+            processLeadClick(this, true);
         });
     });
 </script>
