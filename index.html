@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PROMOPÇÕES | Ofertas que realmente valem a pena</title>
-    <meta name="theme-color" content="#090D0B">
+    <meta name="theme-color" content="#F7F4EF">
     <meta name="description" content="Receba ofertas relâmpago, cupons e promoções selecionadas diretamente no WhatsApp. Grupo gratuito.">
     <meta property="og:title" content="PROMOPÇÕES | Ofertas Relâmpago">
     <meta property="og:description" content="Ofertas selecionadas e enviadas diretamente no WhatsApp.">
@@ -46,25 +46,25 @@
 
     <style>
         :root {
-            --bg-deep: #070B09;
-            --bg-secondary: #0C120F;
-            --surface: #121A16;
-            --surface-card: #17231D;
-            --green: #25D366;
-            --green-dark: #128C7E;
-            --yellow: #FFD60A;
-            --orange: #FF8A00;
-            --red: #FF3B30;
-            --white: #F7F8F8;
-            --muted: #9CA6A1;
-            --border: rgba(255,255,255,.07);
+            --bg-deep: #F7F4EF;
+            --bg-secondary: #F0ECE5;
+            --surface: #FFFFFF;
+            --surface-card: #FFFFFF;
+            --green: #5F7A68;
+            --green-dark: #496253;
+            --yellow: #C69A52;
+            --orange: #C97B5A;
+            --red: #B96555;
+            --white: #292723;
+            --muted: #706B64;
+            --border: rgba(41,39,35,.10);
         }
         * { box-sizing: border-box; }
         html { scroll-behavior: smooth; }
         body {
             margin: 0;
             background:
-                radial-gradient(circle at 50% 0%, rgba(37,211,102,.10), transparent 420px),
+                radial-gradient(circle at 50% 0%, rgba(95,122,104,.10), transparent 420px),
                 var(--bg-deep);
             color: var(--white);
             font-family: 'Plus Jakarta Sans', sans-serif;
@@ -73,10 +73,10 @@
         }
         .mono { font-family: 'JetBrains Mono', monospace; }
         .pro-card {
-            background: linear-gradient(145deg, rgba(255,255,255,.035), rgba(255,255,255,.015));
+            background: linear-gradient(145deg, rgba(255,255,255,.92), rgba(255,255,255,.72));
             border: 1px solid var(--border);
             border-radius: 20px;
-            box-shadow: 0 15px 40px rgba(0,0,0,.35);
+            box-shadow: 0 15px 40px rgba(67,58,48,.10);
         }
         .live-dot {
             width: 8px;
@@ -88,13 +88,13 @@
             flex-shrink: 0;
         }
         @keyframes livePulse {
-            0% { box-shadow: 0 0 0 0 rgba(37,211,102,.5); }
+            0% { box-shadow: 0 0 0 0 rgba(95,122,104,.5); }
             70% { box-shadow: 0 0 0 8px rgba(37,211,102,0); }
             100% { box-shadow: 0 0 0 0 rgba(37,211,102,0); }
         }
         .alert-badge {
-            background: rgba(255,214,10,.08);
-            border: 1px solid rgba(255,214,10,.22);
+            background: rgba(198,154,82,.10);
+            border: 1px solid rgba(198,154,82,.28);
             color: var(--yellow);
         }
         .hero-title { text-wrap: balance; }
@@ -117,7 +117,7 @@
             background: linear-gradient(135deg, #241b05, #16150b 55%, #101610);
             border: 1px solid rgba(255,214,10,.28);
             border-radius: 22px;
-            box-shadow: 0 15px 50px rgba(0,0,0,.4);
+            box-shadow: 0 15px 50px rgba(67,58,48,.12);
             min-height: 188px;
         }
         .flash-card::before {
@@ -127,18 +127,18 @@
             right: -100px;
             width: 220px;
             height: 220px;
-            background: radial-gradient(circle, rgba(255,214,10,.15), transparent 70%);
+            background: radial-gradient(circle, rgba(198,154,82,.12), transparent 70%);
             pointer-events: none;
         }
         .flash-label {
             background: linear-gradient(90deg, var(--orange), #FFB000);
-            color: #171000;
+            color: #FFFFFF;
             font-weight: 900;
             border-radius: 999px;
         }
         .countdown-box {
-            background: rgba(255,59,48,.10);
-            border: 1px solid rgba(255,59,48,.22);
+            background: rgba(185,101,85,.10);
+            border: 1px solid rgba(185,101,85,.20);
             border-radius: 12px;
         }
         .countdown-number {
@@ -147,20 +147,20 @@
             letter-spacing: .04em;
         }
         .main-cta {
-            background: linear-gradient(135deg, #25D366, #19B957);
-            color: #041109;
-            box-shadow: 0 12px 35px rgba(37,211,102,.25);
+            background: linear-gradient(135deg, #5F7A68, #19B957);
+            color: #FFFFFF;
+            box-shadow: 0 12px 35px rgba(95,122,104,.25);
             transition: transform .2s ease, box-shadow .2s ease;
         }
         .main-cta:hover {
             transform: translateY(-2px);
-            box-shadow: 0 16px 40px rgba(37,211,102,.35);
+            box-shadow: 0 16px 40px rgba(95,122,104,.35);
         }
         .main-cta:active { transform: scale(.98); }
         .cta-pulse { animation: ctaPulse 2.8s infinite; }
         @keyframes ctaPulse {
-            0%,100% { box-shadow: 0 10px 30px rgba(37,211,102,.22); }
-            50% { box-shadow: 0 10px 45px rgba(37,211,102,.42); }
+            0%,100% { box-shadow: 0 10px 30px rgba(95,122,104,.22); }
+            50% { box-shadow: 0 10px 45px rgba(95,122,104,.42); }
         }
         .sticky-wrapper {
             transition: transform .4s cubic-bezier(.16,1,.3,1), opacity .4s ease;
@@ -175,13 +175,13 @@
         }
         .offer-card {
             background: var(--surface-card);
-            border: 1px solid rgba(255,255,255,.06);
+            border: 1px solid rgba(41,39,35,.08);
             border-radius: 15px;
             position: relative;
             transition: border-color .25s ease, transform .2s ease;
         }
         .offer-card:hover {
-            border-color: rgba(37,211,102,.25);
+            border-color: rgba(95,122,104,.25);
             transform: translateY(-1px);
         }
         .discount {
@@ -207,18 +207,18 @@
         .spinner {
             width: 19px;
             height: 19px;
-            border: 3px solid rgba(255,255,255,.3);
+            border: 3px solid rgba(41,39,35,.20);
             border-top-color: white;
             border-radius: 50%;
             animation: spin .7s linear infinite;
         }
         @keyframes spin { to { transform: rotate(360deg); } }
         .urgency-strip {
-            background: linear-gradient(90deg, rgba(255,59,48,.12), rgba(255,138,0,.10));
-            border: 1px solid rgba(255,138,0,.20);
+            background: linear-gradient(90deg, rgba(255,59,48,.12), rgba(201,123,90,.10));
+            border: 1px solid rgba(201,123,90,.20);
             border-radius: 14px;
         }
-        .trust-line { color: #A9B3AE; }
+        .trust-line { color: #756F68; }
         details > summary { list-style: none; }
         details > summary::-webkit-details-marker { display: none; }
         .slider-dots {
@@ -245,15 +245,15 @@
             letter-spacing: .02em;
             padding: 2px 7px;
             border-radius: 6px;
-            background: rgba(255,255,255,.08);
-            color: #c8d0cb;
+            background: rgba(41,39,35,.06);
+            color: #756F68;
         }
         .new-tag {
             position: absolute;
             top: -6px;
             left: 12px;
             background: var(--green);
-            color: #041109;
+            color: #FFFFFF;
             font-size: 9px;
             font-weight: 900;
             padding: 2px 7px;
@@ -278,7 +278,7 @@
             position: absolute;
             inset: -6px;
             border-radius: 28px;
-            background: linear-gradient(135deg, rgba(37,211,102,.55), rgba(255,214,10,.25), rgba(37,211,102,.15));
+            background: linear-gradient(135deg, rgba(95,122,104,.55), rgba(198,154,82,.20), rgba(37,211,102,.15));
             opacity: .9;
             animation: logoGlow 3.2s ease-in-out infinite;
             z-index: 0;
@@ -310,7 +310,7 @@
             font-family: 'JetBrains Mono', monospace;
             letter-spacing: 0.15em;
             color: var(--white);
-            text-shadow: 0 0 8px rgba(255,255,255,0.4);
+            text-shadow: 0 0 8px rgba(41,39,35,.22);
         }
 
         @media(max-width:380px) {
@@ -326,21 +326,115 @@
             }
             .logo-ring, .bg-breathe { animation: none; }
         }
+
+        /* ===== PALETA CASA / DECORAÇÃO / ELETRO ===== */
+        body {
+            background:
+                radial-gradient(circle at 50% 0%, rgba(95,122,104,.10), transparent 420px),
+                var(--bg-deep);
+            color: var(--white);
+        }
+
+        .pro-card {
+            background: rgba(255,255,255,.94);
+            border: 1px solid rgba(41,39,35,.09);
+            box-shadow: 0 10px 30px rgba(67,58,48,.08);
+        }
+
+        .flash-card {
+            background: linear-gradient(135deg, #F1E8DC, #F7F3EC 55%, #E9EFE9);
+            border: 1px solid rgba(201,123,90,.22);
+            box-shadow: 0 12px 32px rgba(67,58,48,.10);
+        }
+
+        .flash-card::before {
+            background: radial-gradient(circle, rgba(201,123,90,.13), transparent 70%);
+        }
+
+        .main-cta {
+            background: linear-gradient(135deg, #5F7A68, #496253);
+            color: #FFFFFF;
+            box-shadow: 0 10px 28px rgba(95,122,104,.22);
+        }
+
+        .main-cta:hover {
+            box-shadow: 0 14px 34px rgba(95,122,104,.28);
+        }
+
+        .cta-pulse {
+            animation: ctaPulse 3.2s infinite;
+        }
+
+        @keyframes ctaPulse {
+            0%,100% { box-shadow: 0 10px 28px rgba(95,122,104,.18); }
+            50% { box-shadow: 0 10px 34px rgba(95,122,104,.28); }
+        }
+
+        .urgency-strip {
+            background: linear-gradient(90deg, rgba(201,123,90,.08), rgba(198,154,82,.08));
+            border: 1px solid rgba(201,123,90,.18);
+        }
+
+        .countdown-box {
+            background: rgba(185,101,85,.07);
+            border: 1px solid rgba(185,101,85,.16);
+        }
+
+        .offer-card {
+            background: #FFFFFF;
+            border: 1px solid rgba(41,39,35,.08);
+            box-shadow: 0 5px 18px rgba(67,58,48,.05);
+        }
+
+        .offer-card:hover {
+            border-color: rgba(95,122,104,.28);
+        }
+
+        .discount {
+            background: #B96555;
+        }
+
+        .store-badge {
+            background: rgba(41,39,35,.06);
+            color: #756F68;
+        }
+
+        .new-tag {
+            background: #5F7A68;
+            color: #FFFFFF;
+        }
+
+        .logo-ring {
+            background: linear-gradient(135deg, rgba(95,122,104,.42), rgba(201,123,90,.24), rgba(198,154,82,.18));
+        }
+
+        /* Keep the logo area clean and welcoming rather than "neon". */
+        .logo-wrap > div:nth-child(2) {
+            background: linear-gradient(160deg, #FFFFFF 0%, #F6F1EA 55%, #EDF3EE 100%) !important;
+            box-shadow: 0 0 0 1px rgba(95,122,104,.14), 0 10px 28px rgba(67,58,48,.12), 0 0 30px rgba(95,122,104,.10) !important;
+        }
+
+        /* Fixed CTA should feel like a helpful shopping shortcut. */
+        #sticky-cta-container {
+            background: rgba(247,244,239,.96) !important;
+            border-top: 1px solid rgba(41,39,35,.10) !important;
+        }
+
     </style>
 </head>
 <body class="pb-36">
 
 <!-- HEADER -->
-<header class="sticky top-0 z-[100] w-full px-4 py-3 bg-[#070B09]/90 backdrop-blur-xl border-b border-white/5">
+<header class="sticky top-0 z-[100] w-full px-4 py-3 bg-[#F7F4EF]/90 backdrop-blur-xl border-b border-stone-900/10">
     <div class="max-w-[440px] mx-auto flex items-center justify-between gap-3">
         <div class="flex items-center gap-2 min-w-0">
             <span class="live-dot"></span>
-            <span id="monitor-status" class="mono text-[10px] font-bold uppercase tracking-wider text-emerald-400 truncate transition-opacity duration-200">
+            <span id="monitor-status" class="mono text-[10px] font-bold uppercase tracking-wider text-[#5F7A68] truncate transition-opacity duration-200">
                 Encontrando ofertas agora
             </span>
         </div>
-        <div class="flex items-center gap-1.5 text-[10px] font-bold text-white bg-white/5 border border-white/10 px-3 py-1.5 rounded-full shrink-0">
-            <i data-lucide="users" class="w-3 h-3 text-emerald-400"></i>
+        <div class="flex items-center gap-1.5 text-[10px] font-bold text-stone-800 bg-stone-900/5 border border-stone-900/10 px-3 py-1.5 rounded-full shrink-0">
+            <i data-lucide="users" class="w-3 h-3 text-[#5F7A68]"></i>
             <span id="member-count">+15.240 membros</span>
         </div>
     </div>
@@ -355,7 +449,7 @@
         <div class="logo-wrap">
             <div class="logo-ring" aria-hidden="true"></div>
             <!-- Fundo branco pulsante -->
-            <div class="absolute inset-0 bg-breathe z-10" style="background: linear-gradient(160deg, #ffffff 0%, #f0f7f3 55%, #e8f5ee 100%); border-radius: 24px; box-shadow: 0 0 0 1px rgba(37,211,102,.18), 0 12px 32px rgba(0,0,0,.45), 0 0 40px rgba(37,211,102,.18);"></div>
+            <div class="absolute inset-0 bg-breathe z-10" style="background: linear-gradient(160deg, #ffffff 0%, #f0f7f3 55%, #e8f5ee 100%); border-radius: 24px; box-shadow: 0 0 0 1px rgba(95,122,104,.18), 0 12px 32px rgba(67,58,48,.14), 0 0 40px rgba(95,122,104,.18);"></div>
             <!-- Logo estática imune ao pulse -->
             <div class="absolute inset-0 z-20 p-[14px] flex items-center justify-center">
                 <img src="logo.png" alt="PROMOPÇÕES" class="w-full h-full object-contain filter drop-shadow-[0_2px_4px_rgba(0,0,0,0.08)]">
@@ -368,31 +462,31 @@
         </div>
         
         <h1 class="hero-title text-[29px] sm:text-[33px] font-extrabold leading-[1.10] tracking-tight mb-4">
-            <span class="text-white">A gente caça as ofertas.</span>
+            <span class="text-stone-800">A gente caça as ofertas.</span>
             <br>
-            <span class="text-emerald-400">Você recebe no WhatsApp.</span>
+            <span class="text-[#5F7A68]">Você recebe no WhatsApp.</span>
         </h1>
         
-        <p class="text-[14px] sm:text-[15px] text-gray-400 leading-relaxed font-medium mb-5">
+        <p class="text-[14px] sm:text-[15px] text-stone-600 leading-relaxed font-medium mb-5">
             Promoções reais, cupons e descontos de Amazon, Mercado Livre, Shopee e outras — economize até 70%.
         </p>
 
         <!-- MICRO PROVA / REDUÇÃO DE RISCO -->
         <div class="grid grid-cols-3 gap-2 mb-5">
             <div class="pro-card p-3 text-center">
-                <i data-lucide="search-check" class="w-5 h-5 mx-auto mb-2 text-emerald-400"></i>
-                <p class="text-[11px] font-bold text-white">Escolhidas a dedo</p>
-                <p class="text-[9px] text-gray-500 mt-1">Só as melhores</p>
+                <i data-lucide="search-check" class="w-5 h-5 mx-auto mb-2 text-[#5F7A68]"></i>
+                <p class="text-[11px] font-bold text-stone-800">Escolhidas a dedo</p>
+                <p class="text-[9px] text-stone-500 mt-1">Só as melhores</p>
             </div>
             <div class="pro-card p-3 text-center">
-                <i data-lucide="zap" class="w-5 h-5 mx-auto mb-2 text-yellow-300"></i>
-                <p class="text-[11px] font-bold text-white">Alertas</p>
-                <p class="text-[9px] text-gray-500 mt-1">Quando aparece</p>
+                <i data-lucide="zap" class="w-5 h-5 mx-auto mb-2 text-[#B0833F]"></i>
+                <p class="text-[11px] font-bold text-stone-800">Alertas</p>
+                <p class="text-[9px] text-stone-500 mt-1">Quando aparece</p>
             </div>
             <div class="pro-card p-3 text-center">
-                <i data-lucide="shield-check" class="w-5 h-5 mx-auto mb-2 text-emerald-400"></i>
-                <p class="text-[11px] font-bold text-white">Gratuito</p>
-                <p class="text-[9px] text-gray-500 mt-1">Sem mensalidade</p>
+                <i data-lucide="shield-check" class="w-5 h-5 mx-auto mb-2 text-[#5F7A68]"></i>
+                <p class="text-[11px] font-bold text-stone-800">Gratuito</p>
+                <p class="text-[9px] text-stone-500 mt-1">Sem mensalidade</p>
             </div>
         </div>
 
@@ -402,8 +496,8 @@
             ENTRAR NO GRUPO VIP
             <i data-lucide="arrow-right" class="w-4 h-4"></i>
         </a>
-        <div class="flex items-center justify-center gap-2 mb-5 mt-2.5 text-[10px] text-gray-500">
-            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400"></i>
+        <div class="flex items-center justify-center gap-2 mb-5 mt-2.5 text-[10px] text-stone-500">
+            <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-[#5F7A68]"></i>
             100% grátis
             <span>•</span>
             Só WhatsApp
@@ -422,7 +516,7 @@
                                 <i data-lucide="lock" class="w-3.5 h-3.5"></i>
                                 PRODUTO SECRETO
                             </div>
-                            <span class="text-[10px] text-yellow-300 font-bold">pode acabar rápido</span>
+                            <span class="text-[10px] text-[#B0833F] font-bold">pode acabar rápido</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-[68px] h-[68px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
@@ -431,23 +525,23 @@
                             <div class="min-w-0 flex-1">
                                 <h2 class="text-[16px] font-extrabold secret-product leading-tight">*************</h2>
                                 <div class="flex items-end gap-2 mt-1.5">
-                                    <s class="text-[11px] text-gray-500">R$ 3.599</s>
-                                    <span class="text-[21px] font-extrabold text-emerald-400">R$ 2.199</span>
+                                    <s class="text-[11px] text-stone-500">R$ 3.599</s>
+                                    <span class="text-[21px] font-extrabold text-[#5F7A68]">R$ 2.199</span>
                                 </div>
                             </div>
                             <div class="discount shrink-0">-38%</div>
                         </div>
                         <div class="grid grid-cols-[1fr_auto] gap-2 items-center mt-4">
                             <div class="countdown-box px-3 py-2">
-                                <p class="text-[8px] uppercase font-bold text-gray-500">janela de desconto</p>
+                                <p class="text-[8px] uppercase font-bold text-stone-500">janela de desconto</p>
                                 <div class="flex items-center gap-2">
-                                    <i data-lucide="clock-3" class="w-3.5 h-3.5 text-red-400"></i>
-                                    <span class="text-[13px] text-white font-extrabold">
+                                    <i data-lucide="clock-3" class="w-3.5 h-3.5 text-[#B96555]"></i>
+                                    <span class="text-[13px] text-stone-800 font-extrabold">
                                         termina em <span class="countdown-number" data-countdown data-seconds="1122">00:18:42</span>
                                     </span>
                                 </div>
                             </div>
-                            <span class="text-[9px] text-gray-400 text-right leading-tight">clique para<br>revelar</span>
+                            <span class="text-[9px] text-stone-600 text-right leading-tight">clique para<br>revelar</span>
                         </div>
                     </div>
                 </div>
@@ -460,7 +554,7 @@
                                 <i data-lucide="lock" class="w-3.5 h-3.5"></i>
                                 ACHADO DO DIA
                             </div>
-                            <span class="text-[10px] text-yellow-300 font-bold">preço pode mudar</span>
+                            <span class="text-[10px] text-[#B0833F] font-bold">preço pode mudar</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-[68px] h-[68px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
@@ -469,23 +563,23 @@
                             <div class="min-w-0 flex-1">
                                 <h2 class="text-[16px] font-extrabold secret-product leading-tight">*******************</h2>
                                 <div class="flex items-end gap-2 mt-1.5">
-                                    <s class="text-[11px] text-gray-500">R$ 1.899</s>
-                                    <span class="text-[21px] font-extrabold text-emerald-400">R$ 997</span>
+                                    <s class="text-[11px] text-stone-500">R$ 1.899</s>
+                                    <span class="text-[21px] font-extrabold text-[#5F7A68]">R$ 997</span>
                                 </div>
                             </div>
                             <div class="discount shrink-0">-47%</div>
                         </div>
                         <div class="grid grid-cols-[1fr_auto] gap-2 items-center mt-4">
                             <div class="countdown-box px-3 py-2">
-                                <p class="text-[8px] uppercase font-bold text-gray-500">oferta expira em</p>
+                                <p class="text-[8px] uppercase font-bold text-stone-500">oferta expira em</p>
                                 <div class="flex items-center gap-2">
-                                    <i data-lucide="clock-3" class="w-3.5 h-3.5 text-red-400"></i>
-                                    <span class="text-[13px] text-white font-extrabold">
+                                    <i data-lucide="clock-3" class="w-3.5 h-3.5 text-[#B96555]"></i>
+                                    <span class="text-[13px] text-stone-800 font-extrabold">
                                         termina em <span class="countdown-number" data-countdown data-seconds="776">00:12:56</span>
                                     </span>
                                 </div>
                             </div>
-                            <span class="text-[9px] text-gray-400 text-right leading-tight">clique para<br>revelar</span>
+                            <span class="text-[9px] text-stone-600 text-right leading-tight">clique para<br>revelar</span>
                         </div>
                     </div>
                 </div>
@@ -498,7 +592,7 @@
                                 <i data-lucide="lock" class="w-3.5 h-3.5"></i>
                                 CUPOM SECRETO
                             </div>
-                            <span class="text-[10px] text-yellow-300 font-bold">pode acabar</span>
+                            <span class="text-[10px] text-[#B0833F] font-bold">pode acabar</span>
                         </div>
                         <div class="flex items-center gap-3">
                             <div class="w-[68px] h-[68px] bg-white rounded-2xl p-2 shrink-0 flex items-center justify-center">
@@ -507,23 +601,23 @@
                             <div class="min-w-0 flex-1">
                                 <h2 class="text-[16px] font-extrabold secret-product leading-tight">****************</h2>
                                 <div class="flex items-end gap-2 mt-1.5">
-                                    <s class="text-[11px] text-gray-500">R$ 399</s>
-                                    <span class="text-[21px] font-extrabold text-emerald-400">R$ 189</span>
+                                    <s class="text-[11px] text-stone-500">R$ 399</s>
+                                    <span class="text-[21px] font-extrabold text-[#5F7A68]">R$ 189</span>
                                 </div>
                             </div>
                             <div class="discount shrink-0">-52%</div>
                         </div>
                         <div class="grid grid-cols-[1fr_auto] gap-2 items-center mt-4">
                             <div class="countdown-box px-3 py-2">
-                                <p class="text-[8px] uppercase font-bold text-gray-500">cupom válido por</p>
+                                <p class="text-[8px] uppercase font-bold text-stone-500">cupom válido por</p>
                                 <div class="flex items-center gap-2">
-                                    <i data-lucide="clock-3" class="w-3.5 h-3.5 text-red-400"></i>
-                                    <span class="text-[13px] text-white font-extrabold">
+                                    <i data-lucide="clock-3" class="w-3.5 h-3.5 text-[#B96555]"></i>
+                                    <span class="text-[13px] text-stone-800 font-extrabold">
                                         termina em <span class="countdown-number" data-countdown data-seconds="578">00:09:38</span>
                                     </span>
                                 </div>
                             </div>
-                            <span class="text-[9px] text-gray-400 text-right leading-tight">clique para<br>revelar</span>
+                            <span class="text-[9px] text-stone-600 text-right leading-tight">clique para<br>revelar</span>
                         </div>
                     </div>
                 </div>
@@ -533,9 +627,9 @@
 
         <!-- ESCASSEZ CLARA -->
         <div class="urgency-strip flex items-center gap-2 px-3 py-2.5 mb-4 mt-3">
-            <i data-lucide="alert-triangle" class="w-4 h-4 text-yellow-300 shrink-0"></i>
-            <p class="text-[10px] text-gray-300 text-left leading-snug">
-                <strong class="text-yellow-300">Não deixe para depois.</strong>
+            <i data-lucide="alert-triangle" class="w-4 h-4 text-[#B0833F] shrink-0"></i>
+            <p class="text-[10px] text-stone-600 text-left leading-snug">
+                <strong class="text-[#B0833F]">Não deixe para depois.</strong>
                 Preços, cupons e estoque mudam sem aviso. Quem vê primeiro, aproveita primeiro.
             </p>
         </div>
@@ -549,15 +643,15 @@
         <div class="pro-card p-4">
             <div class="flex items-center gap-3">
                 <div class="w-10 h-10 rounded-xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0">
-                    <i data-lucide="search-check" class="w-5 h-5 text-emerald-400"></i>
+                    <i data-lucide="search-check" class="w-5 h-5 text-[#5F7A68]"></i>
                 </div>
                 <div class="flex-1">
-                    <p class="text-[12px] font-extrabold text-white">Você não precisa ficar caçando oferta.</p>
-                    <p class="text-[10px] text-gray-500 mt-1">
+                    <p class="text-[12px] font-extrabold text-stone-800">Você não precisa ficar caçando oferta.</p>
+                    <p class="text-[10px] text-stone-500 mt-1">
                         A gente monitora as lojas e manda só o que vale a pena.
                     </p>
                 </div>
-                <i data-lucide="check" class="w-5 h-5 text-emerald-400 shrink-0"></i>
+                <i data-lucide="check" class="w-5 h-5 text-[#5F7A68] shrink-0"></i>
             </div>
         </div>
     </div>
@@ -568,15 +662,15 @@
     <div class="max-w-[440px] mx-auto">
         <div class="flex items-end justify-between mb-4">
             <div>
-                <p class="text-[10px] text-emerald-400 font-bold uppercase tracking-widest mb-1">exemplos reais</p>
+                <p class="text-[10px] text-[#5F7A68] font-bold uppercase tracking-widest mb-1">exemplos reais</p>
                 <h2 class="text-[19px] font-extrabold">O que você pode receber</h2>
             </div>
-            <span class="text-[9px] text-gray-500" id="last-update">atualizado agora</span>
+            <span class="text-[9px] text-stone-500" id="last-update">atualizado agora</span>
         </div>
         <div class="fade-mask h-[245px] overflow-hidden">
             <div class="offers-scroll flex flex-col gap-3" id="offers-feed"></div>
         </div>
-        <p class="text-center text-[10px] text-gray-500 mt-2">
+        <p class="text-center text-[10px] text-stone-500 mt-2">
             Exemplos ilustrativos. Preço, estoque e cupom podem mudar a qualquer momento.
         </p>
     </div>
@@ -587,16 +681,16 @@
     <div class="max-w-[440px] mx-auto pro-card p-5 border-yellow-400/20">
         <div class="flex items-start gap-3">
             <div class="w-10 h-10 rounded-xl bg-yellow-400/10 border border-yellow-400/20 flex items-center justify-center shrink-0">
-                <i data-lucide="clock-3" class="w-5 h-5 text-yellow-300"></i>
+                <i data-lucide="clock-3" class="w-5 h-5 text-[#B0833F]"></i>
             </div>
             <div>
                 <h2 class="text-[14px] font-extrabold">Oferta boa raramente espera.</h2>
-                <p class="text-[12px] text-gray-400 leading-relaxed mt-1.5">
+                <p class="text-[12px] text-stone-600 leading-relaxed mt-1.5">
                     Lojas alteram preço, esgotam estoque ou desativam cupom em questão de horas (ou minutos).
                 </p>
             </div>
         </div>
-        <div class="mt-4 flex items-center gap-2 text-[11px] font-bold text-yellow-300">
+        <div class="mt-4 flex items-center gap-2 text-[11px] font-bold text-[#B0833F]">
             <i data-lucide="bell-ring" class="w-4 h-4"></i>
             Quem recebe o alerta primeiro tem mais chance de aproveitar.
         </div>
@@ -607,29 +701,29 @@
 <section class="w-full px-4 py-5">
     <div class="max-w-[440px] mx-auto">
         <div class="text-center mb-5">
-            <p class="text-[10px] uppercase tracking-widest text-emerald-400 font-bold">simples assim</p>
+            <p class="text-[10px] uppercase tracking-widest text-[#5F7A68] font-bold">simples assim</p>
             <h2 class="text-[20px] font-extrabold mt-1">Você entra. A gente faz o resto.</h2>
         </div>
         <div class="flex flex-col gap-3">
             <div class="pro-card p-4 flex gap-4">
-                <div class="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-emerald-400 font-bold">1</div>
+                <div class="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-[#5F7A68] font-bold">1</div>
                 <div>
                     <h3 class="text-[13px] font-bold">Entre grátis no grupo</h3>
-                    <p class="text-[11px] text-gray-500 mt-1">Um clique e você já está no WhatsApp.</p>
+                    <p class="text-[11px] text-stone-500 mt-1">Um clique e você já está no WhatsApp.</p>
                 </div>
             </div>
             <div class="pro-card p-4 flex gap-4">
-                <div class="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-emerald-400 font-bold">2</div>
+                <div class="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-[#5F7A68] font-bold">2</div>
                 <div>
                     <h3 class="text-[13px] font-bold">A gente caça as ofertas</h3>
-                    <p class="text-[11px] text-gray-500 mt-1">Monitoramos descontos, cupons e oportunidades reais.</p>
+                    <p class="text-[11px] text-stone-500 mt-1">Monitoramos descontos, cupons e oportunidades reais.</p>
                 </div>
             </div>
             <div class="pro-card p-4 flex gap-4">
-                <div class="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-emerald-400 font-bold">3</div>
+                <div class="w-9 h-9 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center shrink-0 text-[#5F7A68] font-bold">3</div>
                 <div>
                     <h3 class="text-[13px] font-bold">Você recebe o alerta</h3>
-                    <p class="text-[11px] text-gray-500 mt-1">Quando aparece algo bom, o aviso chega no seu celular.</p>
+                    <p class="text-[11px] text-stone-500 mt-1">Quando aparece algo bom, o aviso chega no seu celular.</p>
                 </div>
             </div>
         </div>
@@ -640,19 +734,19 @@
 <section class="w-full px-4 py-5">
     <div class="max-w-[440px] mx-auto">
         <div class="text-center mb-5">
-            <div class="inline-flex items-center gap-1 text-yellow-300 text-[13px]">★★★★★</div>
+            <div class="inline-flex items-center gap-1 text-[#B0833F] text-[13px]">★★★★★</div>
             <h2 class="text-[19px] font-extrabold mt-1">Quem entra, entende o valor.</h2>
         </div>
         <div class="flex flex-col gap-3">
             <div class="pro-card p-4">
                 <div class="flex items-center gap-3 mb-3">
-                    <div class="w-9 h-9 rounded-full bg-emerald-500/20 flex items-center justify-center font-bold text-emerald-400">C</div>
+                    <div class="w-9 h-9 rounded-full bg-emerald-500/20 flex items-center justify-center font-bold text-[#5F7A68]">C</div>
                     <div>
                         <p class="text-[12px] font-bold">Carlos</p>
-                        <div class="text-yellow-300 text-[9px]">★★★★★</div>
+                        <div class="text-[#B0833F] text-[9px]">★★★★★</div>
                     </div>
                 </div>
-                <p class="text-[12px] text-gray-400 italic leading-relaxed">
+                <p class="text-[12px] text-stone-600 italic leading-relaxed">
                     "O que mais gostei é que não ficam mandando conversa fiada. Quando aparece promoção boa, eles avisam."
                 </p>
             </div>
@@ -661,10 +755,10 @@
                     <div class="w-9 h-9 rounded-full bg-pink-500/20 flex items-center justify-center font-bold text-pink-300">F</div>
                     <div>
                         <p class="text-[12px] font-bold">Fernanda</p>
-                        <div class="text-yellow-300 text-[9px]">★★★★★</div>
+                        <div class="text-[#B0833F] text-[9px]">★★★★★</div>
                     </div>
                 </div>
-                <p class="text-[12px] text-gray-400 italic leading-relaxed">
+                <p class="text-[12px] text-stone-600 italic leading-relaxed">
                     "Entrei sem expectativa e já aproveitei uma promoção que estava procurando há semanas."
                 </p>
             </div>
@@ -673,10 +767,10 @@
                     <div class="w-9 h-9 rounded-full bg-blue-500/20 flex items-center justify-center font-bold text-blue-300">R</div>
                     <div>
                         <p class="text-[12px] font-bold">Rafael</p>
-                        <div class="text-yellow-300 text-[9px]">★★★★★</div>
+                        <div class="text-[#B0833F] text-[9px]">★★★★★</div>
                     </div>
                 </div>
-                <p class="text-[12px] text-gray-400 italic leading-relaxed">
+                <p class="text-[12px] text-stone-600 italic leading-relaxed">
                     "Economizei mais de R$ 400 só no primeiro mês. Vale cada notificação."
                 </p>
             </div>
@@ -688,30 +782,30 @@
 <section class="w-full px-4 py-5">
     <div class="max-w-[440px] mx-auto pro-card p-5">
         <h2 class="text-[17px] font-extrabold mb-3">Antes de entrar</h2>
-        <details class="group py-3 border-b border-white/5">
+        <details class="group py-3 border-b border-stone-900/10">
             <summary class="flex items-center justify-between text-[13px] font-bold cursor-pointer">
                 É grátis mesmo?
-                <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 group-open:rotate-180 transition"></i>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-stone-500 group-open:rotate-180 transition"></i>
             </summary>
-            <p class="text-[11px] text-gray-500 leading-relaxed mt-2">
+            <p class="text-[11px] text-stone-500 leading-relaxed mt-2">
                 Sim. Não há mensalidade nem taxa. A PROMOPÇÕES pode receber comissão das lojas quando uma compra é feita pelos links enviados.
             </p>
         </details>
-        <details class="group py-3 border-b border-white/5">
+        <details class="group py-3 border-b border-stone-900/10">
             <summary class="flex items-center justify-between text-[13px] font-bold cursor-pointer">
                 Vou receber mensagens demais?
-                <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 group-open:rotate-180 transition"></i>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-stone-500 group-open:rotate-180 transition"></i>
             </summary>
-            <p class="text-[11px] text-gray-500 leading-relaxed mt-2">
+            <p class="text-[11px] text-stone-500 leading-relaxed mt-2">
                 A proposta é mandar só o que vale a pena. Você também pode silenciar o grupo pelo próprio WhatsApp a qualquer momento.
             </p>
         </details>
         <details class="group py-3">
             <summary class="flex items-center justify-between text-[13px] font-bold cursor-pointer">
                 Posso sair quando quiser?
-                <i data-lucide="chevron-down" class="w-4 h-4 text-gray-500 group-open:rotate-180 transition"></i>
+                <i data-lucide="chevron-down" class="w-4 h-4 text-stone-500 group-open:rotate-180 transition"></i>
             </summary>
-            <p class="text-[11px] text-gray-500 leading-relaxed mt-2">
+            <p class="text-[11px] text-stone-500 leading-relaxed mt-2">
                 Sim. Acesso gratuito e saída livre. Sem fidelidade, sem pegadinha.
             </p>
         </details>
@@ -722,17 +816,17 @@
 <section class="w-full px-4 py-8" id="final-section">
     <div class="max-w-[440px] mx-auto text-center">
         <div class="w-12 h-12 rounded-2xl bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4">
-            <i data-lucide="gift" class="w-6 h-6 text-emerald-400"></i>
+            <i data-lucide="gift" class="w-6 h-6 text-[#5F7A68]"></i>
         </div>
-        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full urgency-strip text-[10px] font-bold text-yellow-300 mb-4">
+        <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full urgency-strip text-[10px] font-bold text-[#B0833F] mb-4">
             <span class="w-2 h-2 rounded-full bg-red-500 animate-pulse"></span>
             A próxima oferta boa pode passar hoje
         </div>
         <h2 class="text-[23px] font-extrabold leading-tight">
             As melhores ofertas
-            <span class="text-yellow-300">não esperam por ninguém.</span>
+            <span class="text-[#B0833F]">não esperam por ninguém.</span>
         </h2>
-        <p class="text-[12px] text-gray-500 mt-2 mb-5">
+        <p class="text-[12px] text-stone-500 mt-2 mb-5">
             Entre grátis e receba os próximos alertas direto no WhatsApp.
         </p>
         <a href="#" id="final-cta" class="main-cta w-full py-4 rounded-2xl flex items-center justify-center gap-2 font-extrabold text-[16px] no-underline">
@@ -747,24 +841,24 @@
 
 <!-- FOOTER -->
 <footer class="w-full px-6 py-8 pb-32 text-center">
-    <p class="text-[9px] text-gray-600 leading-relaxed max-w-[440px] mx-auto">
+    <p class="text-[9px] text-stone-500 leading-relaxed max-w-[440px] mx-auto">
         Este site não faz parte do Facebook ou da Meta Platforms, Inc.
         A PROMOPÇÕES é uma iniciativa independente de seleção de ofertas.
         Os links podem gerar comissão quando uma compra é realizada.
     </p>
-    <p class="text-[10px] text-gray-700 mt-3">© 2026 PROMOPÇÕES</p>
+    <p class="text-[10px] text-stone-500 mt-3">© 2026 PROMOPÇÕES</p>
 </footer>
 </main>
 
 <!-- CTA FIXO -->
-<div id="sticky-cta-container" class="sticky-wrapper fixed bottom-0 left-0 right-0 z-[200] bg-[#070B09]/95 backdrop-blur-xl border-t border-white/10 px-4 py-3">
+<div id="sticky-cta-container" class="sticky-wrapper fixed bottom-0 left-0 right-0 z-[200] bg-[#F7F4EF]/95 backdrop-blur-xl border-t border-stone-900/10 px-4 py-3">
     <div class="max-w-[440px] mx-auto">
         <div class="flex items-center justify-between mb-2">
             <div>
-                <p class="text-[10px] font-bold text-white">Oferta boa não espera.</p>
-                <p class="text-[9px] text-gray-500">Receba os alertas no WhatsApp</p>
+                <p class="text-[10px] font-bold text-stone-800">Oferta boa não espera.</p>
+                <p class="text-[9px] text-stone-500">Receba os alertas no WhatsApp</p>
             </div>
-            <div class="flex items-center gap-1.5 text-[9px] text-yellow-300 font-bold">
+            <div class="flex items-center gap-1.5 text-[9px] text-[#B0833F] font-bold">
                 <span class="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse"></span>
                 ativo agora
             </div>
@@ -773,7 +867,7 @@
             <i data-lucide="message-circle" class="w-5 h-5 fill-current"></i>
             ENTRAR NO GRUPO VIP
         </a>
-        <p class="text-center text-[8px] text-gray-600 mt-1.5">Acesso gratuito • WhatsApp</p>
+        <p class="text-center text-[8px] text-stone-500 mt-1.5">Acesso gratuito • WhatsApp</p>
     </div>
 </div>
 
@@ -807,11 +901,11 @@
                 </div>
                 <div class="flex-1 min-w-0">
                     <h3 class="text-[14px] font-bold truncate secret-product">${o.title}</h3>
-                    <p class="text-[10px] text-gray-500 mt-1">${o.store}</p>
+                    <p class="text-[10px] text-stone-500 mt-1">${o.store}</p>
                 </div>
                 <div class="text-right">
                     <span class="discount text-[9px]">${o.discount}</span>
-                    <p class="text-[16px] font-extrabold text-emerald-400 mt-1">${o.price}</p>
+                    <p class="text-[16px] font-extrabold text-[#5F7A68] mt-1">${o.price}</p>
                 </div>
             </div>
         `).join('');
