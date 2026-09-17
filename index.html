@@ -1106,7 +1106,10 @@
 
         // DISPARA O PIXEL
         if (typeof fbq === 'function') {
-            fbq('track', 'Lead');
+            fbq('track', 'Lead', {
+                value: 1.00,
+                currency: 'BRL'
+            });
         }
 
         if (isCard) {
