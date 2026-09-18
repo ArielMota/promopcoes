@@ -123,7 +123,7 @@
         .text-yellow{color:#B0833F}
         .text-red{color:#B96555}
         .text-white{color:#fff}
-	.w-3 { width: 14px; height: 14px; }
+        .w-3 { width: 14px; height: 14px; }
 
         h1, p { margin:0 }
         .hero-title{ text-wrap:balance; padding:0 .15rem; }
@@ -318,10 +318,48 @@
             .logo-ring,.cta-pulse,.cta-pulse::before,.cta-pulse::after{animation:none!important}
             .main-cta{transform:none!important}
         }
-        @media(min-width:640px){
-            .text-29{font-size:33px;letter-spacing:-0.035em}
-            .text-14{font-size:15px;line-height:1.65}
-            .px-4{padding-left:1.25rem;padding-right:1.25rem}
+
+        /* ===== RESPONSIVIDADE DESKTOP/TABLET (Efeito "App Container") ===== */
+        @media(min-width: 640px) {
+            body { background: #E5E7EB; }
+            main {
+                max-width: 480px; margin: 0 auto; background: #F7F4EF;
+                min-height: 100vh; box-shadow: 0 0 40px rgba(0,0,0,0.08);
+                border-left: 1px solid rgba(41,39,35,.05); border-right: 1px solid rgba(41,39,35,.05);
+                position: relative;
+            }
+            .header-bar {
+                max-width: 480px; left: 50%; transform: translateX(-50%);
+                border-left: 1px solid rgba(41,39,35,.10); border-right: 1px solid rgba(41,39,35,.10);
+            }
+            .sticky-cta-bar {
+                max-width: 480px; left: 50%; transform: translateX(-50%) translateY(120%);
+                border-radius: 16px 16px 0 0;
+            }
+            .sticky-wrapper.visible { transform: translateX(-50%) translateY(0); }
+            .live-toast { bottom: 7.5rem; }
+        }
+
+        /* ===== CORREÇÃO DE ECRÃS ALTOS (Distribuição Vertical) ===== */
+        body {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-bottom: 0 !important; /* Remove o vazio fantasma da versão antiga */
+        }
+        main {
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+        main > section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* Centra o conteúdo perfeitamente no espaço disponível */
+        }
+        .pb-28 {
+            padding-bottom: 6rem !important; /* Reduz o rodapé, mas deixa espaço para o botão flutuante */
         }
     </style>
 </head>
