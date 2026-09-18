@@ -266,26 +266,89 @@
         .countdown-box.py-2{padding-top:.55rem;padding-bottom:.55rem}
         .countdown-number{font-family:'JetBrains Mono',monospace;font-weight:800;letter-spacing:.04em}
         .main-cta{
-            background:linear-gradient(135deg,#5F7A68,#496253);
+            position:relative;
+            overflow:hidden;
+            background:linear-gradient(135deg,#5F7A68 0%,#3d5245 50%,#5F7A68 100%);
+            background-size:200% 200%;
             color:#fff;
-            box-shadow:0 10px 28px rgba(95,122,104,.22);
-            transition:transform .2s ease,box-shadow .2s ease;
+            box-shadow:0 10px 28px rgba(95,122,104,.28),0 0 0 0 rgba(95,122,104,.35);
+            transition:transform .2s ease,box-shadow .25s ease;
             border-radius:16px;
             padding:1.05rem 1.35rem;
+            isolation:isolate;
         }
         .main-cta.py-3_5{padding:1.05rem 1.35rem}
         .main-cta.py-3{padding:.9rem 1.2rem}
-        .main-cta:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(95,122,104,.28)}
-        .main-cta:active{transform:scale(.98)}
+        .main-cta:hover{
+            transform:translateY(-3px) scale(1.015);
+            box-shadow:0 16px 40px rgba(95,122,104,.38),0 0 0 4px rgba(95,122,104,.12);
+            animation-play-state:paused;
+        }
+        .main-cta:hover::before,
+        .main-cta:hover::after{animation-play-state:paused}
+        .main-cta:active{transform:scale(.97)}
         .main-cta-copy{
             display:flex;flex-direction:column;align-items:flex-start;
             line-height:1.18;text-align:left;gap:.15rem;
+            position:relative;z-index:2;
         }
         .main-cta-copy span{display:block;white-space:nowrap;letter-spacing:-0.015em}
-        .cta-pulse{animation:ctaPulse 3.2s infinite}
-        @keyframes ctaPulse{
-            0%,100%{box-shadow:0 10px 28px rgba(95,122,104,.18)}
-            50%{box-shadow:0 10px 34px rgba(95,122,104,.28)}
+        .main-cta > svg{position:relative;z-index:2;flex-shrink:0}
+
+        /* Brilho que atravessa o botão */
+        .main-cta::before{
+            content:"";
+            position:absolute;
+            top:0;left:-80%;
+            width:55%;height:100%;
+            background:linear-gradient(105deg,transparent 0%,rgba(255,255,255,.22) 45%,rgba(255,255,255,.08) 55%,transparent 100%);
+            transform:skewX(-18deg);
+            z-index:1;
+            pointer-events:none;
+        }
+        /* Anel de atenção externo */
+        .main-cta::after{
+            content:"";
+            position:absolute;
+            inset:-3px;
+            border-radius:18px;
+            border:2px solid rgba(95,122,104,.45);
+            opacity:0;
+            z-index:0;
+            pointer-events:none;
+        }
+
+        /* Animação principal de chamada de atenção */
+        .cta-pulse{
+            animation:
+                ctaGlow 2.4s ease-in-out infinite,
+                ctaBg 4s ease-in-out infinite;
+        }
+        .cta-pulse::before{animation:ctaShine 3.2s ease-in-out infinite}
+        .cta-pulse::after{animation:ctaRing 2.4s ease-in-out infinite}
+
+        @keyframes ctaGlow{
+            0%,100%{
+                box-shadow:0 10px 28px rgba(95,122,104,.26),0 0 0 0 rgba(95,122,104,.4);
+                transform:scale(1);
+            }
+            50%{
+                box-shadow:0 14px 38px rgba(95,122,104,.42),0 0 0 6px rgba(95,122,104,.14);
+                transform:scale(1.025);
+            }
+        }
+        @keyframes ctaBg{
+            0%,100%{background-position:0% 50%}
+            50%{background-position:100% 50%}
+        }
+        @keyframes ctaShine{
+            0%{left:-80%}
+            35%{left:130%}
+            100%{left:130%}
+        }
+        @keyframes ctaRing{
+            0%,100%{opacity:0;transform:scale(1)}
+            50%{opacity:.5;transform:scale(1.02)}
         }
         .sticky-wrapper{
             transition:transform .4s cubic-bezier(.16,1,.3,1),opacity .4s ease;
@@ -421,7 +484,8 @@
                 animation-iteration-count:1!important;
                 transition-duration:.01ms!important;
             }
-            .logo-ring,.bg-breathe{animation:none}
+            .logo-ring,.bg-breathe,.cta-pulse,.cta-pulse::before,.cta-pulse::after{animation:none!important}
+            .main-cta{transform:none!important}
         }
         @media(min-width:640px){
             .text-29{font-size:33px;letter-spacing:-0.035em}
@@ -840,7 +904,7 @@
         <p class="text-12 text-stone-500 mt-2 mb-5">
             Entre grátis e receba os próximos alertas direto no WhatsApp.
         </p>
-        <a href="#" id="final-cta" class="main-cta w-full py-3_5 px-5 flex items-center justify-center gap-3 font-extrabold text-13">
+        <a href="#" id="final-cta" class="main-cta cta-pulse w-full py-3_5 px-5 flex items-center justify-center gap-3 font-extrabold text-13">
             <svg class="w-5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.54.36 2.98.97 4.29L2.05 21.5a.5.5 0 0 0 .63.63l5.21-.92A9.96 9.96 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18c-1.48 0-2.87-.37-4.09-1.02l-.3-.17-3.15.56.56-3.15-.17-.3A7.95 7.95 0 0 1 4 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8z"/></svg>
             <span class="main-cta-copy">
                 <span>QUERO REVELAR AS OFERTAS</span>
