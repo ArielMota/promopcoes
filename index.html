@@ -746,12 +746,27 @@
         }
     }
 
+    function trackLeadOnce(){
+        try{
+            if(sessionStorage.getItem('lead_sent') === '1') return;
+            if(typeof fbq === 'function'){
+                fbq('track','Lead',{value:1.00,currency:'BRL'});
+            }
+            sessionStorage.setItem('lead_sent','1');
+        }catch(e){
+            // sessionStorage indisponível: fallback em memória
+            if(window.__leadJaEnviada) return;
+            try{ if(typeof fbq==='function') fbq('track','Lead',{value:1.00,currency:'BRL'}); }catch(err){}
+            window.__leadJaEnviada = true;
+        }
+    }
+
     function initCtas(){
         var fallbackBtn = document.getElementById('wa-fallback-btn');
         if(fallbackBtn){
             fallbackBtn.setAttribute('href', WA_HTTPS);
             fallbackBtn.addEventListener('click', function(){
-                try{ if(typeof fbq==='function') fbq('track','Lead',{value:1.00,currency:'BRL'}); }catch(e){}
+                trackLeadOnce(); // não duplica se o CTA principal já disparou
                 hideWaFallback();
                 if(isAndroid){
                     openWhatsApp(true);
@@ -765,11 +780,7 @@
             btn.setAttribute('href', WA_HTTPS);
 
             btn.addEventListener('click', function(e){
-                try{
-                    if(typeof fbq==='function'){
-                        fbq('track','Lead',{value:1.00,currency:'BRL'});
-                    }
-                }catch(err){}
+                trackLeadOnce(); // 1 Lead por sessão — CTA ou popup
 
                 btn.classList.remove('cta-pulse');
                 hideWaFallback();
