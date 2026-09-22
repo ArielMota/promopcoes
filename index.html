@@ -183,10 +183,10 @@
         .main-cta{
             position:relative;
             overflow:hidden;
-            background:linear-gradient(135deg,#5F7A68 0%,#3d5245 50%,#5F7A68 100%);
+            background:linear-gradient(135deg,#25D366 0%,#1DA851 50%,#25D366 100%);
             background-size:200% 200%;
             color:#fff;
-            box-shadow:0 10px 28px rgba(95,122,104,.28),0 0 0 0 rgba(95,122,104,.35);
+            box-shadow:0 10px 28px rgba(37,211,102,.28),0 0 0 0 rgba(37,211,102,.35);
             transition:transform .2s ease,box-shadow .25s ease;
             border-radius:16px;
             isolation:isolate;
@@ -195,7 +195,7 @@
         .main-cta.py-3{padding:.9rem 1.2rem}
         .main-cta:hover{
             transform:translateY(-3px) scale(1.015);
-            box-shadow:0 16px 40px rgba(95,122,104,.38),0 0 0 4px rgba(95,122,104,.12);
+            box-shadow:0 16px 40px rgba(37,211,102,.38),0 0 0 4px rgba(37,211,102,.12);
             animation-play-state:paused;
         }
         .main-cta:active{transform:scale(.97)}
@@ -225,7 +225,7 @@
             position:absolute;
             inset:-3px;
             border-radius:18px;
-            border:2px solid rgba(95,122,104,.45);
+            border:2px solid rgba(37,211,102,.45);
             opacity:0;
             z-index:0;
             pointer-events:none;
@@ -236,8 +236,8 @@
         .cta-pulse::after{animation:ctaRing 2.4s ease-in-out infinite}
 
         @keyframes ctaGlow{
-            0%,100%{ box-shadow:0 10px 28px rgba(95,122,104,.26),0 0 0 0 rgba(95,122,104,.4); transform:scale(1); }
-            50%{ box-shadow:0 14px 38px rgba(95,122,104,.42),0 0 0 6px rgba(95,122,104,.14); transform:scale(1.025); }
+            0%,100%{ box-shadow:0 10px 28px rgba(37,211,102,.26),0 0 0 0 rgba(37,211,102,.4); transform:scale(1); }
+            50%{ box-shadow:0 14px 38px rgba(37,211,102,.42),0 0 0 6px rgba(37,211,102,.14); transform:scale(1.025); }
         }
         @keyframes ctaBg{
             0%,100%{background-position:0% 50%}
@@ -265,8 +265,8 @@
         }
         @keyframes spin{to{transform:rotate(360deg)}}
 
-        .logo-wrap-sm{position:relative;width:96px;height:96px;margin:0 auto 1.1rem}
-        @media(min-width:400px){.logo-wrap-sm{width:108px;height:108px}}
+        .logo-wrap-sm{position:relative;width:80px;height:80px;margin:0 auto 0.9rem}
+        @media(min-width:400px){.logo-wrap-sm{width:90px;height:90px}}
         .logo-ring{
             position:absolute;inset:-6px;border-radius:50%;
             background:linear-gradient(135deg,rgba(95,122,104,.42),rgba(201,123,90,.24),rgba(198,154,82,.18));
@@ -483,7 +483,7 @@
         <div class="logo-wrap logo-wrap-sm">
             <div class="logo-ring" aria-hidden="true"></div>
             <div class="absolute inset-0 z-10" style="background:linear-gradient(160deg,#fff 0%,#f6f1ea 55%,#edf3ee 100%);border-radius:50%;box-shadow:0 0 0 1px rgba(95,122,104,.12),0 8px 24px rgba(67,58,48,.10)"></div>
-            <div class="absolute inset-0 z-20" style="padding:12px;display:flex;align-items:center;justify-content:center">
+            <div class="absolute inset-0 z-20" style="padding:8px;display:flex;align-items:center;justify-content:center">
                 <img src="logo.webp" alt="PROMOPÇÕES" width="88" height="88"
                      fetchpriority="high" decoding="async"
                      style="width:100%;height:100%;object-fit:contain">
@@ -506,7 +506,7 @@
 <div class="organized-subtitle-box">
     <p class="text-11 text-stone-600 leading-relaxed mb-0">
         <strong class="text-stone-800" style="font-size:13px; display:block; margin-bottom:2px;">O Segredo:</strong> 
-        Nós revelamos os cupons e descontos ocultos das grandes lojas diretamente no nosso grupo gratuito.Entre de graça e espere a notificação da oferta.
+        Nós revelamos os cupons e descontos ocultos das grandes lojas diretamente no nosso grupo gratuito. Entre de graça e espere a notificação da oferta.
 
     </p>
 </div>
@@ -514,7 +514,7 @@
         <!-- Bloco de escassez unificado -->
         <div class="scarcity-card mb-4">
             <div class="flex items-center justify-between gap-3 mb-2">
-                <span class="text-11 font-bold text-stone-600">⏳ Libera em <span id="access-timer" class="mono text-red">02:00</span></span>
+                <span class="text-11 font-bold text-stone-600">⏳ Sua vaga expira em: <span id="access-timer" class="mono text-red">02:00</span></span>
                 <span class="text-11 font-extrabold"><span id="spots-left" class="spots-number">38</span> <span class="text-stone-800">vagas</span></span>
             </div>
             <div class="progress-track" aria-hidden="true">
@@ -573,7 +573,7 @@
                 <circle cx="16" cy="16" r="15" fill="#25D366"/>
                 <path d="M23.1 8.8A9.95 9.95 0 0 0 7.2 20.72L6 25.2l4.6-1.2A9.95 9.95 0 0 0 23.1 8.8Zm-7.1 15.1c-1.57 0-3.1-.42-4.44-1.22l-.32-.19-2.73.71.73-2.66-.21-.33a7.99 7.99 0 1 1 6.97 3.69Zm4.38-5.98c-.24-.12-1.42-.7-1.64-.78-.22-.08-.38-.12-.54.12-.16.24-.62.78-.76.94-.14.16-.28.18-.52.06-.24-.12-1.02-.38-1.94-1.2-.72-.64-1.2-1.43-1.34-1.67-.14-.24-.01-.37.11-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.54-1.3-.74-1.78-.19-.46-.39-.4-.54-.41h-.46c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.69 2.58 4.1 3.62.57.25 1.02.4 1.37.51.58.18 1.11.15 1.53.09.47-.07 1.42-.58 1.62-1.14.2-.56.2-1.04.14-1.14-.06-.1-.22-.16-.46-.28Z" fill="white"/>
             </svg>
-            <span>Entrar agora</span>
+            <span>Quero Entrar Grátis</span>
         </a>
         <p class="text-center text-8 text-stone-500 mt-1_5">Grátis • Sem spam • Sai quando quiser</p>
     </div>
