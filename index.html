@@ -670,7 +670,7 @@
             </div>
         </div>
 
-        <!-- CTA PRINCIPAL RESTAURADO -->
+        <!-- CTA PRINCIPAL RESTAURADO (LINK DO GRUPO 1) -->
         <a href="https://chat.whatsapp.com/L2J6NxEBueULMYM0KkBKMn"
            id="hero-cta"
            class="main-cta cta-pulse w-full py-3_5 px-5 flex items-center justify-center gap-2_5 font-extrabold text-15"
@@ -690,7 +690,7 @@
 </footer>
 </main>
 
-<!-- CTA FIXO -->
+<!-- CTA FIXO (LINK DO GRUPO 1) -->
 <div id="sticky-cta-container" class="sticky-wrapper fixed bottom-0 left-0 right-0 z-200 sticky-cta-bar px-4 py-3">
     <div class="max-w-440">
         <div class="flex items-center justify-between mb-2">
@@ -848,11 +848,29 @@
         obs.observe(heroCta);
     }
 
-    /* ===== CTAs → WhatsApp ===== */
-    var WA_HTTPS = 'https://chat.whatsapp.com/L2J6NxEBueULMYM0KkBKMn';
-    var WA_INTENT = 'intent://chat.whatsapp.com/L2J6NxEBueULMYM0KkBKMn#Intent;scheme=https;package=com.whatsapp;S.browser_fallback_url=' + encodeURIComponent(WA_HTTPS) + ';end';
-    var isAndroid = /Android/i.test(navigator.userAgent || '');
-    var fallbackTimer = null;
+    /* ===== CTAs → WHATSAPP COM ROTAÇÃO PRONTA ===== */
+var WA_GROUPS = [
+    'https://chat.whatsapp.com/L2J6NxEBueULMYM0KkBKMn',  // Grupo 1
+    'https://chat.whatsapp.com/H3QrTf4QEY7Geoo1VfxPZQ'   // Grupo 2 (adicione mais links abaixo se tiver)
+    // 'https://chat.whatsapp.com/LINK_DO_GRUPO_3',       // Grupo 3 (descomente e coloque o link)
+];
+
+function getRotatedGroup() {
+    try {
+        // Sequência por usuário + leve aleatoriedade para distribuir melhor em picos de tráfego
+        var lastIdx = parseInt(localStorage.getItem('wa_rotator_idx') || '-1', 10);
+        var nextIdx = (lastIdx + 1 + Math.floor(Math.random() * 2)) % WA_GROUPS.length;
+        localStorage.setItem('wa_rotator_idx', nextIdx);
+        return WA_GROUPS[nextIdx];
+    } catch(e) {
+        return WA_GROUPS[Math.floor(Math.random() * WA_GROUPS.length)];
+    }
+}
+
+var WA_HTTPS = getRotatedGroup();
+var WA_INTENT = 'intent://' + WA_HTTPS.replace('https://', '') + '#Intent;scheme=https;package=com.whatsapp;S.browser_fallback_url=' + encodeURIComponent(WA_HTTPS) + ';end';
+var isAndroid = /Android/i.test(navigator.userAgent || '');
+var fallbackTimer = null;
 
     function showWaFallback(){
         var box = document.getElementById('wa-overlay');
