@@ -13,17 +13,24 @@
 
   <link rel="preload" as="image" href="logo.webp" fetchpriority="high">
 
-  <!-- META PIXEL -->
+  <!-- META PIXEL (Adiado para window.load: elimina TBT no carregamento inicial) -->
   <script>
     !function(f,b,e,v,n,t,s){
       if(f.fbq)return;
       n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};
       if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];
-      t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)
     }(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    
     fbq('init','1353562893309087');
     fbq('track','PageView');
+
+    window.addEventListener('load', function(){
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      var first = document.getElementsByTagName('script')[0];
+      first.parentNode.insertBefore(s, first);
+    });
   </script>
   <noscript>
     <img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1353562893309087&ev=PageView&noscript=1" alt="">
@@ -93,7 +100,6 @@
       text-align:center;
     }
 
-    /* Logo */
     /* Logo cluster + satélites flutuantes */
     .logo-cluster{
       position:relative;
@@ -189,7 +195,7 @@
       margin-bottom:1.5rem;
     }
 
-    /* Prova social + escassez (modelo da imagem) */
+    /* Prova social + escassez */
     .social-block{
       display:flex;
       flex-direction:column;
@@ -281,12 +287,16 @@
       border-radius:999px;overflow:hidden;
       margin-top:.5rem;
     }
+    /* Animação via GPU (transform: scaleX) evita Reflow na main thread */
     .bar-fill{
-      height:100%;width:88%;
+      height:100%;width:100%;
       border-radius:999px;
       background:linear-gradient(90deg,#ff6b6b,#e84545);
       box-shadow:0 0 8px rgba(232,69,69,.4);
-      transition:width 1s ease;
+      transform-origin:left center;
+      transform:scaleX(0.88);
+      transition:transform 1s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change:transform;
     }
     .vip-badge{
       display:inline-flex;align-items:center;gap:.45rem;
@@ -524,13 +534,13 @@
       <div class="logo-cluster">
         <div class="radar-ping" aria-hidden="true"></div>
         <div class="store-sat sat-shopee" title="Shopee">
-          <img src="shopee.webp" alt="Shopee" fetchpriority="high">
+          <img src="shopee.webp" alt="Shopee" width="30" height="30" loading="lazy">
         </div>
         <div class="store-sat sat-amazon" title="Amazon">
-          <img src="amz.webp" alt="Amazon" fetchpriority="high">
+          <img src="amz.webp" alt="Amazon" width="30" height="30" loading="lazy">
         </div>
         <div class="store-sat sat-ml" title="Mercado Livre">
-          <img src="ml.webp" alt="Mercado Livre" fetchpriority="high">
+          <img src="ml.webp" alt="Mercado Livre" width="30" height="30" loading="lazy">
         </div>
         <div class="logo-ring" aria-hidden="true"></div>
         <div class="logo-core">
@@ -546,12 +556,12 @@
         Um grupo silencioso no WhatsApp só com achados que realmente valem a pena. Sem spam, sem link no privado.
       </p>
 
-      <!-- Prova social + escassez (modelo da imagem) -->
+      <!-- Prova social + escassez -->
       <div class="social-block">
         <div class="avatars">
-          <span><img src="user1.webp" alt="" loading="lazy"></span>
-          <span><img src="user2.webp" alt="" loading="lazy"></span>
-          <span><img src="user3.webp" alt="" loading="lazy"></span>
+          <span><img src="user1.webp" alt="" width="32" height="32" loading="lazy"></span>
+          <span><img src="user2.webp" alt="" width="32" height="32" loading="lazy"></span>
+          <span><img src="user3.webp" alt="" width="32" height="32" loading="lazy"></span>
           <span class="more">+15k</span>
         </div>
         <div class="members-pill">
@@ -611,7 +621,7 @@
     </main>
   </div>
 
-  <!-- Popup: Instagram/Facebook bloqueou abertura automática -->
+  <!-- Popup fallback -->
   <div id="overlay" class="overlay" role="dialog" aria-modal="true" aria-labelledby="popup-title">
     <div class="popup">
       <div class="popup-icon" aria-hidden="true">
@@ -642,8 +652,6 @@
     ];
 
     function getRotatedGroup(){
-      // Alterna sempre para o próximo grupo (0 → 1 → 0 → 1...)
-      // Se localStorage falhar (modo anônimo / Instagram), usa aleatório
       try{
         var raw = localStorage.getItem('wa_rotator_idx');
         var last = raw === null ? Math.floor(Math.random() * WA_GROUPS.length) - 1 : parseInt(raw, 10);
@@ -696,7 +704,6 @@
     }
 
     function onCtaClick(e){
-      // Garante o link rotacionado no momento do clique
       applyGroupToButtons(WA_HTTPS);
       trackLead();
       opening = true;
@@ -733,8 +740,8 @@
         if(spotsEl) spotsEl.textContent = String(spots);
         if(joinedEl) joinedEl.textContent = String(joined);
         if(barEl){
-          var pct = Math.min(96, Math.max(75, 100 - (spots / 45) * 28));
-          barEl.style.width = pct.toFixed(0) + '%';
+          var ratio = Math.min(0.96, Math.max(0.75, 1 - (spots / 45) * 0.28));
+          barEl.style.transform = 'scaleX(' + ratio.toFixed(2) + ')';
         }
       }
       render();
@@ -787,7 +794,6 @@
         }
       });
 
-      // Ao voltar (botão voltar / cache do celular), rotaciona o grupo de novo
       window.addEventListener('pageshow', function(e){
         if(e.persisted){
           applyGroupToButtons(getRotatedGroup());
