@@ -11,20 +11,19 @@
   <meta property="og:image" content="https://arielmota.github.io/promopcoes/logo.webp">
   <link rel="icon" type="image/webp" href="logo.webp">
 
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="preload" as="image" href="logo.webp" fetchpriority="high">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Libre+Baskerville:wght@700&display=swap" rel="stylesheet">
 
-  <!-- META PIXEL -->
+  <!-- META PIXEL (atrasado para não travar o carregamento) -->
   <script>
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
+    window.fbq=window.fbq||function(){(fbq.q=fbq.q||[]).push(arguments)};fbq.l=+new Date;
     fbq('init','1353562893309087');
     fbq('track','PageView');
+    window.addEventListener('load',function(){
+      var s=document.createElement('script');
+      s.async=true;
+      s.src='https://connect.facebook.net/en_US/fbevents.js';
+      document.head.appendChild(s);
+    });
   </script>
   <noscript><img height="1" width="1" style="display:none" src="https://www.facebook.com/tr?id=1353562893309087&ev=PageView&noscript=1" alt=""></noscript>
 
@@ -32,7 +31,7 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{-webkit-text-size-adjust:100%}
     body{
-      font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+      font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
       background:#0a0705;
       color:#f5ebe0;
       min-height:100dvh;
@@ -164,7 +163,7 @@
 
     /* Headline */
     .headline{
-      font-family:'Libre Baskerville',Georgia,serif;
+      font-family:Georgia,'Times New Roman',Times,serif;
       font-size:clamp(1.75rem,6.2vw,2.1rem);
       font-weight:700;
       line-height:1.22;
@@ -453,7 +452,7 @@
     }
     .popup-icon svg{width:28px;height:28px;fill:#fff}
     .popup h2{
-      font-family:'Libre Baskerville',Georgia,serif;
+      font-family:Georgia,'Times New Roman',Times,serif;
       font-size:1.15rem;color:#221710;
       margin-bottom:.4rem;
     }
@@ -641,21 +640,38 @@
     ];
 
     function getRotatedGroup(){
+      // Alterna sempre para o próximo grupo (0 → 1 → 0 → 1...)
+      // Se localStorage falhar (modo anônimo / Instagram), usa aleatório
       try{
-        var last = parseInt(localStorage.getItem('wa_rotator_idx') || '-1', 10);
-        var next = (last + 1 + Math.floor(Math.random() * 2)) % WA_GROUPS.length;
-        localStorage.setItem('wa_rotator_idx', next);
+        var raw = localStorage.getItem('wa_rotator_idx');
+        var last = raw === null ? Math.floor(Math.random() * WA_GROUPS.length) - 1 : parseInt(raw, 10);
+        if(isNaN(last)) last = -1;
+        var next = (last + 1) % WA_GROUPS.length;
+        localStorage.setItem('wa_rotator_idx', String(next));
         return WA_GROUPS[next];
       }catch(e){
         return WA_GROUPS[Math.floor(Math.random() * WA_GROUPS.length)];
       }
     }
 
+    function buildIntent(url){
+      return 'intent://' + url.replace('https://','') + '#Intent;scheme=https;package=com.whatsapp;S.browser_fallback_url=' + encodeURIComponent(url) + ';end';
+    }
+
     var WA_HTTPS = getRotatedGroup();
-    var WA_INTENT = 'intent://' + WA_HTTPS.replace('https://','') + '#Intent;scheme=https;package=com.whatsapp;S.browser_fallback_url=' + encodeURIComponent(WA_HTTPS) + ';end';
+    var WA_INTENT = buildIntent(WA_HTTPS);
     var isAndroid = /Android/i.test(navigator.userAgent || '');
     var fallbackTimer = null;
     var opening = false;
+
+    function applyGroupToButtons(url){
+      WA_HTTPS = url;
+      WA_INTENT = buildIntent(url);
+      var cta = document.getElementById('hero-cta');
+      var fallback = document.getElementById('fallback-btn');
+      if(cta) cta.setAttribute('href', url);
+      if(fallback) fallback.setAttribute('href', url);
+    }
 
     function showOverlay(){ document.getElementById('overlay').classList.add('show'); }
     function hideOverlay(){ document.getElementById('overlay').classList.remove('show'); }
@@ -678,6 +694,8 @@
     }
 
     function onCtaClick(e){
+      // Garante o link rotacionado no momento do clique
+      applyGroupToButtons(WA_HTTPS);
       trackLead();
       opening = true;
       var title = document.getElementById('cta-title');
@@ -742,16 +760,14 @@
 
     /* ===== INIT ===== */
     function init(){
+      applyGroupToButtons(WA_HTTPS);
+
       var cta = document.getElementById('hero-cta');
       var fallback = document.getElementById('fallback-btn');
       var closeBtn = document.getElementById('popup-close');
 
-      if(cta){
-        cta.setAttribute('href', WA_HTTPS);
-        cta.addEventListener('click', onCtaClick);
-      }
+      if(cta) cta.addEventListener('click', onCtaClick);
       if(fallback){
-        fallback.setAttribute('href', WA_HTTPS);
         fallback.addEventListener('click', function(){
           trackLead();
           hideOverlay();
@@ -766,6 +782,16 @@
         if(document.hidden){
           if(fallbackTimer) clearTimeout(fallbackTimer);
           hideOverlay();
+        }
+      });
+
+      // Ao voltar (botão voltar / cache do celular), rotaciona o grupo de novo
+      window.addEventListener('pageshow', function(e){
+        if(e.persisted){
+          applyGroupToButtons(getRotatedGroup());
+          var title = document.getElementById('cta-title');
+          if(title) title.textContent = 'Clique e Entre no Grupo Agora';
+          opening = false;
         }
       });
 
