@@ -178,14 +178,14 @@
         0 1px 0 rgba(255,251,243,.07),
         0 2px 20px rgba(0,0,0,.4);
     }
-    /* Grafite profissional: cartaz urbano + traço de spray (só sistema) */
+    /* Grafite profissional — grosso no desktop e no celular */
     .headline em{
-      font-family:Impact,Haettenschweiler,'Arial Narrow Bold','Arial Black','Helvetica Neue',Arial,sans-serif;
+      font-family:'Arial Black','Helvetica Neue',Helvetica,Arial,system-ui,sans-serif;
       font-style:normal;
       font-weight:900;
-      font-size:1.08em;
+      font-size:1.06em;
       text-transform:uppercase;
-      letter-spacing:0.03em;
+      letter-spacing:0.02em;
       color:#0a0705;
       display:inline-block;
       position:relative;
@@ -194,7 +194,14 @@
       margin:0.15em 0 0;
       transform:rotate(-2deg);
       line-height:1.05;
-      text-shadow:none;
+      /* Engrossa no Android (sem Impact/Arial Black nativos) */
+      -webkit-text-stroke:0.5px #0a0705;
+      paint-order:stroke fill;
+      text-shadow:
+        0.45px 0 0 #0a0705,
+        -0.45px 0 0 #0a0705,
+        0 0.45px 0 #0a0705,
+        0 -0.45px 0 #0a0705;
     }
     .headline em::before{
       content:"";
