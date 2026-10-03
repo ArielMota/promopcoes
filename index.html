@@ -858,50 +858,63 @@
       }, 900);
     }
 
-    /* ===== TIMER + VAGAS + ENTRADAS ===== */
-    function initScarcity(){
-      var timerEl = document.getElementById('timer');
-      var spotsEl = document.getElementById('spots');
-      var barEl = document.getElementById('bar-fill');
-      var joinedEl = document.getElementById('joined-cta');
-      if(!timerEl) return;
+    /* ===== ESTADO ÚNICO: vagas + entradas (sincronizado) ===== */
+    var socialState = {
+      spots: 18 + Math.floor(Math.random() * 22),
+      joined: 280 + Math.floor(Math.random() * 120),
+      timerEl: null,
+      spotsEl: null,
+      barEl: null,
+      joinedEl: null,
+      sec: 90 + Math.floor(Math.random() * 50)
+    };
 
-      var sec = 90 + Math.floor(Math.random() * 50);
-      var spots = 18 + Math.floor(Math.random() * 22);
-      var joined = 280 + Math.floor(Math.random() * 120);
-
-      function render(){
-        var m = Math.floor(sec / 60);
-        var s = sec % 60;
-        timerEl.textContent = String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
-        if(spotsEl) spotsEl.textContent = String(spots);
-        if(joinedEl) joinedEl.textContent = String(joined);
-        if(barEl){
-          var ratio = Math.min(0.96, Math.max(0.75, 1 - (spots / 45) * 0.28));
-          barEl.style.transform = 'scaleX(' + ratio.toFixed(2) + ')';
-        }
+    function renderSocial(){
+      var s = socialState;
+      if(s.timerEl){
+        var m = Math.floor(s.sec / 60);
+        var sec = s.sec % 60;
+        s.timerEl.textContent = String(m).padStart(2,'0') + ':' + String(sec).padStart(2,'0');
       }
-      render();
+      if(s.spotsEl) s.spotsEl.textContent = String(s.spots);
+      if(s.joinedEl) s.joinedEl.textContent = String(s.joined);
+      if(s.barEl){
+        var ratio = Math.min(0.96, Math.max(0.75, 1 - (s.spots / 45) * 0.28));
+        s.barEl.style.transform = 'scaleX(' + ratio.toFixed(2) + ')';
+      }
+    }
+
+    /* Uma entrada = -1 vaga + +1 no contador das 2h */
+    function registerJoin(){
+      if(socialState.spots > 3) socialState.spots--;
+      socialState.joined += 1;
+      renderSocial();
+      if(socialState.joinedEl){
+        socialState.joinedEl.classList.remove('bump');
+        void socialState.joinedEl.offsetWidth;
+        socialState.joinedEl.classList.add('bump');
+      }
+    }
+
+    function initScarcity(){
+      socialState.timerEl = document.getElementById('timer');
+      socialState.spotsEl = document.getElementById('spots');
+      socialState.barEl = document.getElementById('bar-fill');
+      socialState.joinedEl = document.getElementById('joined-cta');
+      if(!socialState.timerEl) return;
+
+      renderSocial();
 
       setInterval(function(){
-        sec--;
-        if(sec <= 0) sec = 75 + Math.floor(Math.random() * 50);
-        render();
+        socialState.sec--;
+        if(socialState.sec <= 0) socialState.sec = 75 + Math.floor(Math.random() * 50);
+        renderSocial();
       }, 1000);
 
+      /* Entradas “silenciosas” (sem notificação) — raras, mantêm vida no contador */
       setInterval(function(){
-        if(Math.random() > 0.4 && spots > 6){
-          spots--;
-          render();
-        }
-      }, 7000);
-
-      setInterval(function(){
-        if(Math.random() > 0.5){
-          joined += 1 + Math.floor(Math.random() * 2);
-          render();
-        }
-      }, 6000);
+        if(Math.random() > 0.65) registerJoin();
+      }, 9000);
     }
 
     /* ===== INIT ===== */
@@ -944,13 +957,12 @@
       initJoinToast();
     }
 
-    /* ===== Entrada: troca rápida do badge Parabéns ===== */
+    /* ===== Entrada: troca do badge + estado sincronizado ===== */
     function initJoinToast(){
       var badge = document.getElementById('vip-badge');
       var label = document.getElementById('vip-label');
       var cta = document.getElementById('hero-cta');
       var icon = document.getElementById('cta-icon');
-      var joinedEl = document.getElementById('joined-cta');
       if(!badge || !label) return;
 
       var defaultText = 'Parabéns! Você foi aceito no Grupo VIP';
@@ -969,13 +981,9 @@
         label.textContent = name + ' entrou';
         badge.classList.add('is-join');
 
-        if(joinedEl){
-          var n = parseInt(joinedEl.textContent, 10) || 0;
-          joinedEl.textContent = String(n + 1);
-          joinedEl.classList.remove('bump');
-          void joinedEl.offsetWidth;
-          joinedEl.classList.add('bump');
-        }
+        /* Sincroniza: -1 vaga e +1 nas últimas 2h */
+        registerJoin();
+
         if(cta){
           cta.classList.remove('join-pulse');
           void cta.offsetWidth;
@@ -990,7 +998,7 @@
         setTimeout(function(){
           badge.classList.remove('is-join');
           label.textContent = defaultText;
-          if(joinedEl) joinedEl.classList.remove('bump');
+          if(socialState.joinedEl) socialState.joinedEl.classList.remove('bump');
           if(cta) cta.classList.remove('join-pulse');
           if(icon) icon.classList.remove('join-pop');
           busy = false;
