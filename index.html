@@ -371,22 +371,27 @@
       flex-shrink:0;
     }
 
-    /* CTA — layout creme + animação de brilho */
+    /* CTA — creme + moldura dourada luxuosa */
     .cta-wrap{width:100%;max-width:360px}
     .cta{
       position:relative;
       width:100%;
       display:flex;align-items:center;gap:.85rem;
-      background:#FFFBF3;
+      background:
+        linear-gradient(145deg,#FFFBF3 0%,#fff8ec 40%,#f5e6c8 100%);
       color:#221710;
       border-radius:20px;
       padding:.7rem .7rem .7rem .75rem;
+      border:1.5px solid rgba(232,196,138,.65);
       box-shadow:
         0 16px 40px rgba(0,0,0,.35),
-        0 1px 0 rgba(255,255,255,.8) inset;
+        0 0 0 1px rgba(246,215,176,.2),
+        0 0 28px rgba(232,196,138,.18),
+        inset 0 1px 0 rgba(255,255,255,.9),
+        inset 0 -1px 0 rgba(201,160,90,.12);
       overflow:hidden;
       -webkit-tap-highlight-color:transparent;
-      animation:ctaPulse 2.4s ease-in-out infinite;
+      animation:ctaPulse 2.6s ease-in-out infinite;
     }
     .cta:active{transform:scale(.98);animation:none}
     .cta-shine{
@@ -398,32 +403,43 @@
     .cta-shine::after{
       content:"";
       position:absolute;
-      top:0;left:-80%;
-      width:50%;height:100%;
+      top:0;left:-85%;
+      width:55%;height:100%;
       background:linear-gradient(
         105deg,
         transparent 0%,
-        rgba(255,255,255,.15) 20%,
-        rgba(255,255,255,.9) 48%,
-        rgba(255,255,255,.25) 60%,
+        rgba(255,255,255,.1) 25%,
+        rgba(246,215,176,.55) 42%,
+        rgba(255,255,255,.85) 50%,
+        rgba(232,196,138,.4) 58%,
         transparent 100%
       );
       transform:skewX(-18deg);
-      animation:ctaShine 2.6s ease-in-out infinite;
+      animation:ctaShine 2.8s ease-in-out infinite;
     }
     @keyframes ctaPulse{
       0%,100%{
         transform:scale(1);
-        box-shadow:0 16px 40px rgba(0,0,0,.35), 0 1px 0 rgba(255,255,255,.8) inset, 0 0 0 0 rgba(37,211,102,.3);
+        box-shadow:
+          0 16px 40px rgba(0,0,0,.35),
+          0 0 0 1px rgba(246,215,176,.2),
+          0 0 20px rgba(232,196,138,.15),
+          inset 0 1px 0 rgba(255,255,255,.9),
+          0 0 0 0 rgba(232,196,138,0);
       }
       50%{
-        transform:scale(1.025);
-        box-shadow:0 20px 48px rgba(0,0,0,.4), 0 1px 0 rgba(255,255,255,.8) inset, 0 0 0 6px rgba(37,211,102,.15);
+        transform:scale(1.022);
+        box-shadow:
+          0 20px 48px rgba(0,0,0,.4),
+          0 0 0 1px rgba(246,215,176,.45),
+          0 0 36px rgba(232,196,138,.35),
+          inset 0 1px 0 rgba(255,255,255,.95),
+          0 0 0 5px rgba(232,196,138,.12);
       }
     }
     @keyframes ctaShine{
-      0%{left:-80%}
-      40%{left:130%}
+      0%{left:-85%}
+      42%{left:130%}
       100%{left:130%}
     }
     .cta > *:not(.cta-shine){
@@ -436,25 +452,27 @@
       border-radius:50%;
       background:#25D366;
       display:flex;align-items:center;justify-content:center;
-      box-shadow:0 4px 16px rgba(37,211,102,.4);
+      box-shadow:
+        0 4px 16px rgba(37,211,102,.4),
+        0 0 0 2px rgba(246,215,176,.35);
     }
     .cta-icon::before{
       content:"";
-      position:absolute;inset:-3px;
+      position:absolute;inset:-4px;
       border-radius:50%;
-      border:2px solid rgba(37,211,102,.35);
+      border:1.5px solid rgba(232,196,138,.5);
       animation:waPulse 2.2s ease-out infinite;
     }
     @keyframes waPulse{
-      0%{transform:scale(1);opacity:.6}
-      100%{transform:scale(1.35);opacity:0}
+      0%{transform:scale(1);opacity:.7}
+      100%{transform:scale(1.4);opacity:0}
     }
     .cta-icon svg{width:24px;height:24px;fill:#fff}
     .cta-text{flex:1;text-align:left;min-width:0}
     .cta-title{
-      font-size:clamp(12px,3.5vw,13.5px);font-weight:700;
+      font-size:clamp(12px,3.5vw,13.5px);font-weight:800;
       letter-spacing:-0.015em;line-height:1.2;
-      color:#221710;
+      color:#1a120c;
     }
     .cta-sub{
       margin-top:.25rem;
@@ -463,10 +481,15 @@
     }
     .cta-arrow{
       width:30px;height:30px;border-radius:50%;
-      background:#221710;color:#fff;
+      background:linear-gradient(145deg,#f0d090,#c9a05a 45%,#a67c3a);
+      color:#1a120c;
       display:flex;align-items:center;justify-content:center;
       flex-shrink:0;
+      box-shadow:
+        0 2px 8px rgba(166,124,58,.4),
+        inset 0 1px 0 rgba(255,255,255,.45);
     }
+    .cta-arrow svg path{stroke:#1a120c}
 
     /* Dica de retenção */
     .tip{
