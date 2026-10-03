@@ -33,11 +33,12 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{-webkit-text-size-adjust:100%}
     body{
-      font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+      font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Segoe UI',Roboto,'Helvetica Neue',Helvetica,Arial,sans-serif;
       background:#0a0705;
       color:#f5ebe0;
       min-height:100dvh;
       -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
       overflow-x:hidden;
     }
     img{display:block;max-width:100%;height:auto}
@@ -163,22 +164,75 @@
       50%{transform:translateY(-4px) rotate(-3deg)}
     }
 
-    /* Headline */
+    /* Headline — serif limpa + destaque grafitado profissional */
     .headline{
-      font-family:Georgia,'Times New Roman',Times,serif;
-      font-size:clamp(2.0rem,5.5vw,2.05rem);
+      font-family:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,'Times New Roman',serif;
+      font-size:clamp(1.55rem,5.8vw,2.15rem);
       font-weight:700;
-      line-height:1.22;
-      letter-spacing:-0.025em;
+      line-height:1.2;
+      letter-spacing:-0.02em;
       color:#FFFBF3;
       max-width:340px;
       margin-bottom:clamp(0.55rem, 1.5vh, 1rem);
-      text-shadow:0 2px 24px rgba(0,0,0,.35), 0 1px 0 rgba(255,251,243,.06);
+      text-shadow:
+        0 1px 0 rgba(255,251,243,.07),
+        0 2px 20px rgba(0,0,0,.4);
     }
+    /* Grafite profissional: cartaz urbano + traço de spray (só sistema) */
     .headline em{
+      font-family:Impact,Haettenschweiler,'Arial Narrow Bold','Arial Black','Helvetica Neue',Arial,sans-serif;
       font-style:normal;
-      color:#f6d7b0;
-      text-shadow:0 0 28px rgba(246,215,176,.35), 0 2px 12px rgba(0,0,0,.3);
+      font-weight:900;
+      font-size:1.08em;
+      text-transform:uppercase;
+      letter-spacing:0.03em;
+      color:#0a0705;
+      display:inline-block;
+      position:relative;
+      z-index:1;
+      padding:0.12em 0.32em 0.1em;
+      margin:0.15em 0 0;
+      transform:rotate(-2deg);
+      line-height:1.05;
+      text-shadow:none;
+    }
+    .headline em::before{
+      content:"";
+      position:absolute;
+      z-index:-1;
+      left:-4%;
+      right:-4%;
+      top:12%;
+      bottom:4%;
+      background:
+        linear-gradient(
+          100deg,
+          transparent 0%,
+          #c9a05a 6%,
+          #f0d090 20%,
+          #f6d7b0 50%,
+          #e8c48a 78%,
+          #c9a05a 94%,
+          transparent 100%
+        );
+      transform:skewX(-10deg) rotate(1.2deg);
+      border-radius:2px 6px 3px 5px;
+      box-shadow:
+        0 2px 0 rgba(10,7,5,.15),
+        0 4px 16px rgba(201,160,90,.3);
+    }
+    .headline em::after{
+      content:"";
+      position:absolute;
+      z-index:-1;
+      left:2%;
+      right:6%;
+      top:55%;
+      height:42%;
+      background:rgba(10,7,5,.12);
+      transform:skewX(-12deg) rotate(-0.5deg);
+      border-radius:1px 3px 2px 2px;
+      pointer-events:none;
     }
 
     .sub{
@@ -499,7 +553,7 @@
     }
     .popup-icon svg{width:28px;height:28px;fill:#fff}
     .popup h2{
-      font-family:Georgia,'Times New Roman',Times,serif;
+      font-family:'Iowan Old Style','Palatino Linotype',Palatino,'Book Antiqua',Georgia,'Times New Roman',serif;
       font-size:1.15rem;color:#221710;
       margin-bottom:.4rem;
     }
